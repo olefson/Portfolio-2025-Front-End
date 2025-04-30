@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" fill="none" fill-rule="evenodd">
+        <!-- Avatar frame -->
+        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="1.5"/>
+        
+        <!-- Abstract face elements -->
+        <path d="M8,10 C8.5,9.5 9.5,9.5 10,10 M14,10 C14.5,9.5 15.5,9.5 16,10"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+              
+        <!-- Smile -->
+        <path d="M9,14 C10,15 14,15 15,14"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+              
+        <!-- Random dots representing uniqueness -->
+        <circle cx="6" cy="6" r="1" fill="#000000"/>
+        <circle cx="18" cy="6" r="1" fill="#000000"/>
+        <circle cx="6" cy="18" r="1" fill="#000000"/>
+        <circle cx="18" cy="18" r="1" fill="#000000"/>
+    </g>
+</svg> 

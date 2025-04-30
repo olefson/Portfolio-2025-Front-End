@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" fill="none" fill-rule="evenodd">
+        <!-- Pill/bean shape with subtle gradient -->
+        <path d="M4,8 C4,4.6862915 6.6862915,2 10,2 L14,2 C17.3137085,2 20,4.6862915 20,8 L20,16 C20,19.3137085 17.3137085,22 14,22 L10,22 C6.6862915,22 4,19.3137085 4,16 L4,8 Z" 
+              fill="#000000"/>
+              
+        <!-- Subtle highlight curve -->
+        <path d="M6,15 C6,17.7614237 8.23857625,20 11,20 L13,20 C15.7614237,20 18,17.7614237 18,15 L18,9 C18,6.23857625 15.7614237,4 13,4 L11,4 C8.23857625,4 6,6.23857625 6,9 L6,15 Z" 
+              fill="#000000" 
+              fill-opacity="0.3"/>
+    </g>
+</svg> 

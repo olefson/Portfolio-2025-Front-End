@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" fill="none" fill-rule="evenodd">
+        <!-- Face outlines -->
+        <path d="M6,8 C6,5.790861 7.790861,4 10,4 C12.209139,4 14,5.790861 14,8"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+              
+        <path d="M10,20 C12.209139,20 14,18.209139 14,16 C14,13.790861 12.209139,12 10,12"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+              
+        <!-- Fusion arrow -->
+        <path d="M14,12 L18,12 M16,10 L18,12 L16,14"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+              
+        <!-- Face features -->
+        <circle cx="8" cy="7" r="1" fill="#000000"/>
+        <circle cx="12" cy="7" r="1" fill="#000000"/>
+        <path d="M8,9 C8.5,9.5 11.5,9.5 12,9"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-linecap="round"/>
+              
+        <!-- Transformation indicators -->
+        <path d="M7,15 L8,15 M11,15 L12,15"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-opacity="0.6"/>
+    </g>
+</svg> 

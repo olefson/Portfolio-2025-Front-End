@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rectangle -->
+  <rect width="100" height="100" rx="8" fill="#2A2A2A"/>
+  
+  <!-- Question mark -->
+  <path d="M45 65V60C45 55.5 46 52.5 50 49.5C54 46.5 55 44.5 55 41.5C55 37.5 52 35 48 35C44.5 35 42 37 41 40L36 37.5C38 32.5 42.5 30 48.5 30C56 30 61 34.5 61 41.5C61 46 59 49 55 52C51.5 54.5 51 56 51 60V65H45ZM48 75C45.5 75 43.5 73 43.5 70.5C43.5 68 45.5 66 48 66C50.5 66 52.5 68 52.5 70.5C52.5 73 50.5 75 48 75Z" fill="#666666"/>
+  
+  <!-- Border -->
+  <rect x="1" y="1" width="98" height="98" rx="7" stroke="#404040" stroke-width="2"/>
+</svg> 

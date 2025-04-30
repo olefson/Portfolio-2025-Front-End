@@ -1,0 +1,61 @@
+{
+    "rules": [
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Prioritize simplicity and maintainability. Avoid over-engineering. Focus on the specific task without scope creep. Respect the existing architecture and module boundaries."
+      },
+      {
+        "pattern": "src/components/**/*.tsx",
+        "instructions": "Use functional components only. Break down large files into smaller, single-responsibility components. Use TailwindCSS. Make components responsive and accessible."
+      },
+      {
+        "pattern": "src/hooks/**/*.ts",
+        "instructions": "Hooks must start with 'use'. Use proper TypeScript typing. Avoid duplication and follow DRY principles. Encapsulate side effects and shared logic."
+      },
+      {
+        "pattern": "**/api/**/*.ts",
+        "instructions": "Follow RESTful conventions. Sanitize and validate input server-side. Do not expose sensitive logic on the frontend. Use async/await and handle all errors gracefully."
+      },
+      {
+        "pattern": "**/*.test.ts?(x)",
+        "instructions": "Use TDD: write failing tests before implementing features. Reproduce bugs with a test before fixing them. Only use mock data in test files."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Always refer to relevant documentation before coding (README, architecture.md, technical.md). Suggest improvements only when high-confidence or explicitly requested."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Ensure consistent formatting per ESLint/Prettier rules. Avoid 'any'. Add JSDoc for complex logic or APIs. Use clear and descriptive file names."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Before suggesting large changes, confirm context and understanding: 'I've reviewed the docs. The goal is ___. Proceeding with ___.'."
+      },
+      {
+        "pattern": "src/**/*.ts?(x)",
+        "instructions": "Avoid duplication. Reuse existing functions. Refactor rather than copy. Do not commit one-time scripts. Follow established project patterns."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Log clearly when debugging. Remove logs before committing. For complex fixes, create a markdown doc under fixes/ with the bug, steps taken, and solution."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Never hardcode secrets. Use env variables and never commit .env files. Code should work across environments using env vars for configuration."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Test before committing. Run all unit/integration tests. Use real data in dev/prod. Supplement automated tests with manual UI checks when needed."
+      },
+      {
+        "pattern": "**/*.ts?(x)",
+        "instructions": "Follow Git best practices: commit atomically with clear messages, don’t push temp files, and use .gitignore. Follow the established branching strategy."
+      },
+      {
+        "pattern": "**/*.md",
+        "instructions": "Update related documentation if code changes affect architecture, technical decisions, or task status. Keep project documentation up-to-date."
+      }
+    ]
+  }
+  
