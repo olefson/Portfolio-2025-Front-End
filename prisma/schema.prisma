@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Tool {
+  id            String   @id @default(cuid())
+  title         String
+  status        String
+  category      String
+  description   String
+  howToUse      String[]
+  caveats       String[]
+  url           String?
+  useCases      Json
+  tips          Json
+  addedOn       DateTime?
+  recommendedBy String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Process {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  toolsInvolved String[]
+  steps        String[]
+  category     String
+  status       String
+  tips         Json
+  addedOn      DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+} 

@@ -12,8 +12,8 @@ interface BeamProps {
 }
 
 const Beam = React.forwardRef<HTMLDivElement, BeamProps>(({ width, x, delay, duration }, ref) => {
-  const hue = Math.floor(Math.random() * 360);
-  const ar = Math.floor(Math.random() * 10) + 1;
+  const hue = (parseFloat(x.toString()) * 360) % 360;
+  const ar = (parseFloat(x.toString()) * 10) % 10 + 1;
 
   return (
     <motion.div
