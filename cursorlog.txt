@@ -1,0 +1,205 @@
+# Project Progress Log
+
+## January 24, 2024
+
+1. Initial project setup
+   - Created Next.js 15+ project with TypeScript and Tailwind CSS
+   - Initialized shadcn/ui
+   - Set up project directory structure
+
+2. Configuration and theming
+   - Created types for Tools and Processes
+   - Set up site configuration
+   - Configured Tailwind with emerald color scheme
+   - Implemented dark mode support with next-themes
+   - Added utility functions for styling and formatting
+
+3. Core components
+   - Created ThemeProvider for dark/light mode
+   - Set up root layout with metadata
+   - Added gradient utility classes for text, borders, and backgrounds
+
+4. Content and Pages
+   - Created sample tool content (ChatGPT)
+   - Created sample process content (Blog Post Workflow)
+   - Built homepage with hero section and feature cards
+   - Added navigation to tools and processes sections
+
+5. Tools Section Implementation
+   - Created tools listing page with category filtering
+   - Implemented dynamic routes for individual tools
+   - Added markdown rendering with typography styling
+   - Created content for key tools (Anno, Notion, Claude)
+
+6. Processes Section Implementation
+   - Created processes listing page with category filtering
+   - Implemented dynamic routes for individual processes
+   - Added steps and tools visualization
+   - Created content for key processes (Relationship Management, Annual Review)
+
+7. Additional Content
+   - Added more AI tools (Deepseek, Eleven Labs, DeepGram)
+   - Added daily task management process
+   - Expanded tool descriptions and use cases
+   - Enhanced process documentation
+
+8. More Tools and Processes
+   - Added search tools (Perplexity)
+   - Added development tools (Cursor)
+   - Added design tools (Galileo)
+   - Added project evaluation process
+   - Enhanced content organization
+
+9. Navigation and Design Tools
+   - Created permanent site header with theme toggle
+   - Added design tools (Midjourney, DALL·E, Canva)
+   - Added staying open to suggestions process
+   - Improved site navigation
+
+10. Additional Tools
+    - Added AI tools (ChatGPT with variants, Claude 3.5 Sonnet)
+    - Added productivity tools (Google Calendar, Microsoft To Do)
+    - Added utility tools (Google search, Descript)
+    - Added custom tools (My Financial Future)
+    - Added social tools (X/Twitter)
+    - Enhanced tool documentation and organization
+
+11. Plan to Build Category
+    - Added new Plan to Build status type
+    - Updated SuperStack to Plan to Build status
+    - Added BlessOut as Plan to Build tool
+    - Updated Anno to Plan to Build status 
+
+8. Tool Status Updates
+   - Updated BlessOut, Anno, and SuperStack status to "Actively Maintained"
+   - Enhanced tool descriptions with current development status
+   - Added detailed roadmaps for each tool
+   - Improved feature documentation and organization 
+
+9. Status Corrections
+   - Reverted SuperStack status back to "Plan to Build"
+   - Updated content to reflect planning phase
+   - Refined development goals and vision 
+
+12. Documentation
+    - Created comprehensive README.md with setup and customization instructions
+    - Added MIT license
+    - Included markdown templates for tools and processes
+    - Documented project structure and tech stack 
+
+13. Branding Updates
+    - Renamed project to "Gary's Stack (Forkable)"
+    - Updated README to emphasize fork-friendly nature
+    - Added "Why Fork This?" section
+    - Updated site configuration with new name and description 
+
+14. Tool URLs
+    - Added URL field to Tool type
+    - Added URLs for Galileo, My Financial Future, BlessOut, and Anno
+    - Updated tool detail page to display URLs with external link indicator
+    - Fixed status for BlessOut and Anno back to "Plan to Build" 
+
+15. Tool Status Updates
+    - Updated Anno and BlessOut status to "Actively Maintained"
+    - Maintained existing tool descriptions and features
+    - Preserved development roadmaps and documentation 
+
+16. New Tool Addition
+    - Added Truffle (personal agentic computing device) as "Plan to Try"
+    - Included recommendation source (Connor O'Neil)
+    - Documented subscription model and evaluation criteria
+    - Added detailed feature breakdown and use cases 
+
+17. Additional Tool Updates
+    - Added Granola (AI meeting notes tool) as "Currently Using"
+    - Documented key features and best practices
+    - Added Mac-specific caveat for audio transcription
+    - Included detailed use cases and templates 
+
+18. Tool URL Updates
+    - Added URLs for all remaining tools
+    - Updated tool descriptions and features
+    - Standardized URL display format
+    - Ensured consistent documentation 
+
+19. Additional Tool URL Updates
+    - Added URLs for productivity tools (Apple Notes, Google Calendar)
+    - Added URLs for communication tools (iMessage, X, Telegram)
+    - Added URLs for development tools (Linear)
+    - Added URL for Google Search
+    - Updated tool descriptions and features 
+
+20. AI Tool URL Updates
+    - Added URLs for voice synthesis tools (Eleven Labs, DeepGram)
+    - Fixed Cursor URL to correct domain (cursor.sh)
+    - Maintained consistent URL formatting
+    - Updated tool descriptions 
+
+21. Tool Filename Standardization
+    - Created super-so.md with proper formatting and content
+    - Created x-twitter.md with updated content and structure
+    - Removed duplicate x.md file
+    - Maintained consistent documentation style 
+
+22. Component Refactoring
+    - Created reusable ToolCard component
+    - Encapsulated tool display logic and styling
+    - Updated tools listing and detail pages
+    - Improved code maintainability and consistency 
+
+23. Tools Page Enhancement
+    - Restored category filtering tabs
+    - Maintained ToolCard component integration
+    - Added descriptive header text
+    - Improved overall page organization 
+
+24. UI Enhancement
+    - Created GlowCard component with cursor-aware emerald glow effect
+    - Added hover state transitions to ToolCard
+    - Improved visual feedback and interactivity
+    - Enhanced overall user experience 
+
+[2024-03-27]
+- Added FlowVoice as a new tool with detailed markdown documentation
+- Created FlowVoice SVG icon with microphone and wave pattern design 
+
+- Added TanStack Query as a new tool with detailed markdown documentation
+- Created TanStack Query SVG icon with data flow visualization 
+
+- Added Motion (formerly Framer Motion) as a new tool with detailed markdown documentation
+- Created Motion SVG icon with animation path visualization 
+
+- Added Expo as a new tool with detailed markdown documentation
+- Created Expo SVG icon with mobile device and logo visualization 
+
+[2024-03-28]
+- Added Mobbin as a new tool with "Plan to Try" status
+- Created Mobbin SVG icon with mobile device and screens design
+- Added detailed documentation based on Avi Schiffman's recommendation
+
+- Added Speechify as a new tool with "Using" status
+- Created Speechify SVG icon with wave pattern design
+- Added detailed documentation about article listening and text-to-speech features 
+
+[2025-02-17]
+- Added Tweet Hunter as a new tool with "Plan to Try" status
+- Created Tweet Hunter SVG icon with bird and analytics visualization
+- Added detailed documentation about viral tweet creation and analytics features 
+
+[2024-02-17]
+- Added Waitlist as a new tool with "Plan to Try" status
+- Created Waitlist SVG icon with queue and user visualization
+- Added detailed documentation about waitlist management and user engagement features 
+
+- Added Supademo Screenshot Tool as a new tool with "Plan to Try" status
+- Created Supademo SVG icon with screenshot and background visualization
+- Added detailed documentation about screenshot enhancement and design features 
+
+- Added Screenpipe as a new tool with "Plan to Try" status
+- Created Screenpipe SVG icon with desktop monitoring visualization
+- Added detailed documentation about activity tracking and productivity analysis features 
+
+[2024-02-17]
+- Added BeeAI Framework as a new tool with "Plan to Try" status
+- Created BeeAI SVG icon with bee and neural network visualization
+- Added detailed documentation about swarm intelligence and agent development features 

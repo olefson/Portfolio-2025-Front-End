@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" fill="none" fill-rule="evenodd">
+        <!-- App grid -->
+        <rect x="4" y="4" width="4" height="4" rx="1" 
+              stroke="#000000" 
+              stroke-width="1.5"/>
+        <rect x="10" y="4" width="4" height="4" rx="1" 
+              stroke="#000000" 
+              stroke-width="1.5"/>
+        <rect x="16" y="4" width="4" height="4" rx="1" 
+              stroke="#000000" 
+              stroke-width="1.5"/>
+              
+        <!-- Neural network elements -->
+        <circle cx="6" cy="14" r="2" fill="#000000"/>
+        <circle cx="12" cy="14" r="2" fill="#000000"/>
+        <circle cx="18" cy="14" r="2" fill="#000000"/>
+        <circle cx="12" cy="19" r="2" fill="#000000"/>
+        
+        <!-- Connections -->
+        <path d="M6,14 L12,14 M12,14 L18,14 M6,14 L12,19 M12,14 L12,19 M18,14 L12,19"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-opacity="0.4"/>
+              
+        <!-- Hugging Face smile -->
+        <path d="M8,6 C8.5,5.5 9.5,5.5 10,6 M14,6 C14.5,5.5 15.5,5.5 16,6"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-linecap="round"/>
+    </g>
+</svg> 

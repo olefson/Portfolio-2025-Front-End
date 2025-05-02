@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" fill="none" fill-rule="evenodd">
+        <!-- Cloud base representing AWS -->
+        <path d="M4,14 C4,16.7614 6.23858,19 9,19 L15,19 C17.7614,19 20,16.7614 20,14 C20,11.9774 18.8021,10.2301 17.0355,9.5 C17.0119,6.91766 14.9037,4.82609 12.3214,4.82609 C10.1701,4.82609 8.34932,6.21401 7.82165,8.15015 C6.18775,8.37527 5,9.77274 5,11.5 C5,12.0588 5.12183,12.5833 5.33886,13.0515"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+              
+        <!-- Amplify arrow -->
+        <path d="M12,8 L12,16 M9,13 L12,16 L15,13"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+              
+        <!-- Connection dots -->
+        <circle cx="8" cy="11" r="1" fill="#000000" fill-opacity="0.5"/>
+        <circle cx="16" cy="11" r="1" fill="#000000" fill-opacity="0.5"/>
+        <circle cx="12" cy="17" r="1" fill="#000000" fill-opacity="0.5"/>
+    </g>
+</svg> 

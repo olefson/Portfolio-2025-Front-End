@@ -1,0 +1,4240 @@
+{
+  "tools": [
+    {
+      "id": "a1base",
+      "title": "A1Base",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "API platform for giving AI agents real-world communication capabilities through verified phone numbers, email addresses, and trusted identities",
+      "howToUse": [
+        "Get API credentials",
+        "Configure communication channels",
+        "Set up agent identities",
+        "Implement messaging APIs",
+        "Monitor agent interactions"
+      ],
+      "caveats": [
+        "API key required",
+        "Paid service",
+        "Rate limits apply",
+        "Identity verification needed"
+      ],
+      "url": "https://www.a1base.com/",
+      "useCases": [
+        {
+          "title": "AI Communication",
+          "items": [
+            "WhatsApp integration",
+            "Email capabilities",
+            "SMS messaging",
+            "Group chat access"
+          ]
+        },
+        {
+          "title": "Identity Management",
+          "items": [
+            "Agent verification",
+            "Spam protection",
+            "Trust building",
+            "Identity security"
+          ]
+        },
+        {
+          "title": "Integration Workflow",
+          "items": [
+            "API implementation",
+            "Channel setup",
+            "Message handling",
+            "Event monitoring"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "appfigures",
+      "title": "AppFigures",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Comprehensive app analytics and ASO platform for tracking performance, optimizing visibility, and analyzing competitors across app stores",
+      "howToUse": [
+        "Create AppFigures account",
+        "Connect app store accounts",
+        "Track performance metrics",
+        "Monitor keyword rankings",
+        "Analyze competitor data"
+      ],
+      "caveats": [
+        "Paid service",
+        "Some features need higher tiers",
+        "Historical data limitations",
+        "API rate limits apply"
+      ],
+      "url": "https://appfigures.com/",
+      "useCases": [
+        {
+          "title": "App Analytics",
+          "items": [
+            "Download tracking",
+            "Revenue monitoring",
+            "Store performance",
+            "Trend analysis",
+            "Cross-platform metrics"
+          ]
+        },
+        {
+          "title": "ASO Tools",
+          "items": [
+            "Keyword tracking",
+            "Rank monitoring",
+            "Visibility optimization",
+            "Competitor analysis",
+            "Review management"
+          ]
+        },
+        {
+          "title": "Market Intelligence",
+          "items": [
+            "SDK detection",
+            "Competitor tracking",
+            "Market trends",
+            "Revenue estimates",
+            "Audience insights"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "apple-notes",
+      "title": "Apple Notes",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "Native iOS note-taking app for quick, disorganized thoughts",
+      "howToUse": [
+        "Quick capture for random notes",
+        "Fast access due to native integration",
+        "Temporary note storage",
+        "Rapid idea capture"
+      ],
+      "caveats": [
+        "Less structured than dedicated note-taking apps like Notion"
+      ],
+      "url": "https://www.icloud.com/notes",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "audible",
+      "title": "Audible",
+      "status": "Using",
+      "category": "Learning",
+      "description": "My primary platform for consuming books through audiobooks, allowing me to learn while multitasking.",
+      "howToUse": [],
+      "caveats": [
+        "Monthly subscription required. Credits expire after a year. Not all books are available in audio format."
+      ],
+      "url": "https://www.audible.com",
+      "useCases": [
+        {
+          "title": "Multitask Learning",
+          "items": [
+            "Listen to books during commutes",
+            "Combine workouts with learning",
+            "Make household chores more engaging"
+          ]
+        },
+        {
+          "title": "Professional Development",
+          "items": [
+            "Stay updated with industry trends",
+            "Learn new skills through comprehensive guides",
+            "Access business and technology books"
+          ]
+        },
+        {
+          "title": "Entertainment & Enrichment",
+          "items": [
+            "Enjoy fiction during downtime",
+            "Explore various genres and topics",
+            "Listen to exclusive Audible originals"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "augmentos",
+      "title": "AugmentOS",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Open-source operating system for smart glasses that enables building and running apps like live captions, translation, and AI assistance across multiple devices",
+      "howToUse": [
+        "Install AugmentOS on phone",
+        "Pair supported smart glasses",
+        "Run built-in apps",
+        "Develop custom applications",
+        "Deploy to AugmentOS Store"
+      ],
+      "caveats": [
+        "Limited glasses support",
+        "iOS support coming soon",
+        "Android only currently",
+        "Hardware dependencies"
+      ],
+      "url": "https://augmentos.org/",
+      "useCases": [
+        {
+          "title": "App Development",
+          "items": [
+            "Smart glasses apps",
+            "Real-time overlays",
+            "Voice interactions",
+            "Visual assistance"
+          ]
+        },
+        {
+          "title": "Built-in Features",
+          "items": [
+            "Live captions",
+            "Translation",
+            "Navigation",
+            "Screen mirroring",
+            "ADHD assistance"
+          ]
+        },
+        {
+          "title": "Integration Options",
+          "items": [
+            "Phone notifications",
+            "AI assistants",
+            "Language learning",
+            "Convoscope features"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "aws-amplify",
+      "title": "AWS Amplify",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Fullstack TypeScript development platform for AWS, offering seamless deployment, hosting, and backend services with zero cloud expertise required",
+      "howToUse": [
+        "Connect Git repository",
+        "Configure build settings",
+        "Deploy frontend apps",
+        "Add backend features",
+        "Set up CI/CD pipelines",
+        "Manage environments"
+      ],
+      "caveats": [
+        "AWS account required",
+        "Pay-as-you-go pricing",
+        "Learning curve for AWS services",
+        "Region-specific features"
+      ],
+      "url": "https://aws.amazon.com/amplify/",
+      "useCases": [
+        {
+          "title": "Frontend Deployment",
+          "items": [
+            "SSR applications",
+            "Static websites",
+            "Framework support",
+            "Global CDN distribution"
+          ]
+        },
+        {
+          "title": "Fullstack Development",
+          "items": [
+            "TypeScript backend",
+            "Authentication",
+            "Database integration",
+            "Storage solutions",
+            "API development"
+          ]
+        },
+        {
+          "title": "Team Workflows",
+          "items": [
+            "Git-based deployments",
+            "Preview environments",
+            "Branch management",
+            "CI/CD automation"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "blessout",
+      "title": "BlessOut",
+      "status": "Building",
+      "category": "Communication",
+      "description": "Custom soulful e-card platform for maintaining genuine connections",
+      "howToUse": [
+        "Send personalized voice or text e-cards",
+        "Post-meeting appreciation notes",
+        "Holiday and special occasion greetings",
+        "Maintain genuine connections"
+      ],
+      "caveats": [
+        "Must consistently remember to use it to stay top-of-mind in relationships"
+      ],
+      "url": "https://www.blessout.com",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "canva",
+      "title": "Canva",
+      "status": "Using",
+      "category": "Design",
+      "description": "Online design platform with templates and quick editing capabilities",
+      "howToUse": [
+        "Creating visuals with specific dimensions",
+        "Social media banners and images",
+        "Background removal",
+        "Quick graphic design tasks"
+      ],
+      "caveats": [
+        "Heavy customization can be cumbersome, mostly template-oriented"
+      ],
+      "url": "https://www.canva.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "canopy",
+      "title": "Canopy Labs",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Retrieval Augmented Generation (RAG) framework and context engine that enhances LLMs by integrating external knowledge sources to provide more accurate, contextual responses",
+      "howToUse": [
+        "Set up Pinecone vector database",
+        "Import text data for knowledge base",
+        "Configure retrieval parameters",
+        "Connect with OpenAI LLMs",
+        "Deploy RAG-powered applications"
+      ],
+      "caveats": [
+        "Requires API keys for Pinecone and OpenAI",
+        "Limited to compatible LLM providers",
+        "Text data preparation needed",
+        "Resource requirements for large datasets"
+      ],
+      "url": "https://canopylabs.ai/model-releases",
+      "useCases": [
+        {
+          "title": "Knowledge Base Integration",
+          "items": [
+            "Document retrieval",
+            "Context-aware responses",
+            "Private data querying",
+            "Custom knowledge domains"
+          ]
+        },
+        {
+          "title": "RAG Implementation",
+          "items": [
+            "Reduce LLM hallucinations",
+            "Improve response accuracy",
+            "Dynamic knowledge updates",
+            "Specialized information access"
+          ]
+        },
+        {
+          "title": "Application Development",
+          "items": [
+            "Production-ready RAG systems",
+            "Custom AI assistants",
+            "Domain-specific chatbots",
+            "Knowledge management tools"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/canopy.svg"
+    },
+    {
+      "id": "cartesia",
+      "title": "Cartesia",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Advanced voice AI platform offering ultra-low latency, lifelike voices, and voice cloning capabilities for building real-time multimodal applications",
+      "howToUse": [
+        "Sign up for API access",
+        "Integrate Sonic API for text-to-speech",
+        "Use voice cloning for personalized voices",
+        "Implement in voice agents or content creation",
+        "Explore on-device capabilities"
+      ],
+      "caveats": [
+        "API key required",
+        "Usage limits on free tier",
+        "Voice cloning has ethical considerations",
+        "Enterprise features may require paid plans"
+      ],
+      "url": "https://cartesia.ai/",
+      "useCases": [
+        {
+          "title": "Voice Applications",
+          "items": [
+            "Customer support voice agents",
+            "Interactive gaming characters",
+            "Content narration and dubbing",
+            "Healthcare patient interactions"
+          ]
+        },
+        {
+          "title": "Voice Technology",
+          "items": [
+            "Ultra-low latency voice generation",
+            "Voice cloning from short samples",
+            "Expressive, emotional speech",
+            "Multilingual voice support"
+          ]
+        },
+        {
+          "title": "Integration Options",
+          "items": [
+            "Together AI platform integration",
+            "API-based implementation",
+            "On-device deployment",
+            "Real-time streaming capabilities"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/cartesia.svg"
+    },
+    {
+      "id": "chatgpt",
+      "title": "ChatGPT",
+      "status": "Using",
+      "category": "AI",
+      "description": "OpenAI's flagship conversational AI model. Currently using the Pro version for unlimited quota.",
+      "howToUse": [
+        "Brainstorming new product ideas",
+        "Drafting blog post outlines",
+        "Generating design docs",
+        "Voice mode for hands-free use"
+      ],
+      "caveats": [
+        "Knowledge cutoff date limits newest info, though Pro access helps."
+      ],
+      "url": "https://chat.openai.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "chroma",
+      "title": "Chroma",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Open-source embedding database optimized for AI applications, offering vector search, document storage, full-text search, and multi-modal capabilities",
+      "howToUse": [
+        "Install via package manager",
+        "Configure database settings",
+        "Store and query embeddings",
+        "Implement vector search",
+        "Handle multi-modal data"
+      ],
+      "caveats": [
+        "Waiting for hosted service",
+        "Self-hosting complexity",
+        "Resource requirements",
+        "Scaling considerations"
+      ],
+      "url": "https://www.trychroma.com/",
+      "useCases": [
+        {
+          "title": "Vector Storage",
+          "items": [
+            "Embedding management",
+            "Vector search",
+            "Similarity matching",
+            "Multi-modal data"
+          ]
+        },
+        {
+          "title": "Search Features",
+          "items": [
+            "Full-text search",
+            "Metadata filtering",
+            "Document storage",
+            "Query optimization"
+          ]
+        },
+        {
+          "title": "AI Integration",
+          "items": [
+            "RAG applications",
+            "LLM context storage",
+            "Multi-modal retrieval",
+            "Knowledge bases"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "claude",
+      "title": "Claude",
+      "status": "Using",
+      "category": "AI",
+      "description": "Anthropic's LLM specialized in coding and complex queries",
+      "howToUse": [
+        "Complex coding assistance",
+        "Detailed technical writing",
+        "Research and analysis",
+        "Long-form content generation"
+      ],
+      "caveats": [
+        "Can still produce incorrect answers despite high confidence"
+      ],
+      "url": "https://claude.ai/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "cloud-functions",
+      "title": "Cloud Functions",
+      "status": "Using",
+      "category": "Development",
+      "description": "Serverless compute service I use for running asynchronous jobs like file processing and data vectorization",
+      "howToUse": [
+        "Write function code in supported language",
+        "Deploy function with desired trigger",
+        "Configure memory and timeout settings",
+        "Set up environment variables",
+        "Monitor function execution"
+      ],
+      "caveats": [
+        "Cold start latency for infrequent calls",
+        "Maximum execution time limits",
+        "Need to handle function timeouts",
+        "Costs can scale with usage"
+      ],
+      "url": "https://cloud.google.com/functions",
+      "useCases": [
+        {
+          "title": "Asynchronous Processing",
+          "items": [
+            "Vectorize messages and content",
+            "Convert file formats",
+            "Process uploaded media",
+            "Handle background tasks"
+          ]
+        },
+        {
+          "title": "Event-Driven Operations",
+          "items": [
+            "Respond to database changes",
+            "Process pub/sub messages",
+            "Handle webhook requests",
+            "Schedule periodic tasks"
+          ]
+        },
+        {
+          "title": "Integration Tasks",
+          "items": [
+            "Connect different services",
+            "Transform data formats",
+            "Trigger notifications",
+            "Sync data between systems"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "code2prompt",
+      "title": "Code2Prompt",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "CLI tool that converts codebases into well-formatted LLM prompts with source tree structure, templating, and token counting",
+      "howToUse": [
+        "Install via cargo or binary",
+        "Point to codebase directory",
+        "Use built-in templates",
+        "Customize with Handlebars",
+        "Generate specialized prompts"
+      ],
+      "caveats": [
+        "Token limits vary by model",
+        "Large codebases need chunking",
+        "Template customization needed",
+        "Some language limitations"
+      ],
+      "url": "https://github.com/mufeedvh/code2prompt",
+      "useCases": [
+        {
+          "title": "Code Analysis",
+          "items": [
+            "Generate documentation",
+            "Find security vulnerabilities",
+            "Review code quality",
+            "Analyze architecture"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "Create PR descriptions",
+            "Write commit messages",
+            "Generate READMEs",
+            "Improve performance"
+          ]
+        },
+        {
+          "title": "Prompt Engineering",
+          "items": [
+            "Custom templates",
+            "Token optimization",
+            "Source tree formatting",
+            "Git integration"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "crawl4ai",
+      "title": "Crawl4AI",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Open-source web crawler optimized for LLM-friendly data extraction with smart content filtering and structured output formats",
+      "howToUse": [
+        "Install via pip/poetry",
+        "Configure extraction strategies",
+        "Set up browser automation",
+        "Define content schemas",
+        "Handle rate limiting and caching"
+      ],
+      "caveats": [
+        "Respect website terms of service",
+        "Handle JavaScript-heavy sites",
+        "Manage memory for large crawls",
+        "Consider rate limiting"
+      ],
+      "url": "https://github.com/unclecode/crawl4ai",
+      "useCases": [
+        {
+          "title": "Data Collection",
+          "items": [
+            "Structured content extraction",
+            "Smart content filtering",
+            "Schema-based scraping",
+            "LLM-friendly formatting"
+          ]
+        },
+        {
+          "title": "Web Automation",
+          "items": [
+            "Browser automation",
+            "JavaScript handling",
+            "Rate limit management",
+            "Cache optimization"
+          ]
+        },
+        {
+          "title": "Content Processing",
+          "items": [
+            "JSON extraction",
+            "CSS selectors",
+            "Microdata parsing",
+            "Token optimization"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "cursor",
+      "title": "Cursor",
+      "status": "Using",
+      "category": "Development",
+      "description": "AI-powered code editor (VS Code fork) for enhanced development flow",
+      "howToUse": [
+        "Flow-state coding environment",
+        "AI-powered auto-completion",
+        "Code refactoring assistance",
+        "Intelligent code suggestions"
+      ],
+      "caveats": [
+        "As with any AI coding tool, outputs must be verified"
+      ],
+      "url": "https://cursor.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "daily",
+      "title": "Daily",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Real-time voice and video API platform for embedding 1-click video calls directly in browsers and applications with no downloads required",
+      "howToUse": [
+        "Sign up for API access",
+        "Create and configure virtual rooms",
+        "Embed video calls with iframe",
+        "Customize permissions and layouts",
+        "Implement recording and analytics"
+      ],
+      "caveats": [
+        "API key required",
+        "Screen sharing limited to desktop browsers",
+        "Browser compatibility considerations",
+        "Advanced features may require paid plans"
+      ],
+      "url": "https://www.daily.co/",
+      "useCases": [
+        {
+          "title": "Video Integration",
+          "items": [
+            "Embedded video meetings",
+            "In-app voice and video chat",
+            "Browser-based conferencing",
+            "Real-time collaboration tools"
+          ]
+        },
+        {
+          "title": "API Features",
+          "items": [
+            "No-download video calls",
+            "Cross-browser compatibility",
+            "Mobile-responsive interfaces",
+            "REST API and webhooks"
+          ]
+        },
+        {
+          "title": "Enterprise Solutions",
+          "items": [
+            "Global mesh network",
+            "Large-scale meetings",
+            "HIPAA and SOC2 compliance",
+            "Call quality analytics"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": "Lamar",
+      "imageUrl": "/images/tools/daily.svg"
+    },
+    {
+      "id": "dalle",
+      "title": "DALL·E",
+      "status": "Using",
+      "category": "Design",
+      "description": "OpenAI's image generation tool, ideal for illustrations and conceptual art",
+      "howToUse": [
+        "Logo generation",
+        "Conceptual illustration creation",
+        "Abstract visual design",
+        "Quick image iterations"
+      ],
+      "caveats": [
+        "Struggles with hyper-realism, best suited for abstract and artistic visuals"
+      ],
+      "url": "https://labs.openai.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "deep-research",
+      "title": "Deep Research",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Open-source AI research assistant that performs iterative, deep research by combining search engines, web scraping, and large language models",
+      "howToUse": [
+        "Clone repository and install dependencies",
+        "Configure API keys for Firecrawl and OpenAI",
+        "Run research assistant via CLI",
+        "Specify research parameters",
+        "Review generated markdown reports"
+      ],
+      "caveats": [
+        "API keys required",
+        "Technical setup needed",
+        "Rate limits may apply",
+        "Resource intensive for deep searches"
+      ],
+      "url": "https://github.com/dzhng/deep-research",
+      "useCases": [
+        {
+          "title": "Deep Research",
+          "items": [
+            "Iterative exploration",
+            "Topic deep dives",
+            "Comprehensive analysis",
+            "Source aggregation"
+          ]
+        },
+        {
+          "title": "AI Integration",
+          "items": [
+            "LLM-powered queries",
+            "Smart result processing",
+            "Context maintenance",
+            "Follow-up generation"
+          ]
+        },
+        {
+          "title": "Report Generation",
+          "items": [
+            "Markdown documentation",
+            "Source tracking",
+            "Finding organization",
+            "Knowledge synthesis"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "deepgram",
+      "title": "DeepGram",
+      "status": "Using",
+      "category": "AI",
+      "description": "Cost-effective voice synthesis for simpler text-to-speech needs",
+      "howToUse": [
+        "Basic text-to-speech conversion",
+        "Simple audio content generation",
+        "Non-critical voice synthesis tasks"
+      ],
+      "caveats": [
+        "Quality not as high as premium options like Eleven Labs"
+      ],
+      "url": "https://deepgram.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "deepseek",
+      "title": "Deepseek",
+      "status": "Using",
+      "category": "AI",
+      "description": "Alternative LLM used when OpenAI is too expensive or overkill",
+      "howToUse": [
+        "Cost-effective alternative to ChatGPT",
+        "General-purpose AI assistance",
+        "Basic code generation and editing"
+      ],
+      "caveats": [
+        "Less training data than leading models",
+        "Quality might not match state-of-the-art LLMs"
+      ],
+      "url": "https://chat.deepseek.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "descript",
+      "title": "Descript",
+      "status": "Using",
+      "category": "Other",
+      "description": "Audio/video editing and transcription with AI features. Using Turboscribe more often now for pure transcription processing due to cost.",
+      "howToUse": [
+        "Creating tutorial videos",
+        "Transcribing audio content",
+        "Studio Sound cleanup",
+        "Quick video edits"
+      ],
+      "caveats": [
+        "Advanced video editing might require other tools",
+        "Transcription can be more expensive than dedicated services like Turboscribe"
+      ],
+      "url": "https://www.descript.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "dicebear",
+      "title": "DiceBear",
+      "status": "Using",
+      "category": "Development",
+      "description": "Open-source avatar library for generating unique, customizable profile pictures and identicons with consistent results from seeds",
+      "howToUse": [
+        "Use HTTP API directly",
+        "Install via npm/yarn",
+        "Specify avatar style",
+        "Provide seed for consistency",
+        "Customize appearance options"
+      ],
+      "caveats": [
+        "Some styles need attribution",
+        "API rate limits may apply",
+        "Limited animation support",
+        "Style-specific limitations"
+      ],
+      "url": "https://www.dicebear.com/",
+      "useCases": [
+        {
+          "title": "Profile Pictures",
+          "items": [
+            "User avatars",
+            "Default profiles",
+            "Placeholder images",
+            "Identity representation"
+          ]
+        },
+        {
+          "title": "Design Integration",
+          "items": [
+            "UI mockups",
+            "Design systems",
+            "Brand consistency",
+            "Visual identities"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "API integration",
+            "Seed-based generation",
+            "Style customization",
+            "Batch processing"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "discord",
+      "title": "Discord",
+      "status": "Using",
+      "category": "Communication",
+      "description": "Flexible communication platform with extensive integrations and channel organization",
+      "howToUse": [
+        "Join workspaces for team communication",
+        "Utilize channel segmentation",
+        "Leverage bot integrations",
+        "Manage team discussions"
+      ],
+      "caveats": [
+        "Interface can feel overwhelming, better suited for large teams than small intimate groups"
+      ],
+      "url": "https://discord.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "eleven-labs",
+      "title": "Eleven Labs",
+      "status": "Using",
+      "category": "AI",
+      "description": "Premium AI voice synthesis for high-quality, emotionally nuanced voiceovers",
+      "howToUse": [
+        "Creating professional voiceovers",
+        "Generating emotional voice content",
+        "High-fidelity audio synthesis"
+      ],
+      "caveats": [
+        "Relatively expensive compared to other voice synthesis options"
+      ],
+      "url": "https://elevenlabs.io/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "elizaos",
+      "title": "ElizaOS",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Leading open-source social AI agent framework for building and deploying autonomous AI agents with social capabilities",
+      "howToUse": [
+        "Clone the repository",
+        "Set up development environment",
+        "Configure agent parameters",
+        "Deploy autonomous agents",
+        "Monitor agent interactions"
+      ],
+      "caveats": [
+        "Complex setup process",
+        "Requires AI/ML knowledge",
+        "Resource intensive",
+        "Ongoing development"
+      ],
+      "url": "https://elizaos.github.io/",
+      "useCases": [
+        {
+          "title": "Agent Development",
+          "items": [
+            "Social AI capabilities",
+            "Autonomous behavior",
+            "Multi-agent systems",
+            "Interaction patterns"
+          ]
+        },
+        {
+          "title": "System Integration",
+          "items": [
+            "API connections",
+            "Service orchestration",
+            "Data processing",
+            "Event handling"
+          ]
+        },
+        {
+          "title": "Deployment Management",
+          "items": [
+            "Agent monitoring",
+            "Performance tracking",
+            "Resource allocation",
+            "Scaling solutions"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "exa",
+      "title": "Exa",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Business-grade search and crawling API optimized for AI applications, offering semantic search and structured data extraction from web content",
+      "howToUse": [
+        "Get API key from Exa",
+        "Install SDK for your language",
+        "Configure search parameters",
+        "Make API calls",
+        "Process structured results"
+      ],
+      "caveats": [
+        "API key required",
+        "Paid service",
+        "Rate limits apply",
+        "Results need processing"
+      ],
+      "url": "https://exa.ai/",
+      "useCases": [
+        {
+          "title": "Web Search",
+          "items": [
+            "Semantic search",
+            "Content extraction",
+            "Social media search",
+            "Real-time data"
+          ]
+        },
+        {
+          "title": "Data Collection",
+          "items": [
+            "Structured crawling",
+            "Content aggregation",
+            "Source validation",
+            "Information filtering"
+          ]
+        },
+        {
+          "title": "AI Integration",
+          "items": [
+            "RAG applications",
+            "LLM context",
+            "Knowledge bases",
+            "Research automation"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "expo",
+      "title": "Expo",
+      "status": "Using",
+      "category": "Development",
+      "description": "Full ecosystem of tools for developing, testing, and deploying React Native applications across Android, iOS, and web",
+      "howToUse": [
+        "Initialize project with expo-cli",
+        "Use Expo Go for rapid development",
+        "Leverage file-based routing",
+        "Configure EAS for builds",
+        "Deploy with over-the-air updates"
+      ],
+      "caveats": [
+        "Some native modules need ejection",
+        "Build times on free tier",
+        "Initial app size overhead",
+        "Custom native code needs EAS"
+      ],
+      "url": "https://expo.dev/",
+      "useCases": [
+        {
+          "title": "Rapid Development",
+          "items": [
+            "Fast refresh with Expo Go",
+            "Quick device testing",
+            "File-based routing",
+            "TypeScript support"
+          ]
+        },
+        {
+          "title": "Cross-Platform Building",
+          "items": [
+            "iOS builds",
+            "Android builds",
+            "Web support",
+            "Single codebase"
+          ]
+        },
+        {
+          "title": "Deployment & Updates",
+          "items": [
+            "EAS Build service",
+            "App store submissions",
+            "Over-the-air updates",
+            "Production monitoring"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "facefusion",
+      "title": "FaceFusion",
+      "status": "Trying",
+      "category": "AI",
+      "description": "Industry-leading face manipulation platform for face swapping, lip syncing, and deep fake creation with advanced AI capabilities",
+      "howToUse": [
+        "Install dependencies",
+        "Configure Python environment",
+        "Prepare source and target images",
+        "Run face manipulation jobs",
+        "Process results with various options"
+      ],
+      "caveats": [
+        "Technical setup required",
+        "GPU recommended",
+        "Resource intensive",
+        "Learning curve for options"
+      ],
+      "url": "https://github.com/facefusion/facefusion",
+      "useCases": [
+        {
+          "title": "Face Manipulation",
+          "items": [
+            "Face swapping",
+            "Lip syncing",
+            "Deep fake creation",
+            "Expression transfer"
+          ]
+        },
+        {
+          "title": "Batch Processing",
+          "items": [
+            "Multiple jobs",
+            "Queue management",
+            "Status tracking",
+            "Result organization"
+          ]
+        },
+        {
+          "title": "Development Features",
+          "items": [
+            "Command line interface",
+            "Headless operation",
+            "API integration",
+            "Custom workflows"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "feedhive",
+      "title": "FeedHive",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "AI-powered social media management platform for creating, scheduling, and publishing content across multiple platforms with smart automation",
+      "howToUse": [
+        "Connect social media accounts",
+        "Use AI writing assistant",
+        "Schedule content visually",
+        "Set up automations",
+        "Monitor analytics"
+      ],
+      "caveats": [
+        "Paid service",
+        "Platform-specific limitations",
+        "AI generation quality varies",
+        "Learning curve for automation"
+      ],
+      "url": "https://www.feedhive.com/",
+      "useCases": [
+        {
+          "title": "Content Management",
+          "items": [
+            "Cross-platform posting",
+            "Visual scheduling",
+            "Content recycling",
+            "Hashtag generation",
+            "Story scheduling"
+          ]
+        },
+        {
+          "title": "AI Assistance",
+          "items": [
+            "Content generation",
+            "Writing improvement",
+            "Engagement prediction",
+            "Hashtag optimization",
+            "Post timing"
+          ]
+        },
+        {
+          "title": "Team Collaboration",
+          "items": [
+            "Approval workflows",
+            "Client access",
+            "Team management",
+            "White labeling",
+            "Social inbox"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "firebase",
+      "title": "Firebase",
+      "status": "Using",
+      "category": "Development",
+      "description": "Google's platform for building and scaling web and mobile applications with serverless backend services",
+      "howToUse": [
+        "Authentication and user management",
+        "Real-time database and Firestore",
+        "Cloud storage for files",
+        "Hosting and deployment",
+        "Cloud Functions for serverless backend",
+        "Analytics and crash reporting"
+      ],
+      "caveats": [
+        "Costs can scale quickly with usage",
+        "Complex queries can be expensive",
+        "Limited database join capabilities",
+        "Vendor lock-in considerations"
+      ],
+      "url": "https://firebase.google.com",
+      "useCases": [
+        {
+          "title": "Backend Services",
+          "items": [
+            "Authentication system",
+            "Real-time database",
+            "Cloud Firestore",
+            "File storage",
+            "Serverless functions",
+            "Hosting"
+          ]
+        },
+        {
+          "title": "Real-time Features",
+          "items": [
+            "Live data synchronization",
+            "Real-time updates",
+            "Presence detection",
+            "Chat functionality",
+            "Collaborative features"
+          ]
+        },
+        {
+          "title": "App Infrastructure",
+          "items": [
+            "User management",
+            "Security rules",
+            "Data backups",
+            "Analytics",
+            "Performance monitoring",
+            "Crash reporting"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "firecrawl",
+      "title": "Firecrawl",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Modern web scraping tool focused on structured output and clean data extraction, designed for developers needing organized web data",
+      "howToUse": [
+        "Install via package manager",
+        "Define data schema",
+        "Configure scraping rules",
+        "Handle pagination",
+        "Export structured data"
+      ],
+      "caveats": [
+        "Respect robots.txt",
+        "Rate limiting needed",
+        "Site-specific configs",
+        "JavaScript rendering"
+      ],
+      "url": "https://github.com/firecrawl/firecrawl",
+      "useCases": [
+        {
+          "title": "Data Collection",
+          "items": [
+            "Structured scraping",
+            "Clean data output",
+            "Schema validation",
+            "Automated extraction"
+          ]
+        },
+        {
+          "title": "Content Processing",
+          "items": [
+            "HTML parsing",
+            "Data transformation",
+            "Format conversion",
+            "Batch processing"
+          ]
+        },
+        {
+          "title": "Integration Workflows",
+          "items": [
+            "API generation",
+            "Database population",
+            "Content aggregation",
+            "Data pipelines"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "flowvoice",
+      "title": "FlowVoice",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "AI-powered voice dictation tool for efficient text input across applications",
+      "howToUse": [
+        "Install FlowVoice desktop app",
+        "Use keyboard shortcuts to start/stop dictation",
+        "Speak naturally for text input",
+        "Edit text using voice commands",
+        "Works seamlessly with Cursor and other apps"
+      ],
+      "caveats": [
+        "May require internet connection",
+        "Accuracy depends on audio quality",
+        "Some accents may need training",
+        "Background noise can affect performance"
+      ],
+      "url": "https://www.flowvoice.ai/",
+      "useCases": [
+        {
+          "title": "Code Documentation",
+          "items": [
+            "Dictate comments and documentation",
+            "Write README files",
+            "Create code explanations",
+            "Document function purposes"
+          ]
+        },
+        {
+          "title": "Content Creation",
+          "items": [
+            "Write essays and articles",
+            "Draft emails and messages",
+            "Create blog posts",
+            "Take quick notes"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "Dictate git commit messages",
+            "Write pull request descriptions",
+            "Document code changes",
+            "Create task descriptions"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "galileo",
+      "title": "Galileo",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "AI tool for generating UI scaffolds quickly",
+      "howToUse": [
+        "Rapid UI prototyping",
+        "Screen generation",
+        "Visual exploration"
+      ],
+      "caveats": [
+        "Still testing integration with development workflow"
+      ],
+      "url": "https://www.usegalileo.ai/explore",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "gamma",
+      "title": "Gamma",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "AI-powered presentation and document creation platform that generates visually appealing content from text prompts or existing files",
+      "howToUse": [
+        "Generate presentations with AI prompts",
+        "Convert existing documents to visual formats",
+        "Create webpages and interactive content",
+        "Customize designs with brand elements",
+        "Collaborate with team members"
+      ],
+      "caveats": [
+        "Free tier limited to 10 slides per presentation",
+        "400 AI credits limitation on free plan",
+        "Custom domain publishing requires Pro plan",
+        "AI-generated content may need fact checking"
+      ],
+      "url": "https://gamma.app/",
+      "useCases": [
+        {
+          "title": "Presentation Creation",
+          "items": [
+            "Business pitch decks",
+            "Educational materials",
+            "Project reports",
+            "Visual narratives"
+          ]
+        },
+        {
+          "title": "Document Transformation",
+          "items": [
+            "Convert Google Docs to visual formats",
+            "Transform text into engaging layouts",
+            "Import and enhance PowerPoint files",
+            "Create interactive documents"
+          ]
+        },
+        {
+          "title": "Web Content",
+          "items": [
+            "Microsites for events",
+            "Landing pages",
+            "Interactive newsletters",
+            "Embedded multimedia content"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": "Dallas",
+      "imageUrl": "/images/tools/gamma.svg"
+    },
+    {
+      "id": "genspark",
+      "title": "GenSpark",
+      "status": "Trying",
+      "category": "AI",
+      "description": "Enhanced AI research tool with deep thinking mode and interactive mind maps",
+      "howToUse": [
+        "Deep research exploration",
+        "Generate comprehensive reports",
+        "Navigate through mind maps",
+        "Dive deeper into specific topics"
+      ],
+      "caveats": [
+        "May occasionally hallucinate information, requires verification"
+      ],
+      "url": "https://www.genspark.ai/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "gitguardian",
+      "title": "GitGuardian",
+      "status": "Using",
+      "category": "Development",
+      "description": "Security platform that helps detect and prevent secrets from being exposed in code repositories",
+      "howToUse": [
+        "Monitor Git repositories for secrets",
+        "Set up alerts for secret detection",
+        "Review and remediate security incidents",
+        "Integrate with CI/CD pipelines",
+        "Configure custom secret detection rules"
+      ],
+      "caveats": [
+        "Some advanced features require paid plans",
+        "May require team buy-in for effective usage",
+        "Needs proper configuration to avoid false positives"
+      ],
+      "url": "https://gitguardian.com",
+      "useCases": [
+        {
+          "title": "Secret Detection",
+          "items": [
+            "Real-time monitoring of Git commits",
+            "Pre-commit hooks for local checks",
+            "Detection of API keys and credentials",
+            "Custom pattern matching for secrets"
+          ]
+        },
+        {
+          "title": "Security Incident Response",
+          "items": [
+            "Immediate notifications of exposures",
+            "Quick remediation guidance",
+            "Historical incident tracking",
+            "Audit trail for security events"
+          ]
+        },
+        {
+          "title": "Development Security",
+          "items": [
+            "CI/CD pipeline integration",
+            "Pull request scanning",
+            "Automated security checks",
+            "Team collaboration on security"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "status": "Using",
+      "category": "Development",
+      "description": "Version control and collaboration platform for code hosting and development",
+      "howToUse": [
+        "Code repository hosting",
+        "Version control with Git",
+        "Project management with Issues and Projects",
+        "Collaboration through Pull Requests",
+        "CI/CD with GitHub Actions"
+      ],
+      "caveats": [
+        "Learning curve for Git operations",
+        "Some advanced features require paid plans",
+        "Need to be careful with sensitive data"
+      ],
+      "url": "https://github.com",
+      "useCases": [
+        {
+          "title": "Code Repository Management",
+          "items": [
+            "Host all my code projects",
+            "Version control with Git",
+            "Code backup and history",
+            "Branch management for features/fixes"
+          ]
+        },
+        {
+          "title": "Project Collaboration",
+          "items": [
+            "Pull request workflow",
+            "Code review process",
+            "Issue tracking",
+            "Project boards for task management",
+            "Team collaboration features"
+          ]
+        },
+        {
+          "title": "CI/CD and Automation",
+          "items": [
+            "GitHub Actions for automation",
+            "Automated testing",
+            "Deployment pipelines",
+            "Code quality checks",
+            "Package publishing"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "google-calendar",
+      "title": "Google Calendar",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "Cloud-based calendar for scheduling and event management",
+      "howToUse": [
+        "Schedule meetings and events",
+        "Share open invites",
+        "Track appointments",
+        "Set reminders"
+      ],
+      "caveats": [
+        "Advanced features might require third-party add-ons"
+      ],
+      "url": "https://calendar.google.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "status": "Using",
+      "category": "Other",
+      "description": "General-purpose search engine for deep research",
+      "howToUse": [
+        "Deep-dive research",
+        "Fallback from Perplexity",
+        "Advanced search queries",
+        "Academic research"
+      ],
+      "caveats": [
+        "Can be cluttered with ads, less direct answers than AI search"
+      ],
+      "url": "https://www.google.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "grammy",
+      "title": "grammY",
+      "status": "Using",
+      "category": "Development",
+      "description": "Modern, type-safe framework for building Telegram bots with TypeScript, offering cleaner syntax than Telegraf",
+      "howToUse": [
+        "Install via npm/yarn",
+        "Set up bot with token",
+        "Define commands and handlers",
+        "Use middleware for common tasks",
+        "Deploy with Railway"
+      ],
+      "caveats": [
+        "TypeScript knowledge required",
+        "Learning curve for middleware",
+        "Need to handle rate limits",
+        "Webhook setup complexity"
+      ],
+      "url": "https://grammy.dev/",
+      "useCases": [
+        {
+          "title": "Bot Development",
+          "items": [
+            "Command handling",
+            "Inline queries",
+            "Message updates",
+            "Callback queries"
+          ]
+        },
+        {
+          "title": "Advanced Features",
+          "items": [
+            "File handling",
+            "Inline keyboards",
+            "Custom filters",
+            "Session management"
+          ]
+        },
+        {
+          "title": "Integration Patterns",
+          "items": [
+            "Middleware composition",
+            "Error handling",
+            "Rate limiting",
+            "Webhook setup"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "granola",
+      "title": "Granola",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "AI notepad that enhances meeting notes with transcription and GPT-4",
+      "howToUse": [
+        "Take notes during meetings",
+        "Get automatic transcription",
+        "Use AI to enhance notes post-meeting",
+        "Create follow-up tasks and emails"
+      ],
+      "caveats": [
+        "Works on Mac only for direct audio transcription"
+      ],
+      "url": "https://www.granola.ai/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "guidde",
+      "title": "Guidde",
+      "status": "Plan to Try",
+      "category": "Productivity",
+      "description": "AI-powered platform for creating video documentation and how-to guides with automated step-by-step descriptions and voiceovers",
+      "howToUse": [
+        "Install browser extension/desktop app",
+        "Record your workflow",
+        "Let AI generate descriptions",
+        "Add custom voiceovers",
+        "Share or embed guides"
+      ],
+      "caveats": [
+        "Some features need paid plan",
+        "AI descriptions may need editing",
+        "Video quality considerations",
+        "Storage limitations"
+      ],
+      "url": "https://www.guidde.com/",
+      "useCases": [
+        {
+          "title": "Documentation Creation",
+          "items": [
+            "How-to guides",
+            "Standard procedures",
+            "Training materials",
+            "Feature walkthroughs"
+          ]
+        },
+        {
+          "title": "Content Enhancement",
+          "items": [
+            "AI-generated descriptions",
+            "Custom voiceovers",
+            "Visual annotations",
+            "Step-by-step guides"
+          ]
+        },
+        {
+          "title": "Knowledge Sharing",
+          "items": [
+            "Team onboarding",
+            "Customer support",
+            "Product tutorials",
+            "Process documentation"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "hedra",
+      "title": "Hedra",
+      "status": "Using",
+      "category": "AI",
+      "description": "AI-powered video generation platform for generating character videos from text, images, and voice input, featuring controllable multimodal character animation",
+      "howToUse": [
+        "Upload reference images/audio",
+        "Define character parameters",
+        "Generate character animations",
+        "Add voice or music",
+        "Export in various formats"
+      ],
+      "caveats": [
+        "Generation quality varies",
+        "Resource intensive",
+        "Paid service",
+        "Output limitations"
+      ],
+      "url": "https://www.hedra.com/",
+      "useCases": [
+        {
+          "title": "Character Animation",
+          "items": [
+            "Voice-driven animation",
+            "Character generation",
+            "Motion synthesis",
+            "Expression control"
+          ]
+        },
+        {
+          "title": "Content Creation",
+          "items": [
+            "Animated videos",
+            "Character interactions",
+            "Voice synchronization",
+            "Style customization"
+          ]
+        },
+        {
+          "title": "Media Production",
+          "items": [
+            "Video generation",
+            "Audio integration",
+            "Format conversion",
+            "Asset management"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "huggingface-spaces",
+      "title": "Hugging Face Spaces",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Directory and hosting platform for AI applications, offering a searchable collection of community-built models, demos, and tools with easy deployment",
+      "howToUse": [
+        "Browse AI app directory",
+        "Test models and demos",
+        "Deploy your own spaces",
+        "Share with community",
+        "Integrate with other tools"
+      ],
+      "caveats": [
+        "Resource limits on free tier",
+        "Model quality varies",
+        "Some apps need GPU",
+        "Performance depends on load"
+      ],
+      "url": "https://huggingface.co/spaces",
+      "useCases": [
+        {
+          "title": "AI Discovery",
+          "items": [
+            "Model exploration",
+            "Tool comparison",
+            "Demo testing",
+            "Feature research"
+          ]
+        },
+        {
+          "title": "Application Testing",
+          "items": [
+            "Model evaluation",
+            "Performance testing",
+            "Feature validation",
+            "Use case exploration"
+          ]
+        },
+        {
+          "title": "Deployment Platform",
+          "items": [
+            "Space hosting",
+            "Model serving",
+            "App sharing",
+            "Community engagement"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "icon",
+      "title": "Icon",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "AI-powered ad creation platform that helps create winning ads in minutes by automating video editing, script generation, and creative optimization",
+      "howToUse": [
+        "Share existing video library",
+        "Create ads with AdGPT",
+        "Edit with AdCut",
+        "Use AI-powered tools",
+        "Monitor performance analytics"
+      ],
+      "caveats": [
+        "Paid service",
+        "Learning curve for AI tools",
+        "Video library needed",
+        "Performance varies"
+      ],
+      "url": "https://icon.me/",
+      "useCases": [
+        {
+          "title": "Ad Creation",
+          "items": [
+            "AI script generation",
+            "Video matching",
+            "B-roll cutting",
+            "Creative optimization"
+          ]
+        },
+        {
+          "title": "Content Management",
+          "items": [
+            "Video library organization",
+            "Asset tagging",
+            "Creative storage",
+            "Content analytics"
+          ]
+        },
+        {
+          "title": "Production Workflow",
+          "items": [
+            "AdGPT assistance",
+            "Video editing",
+            "Performance tracking",
+            "Creative testing"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "imessage",
+      "title": "iMessage",
+      "status": "Using",
+      "category": "Communication",
+      "description": "Native iOS messaging platform for Apple ecosystem",
+      "howToUse": [
+        "Quick communication with iPhone users",
+        "Share files and media",
+        "Group chats",
+        "Cross-device sync"
+      ],
+      "caveats": [
+        "Apple-only ecosystem, not great for cross-platform groups"
+      ],
+      "url": "https://support.apple.com/messages",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "langsmith",
+      "title": "LangSmith",
+      "status": "Using",
+      "category": "Development",
+      "description": "Observability platform for tracking and debugging LLM applications and vector database interactions",
+      "howToUse": [
+        "Initialize LangSmith in LangChain apps",
+        "Track LLM calls and vector searches",
+        "Monitor chain executions",
+        "Debug prompts and responses",
+        "Analyze performance metrics"
+      ],
+      "caveats": [
+        "Requires LangChain integration",
+        "Some features need paid tier",
+        "Need to handle API keys securely",
+        "Additional latency for tracing"
+      ],
+      "url": "https://www.langchain.com/langsmith",
+      "useCases": [
+        {
+          "title": "LLM Operation Monitoring",
+          "items": [
+            "Track prompt executions",
+            "Monitor token usage",
+            "Analyze response quality",
+            "Debug chain failures"
+          ]
+        },
+        {
+          "title": "Vector Search Tracing",
+          "items": [
+            "Track vector database queries",
+            "Monitor similarity scores",
+            "Analyze search results",
+            "Debug retrieval issues"
+          ]
+        },
+        {
+          "title": "Performance Analysis",
+          "items": [
+            "Measure latency metrics",
+            "Track cost and usage",
+            "Identify bottlenecks",
+            "Optimize chain execution"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "letta",
+      "title": "Letta",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Open-source platform for building and deploying stateful AI agents with advanced memory capabilities, based on MemGPT technology",
+      "howToUse": [
+        "Install Letta framework",
+        "Configure agent parameters",
+        "Set up PostgreSQL persistence",
+        "Deploy with Docker/Kubernetes",
+        "Monitor agent states"
+      ],
+      "caveats": [
+        "Complex setup process",
+        "Requires PostgreSQL",
+        "Resource intensive",
+        "Early stage product"
+      ],
+      "url": "https://www.letta.com/",
+      "useCases": [
+        {
+          "title": "Agent Development",
+          "items": [
+            "Memory management",
+            "State persistence",
+            "Tool integration",
+            "Reasoning systems"
+          ]
+        },
+        {
+          "title": "Production Deployment",
+          "items": [
+            "Docker containers",
+            "Kubernetes scaling",
+            "PostgreSQL storage",
+            "API endpoints"
+          ]
+        },
+        {
+          "title": "Development Tools",
+          "items": [
+            "Agent Development Environment (ADE)",
+            "Visual debugging",
+            "State inspection",
+            "Real-time editing"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "linear",
+      "title": "Linear",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Minimalist project management tool known for speed and keyboard shortcuts",
+      "howToUse": [
+        "Project management",
+        "Task tracking",
+        "Development workflow",
+        "Team collaboration"
+      ],
+      "caveats": [
+        "Some teams prefer more feature-rich tools like Asana/Jira"
+      ],
+      "url": "https://linear.app/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "macbook",
+      "title": "MacBook Pro",
+      "status": "Using",
+      "category": "Development",
+      "description": "Primary development machine running macOS",
+      "howToUse": [],
+      "caveats": [
+        "Premium price point but worth it for development workflow"
+      ],
+      "url": "https://www.apple.com/macbook-pro/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "magic-patterns",
+      "title": "Magic Patterns",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "AI-powered UI prototyping tool for quickly generating and iterating on components and designs, with export to React or Figma",
+      "howToUse": [
+        "Input UI ideas via text/image",
+        "Use multiplayer canvas",
+        "Iterate on components",
+        "Export to React/Figma",
+        "Use Chrome extension"
+      ],
+      "caveats": [
+        "Best for smaller components",
+        "AI generation limitations",
+        "Paid service",
+        "Learning curve for prompts"
+      ],
+      "url": "https://www.magicpatterns.com/",
+      "useCases": [
+        {
+          "title": "UI Generation",
+          "items": [
+            "Component creation",
+            "Design iteration",
+            "Theme application",
+            "Visual brainstorming"
+          ]
+        },
+        {
+          "title": "Team Collaboration",
+          "items": [
+            "Real-time editing",
+            "Design sharing",
+            "Project management",
+            "Context preservation"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "React export",
+            "Figma integration",
+            "Design system building",
+            "Rapid prototyping"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "microsoft-todo",
+      "title": "Microsoft To Do",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "Lightweight task manager for personal and project tasks",
+      "howToUse": [
+        "Daily task tracking",
+        "Project task lists",
+        "Personal reminders",
+        "Quick capture of to-dos"
+      ],
+      "caveats": [
+        "Simpler than full project management tools"
+      ],
+      "url": "https://todo.microsoft.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "midjourney",
+      "title": "Midjourney",
+      "status": "Using",
+      "category": "Design",
+      "description": "AI image generation specialized in artistic and imaginative visuals",
+      "howToUse": [
+        "Blog post illustrations",
+        "Concept visualization",
+        "Creative exploration",
+        "Visual brainstorming"
+      ],
+      "caveats": [
+        "Requires Discord and prompt engineering skills"
+      ],
+      "url": "https://www.midjourney.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "mobbin",
+      "title": "Mobbin",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "Comprehensive design inspiration library with high-resolution screenshots of popular apps' UI flows and interaction patterns",
+      "howToUse": [
+        "Browse app screenshots by category",
+        "Study UI patterns and flows",
+        "View high-res design details",
+        "Research competitor interfaces",
+        "Save inspiration for reference"
+      ],
+      "caveats": [
+        "Requires paid subscription",
+        "Limited to mobile app designs",
+        "Screenshots may not be current",
+        "No direct asset downloads"
+      ],
+      "url": "https://mobbin.com/",
+      "useCases": [
+        {
+          "title": "Design Research",
+          "items": [
+            "Study UI patterns",
+            "Analyze user flows",
+            "Compare app designs",
+            "Track design trends"
+          ]
+        },
+        {
+          "title": "Interface Inspiration",
+          "items": [
+            "Screen layouts",
+            "Navigation patterns",
+            "Component design",
+            "Interaction flows"
+          ]
+        },
+        {
+          "title": "Competitive Analysis",
+          "items": [
+            "Research competitors",
+            "Study industry standards",
+            "Track design evolution",
+            "Benchmark features"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "motion",
+      "title": "Motion",
+      "status": "Using",
+      "category": "Development",
+      "description": "Modern animation library for creating native app-like animations in React applications",
+      "howToUse": [
+        "Install via npm/yarn",
+        "Import motion components",
+        "Use animate prop for basic animations",
+        "Leverage variants for complex sequences",
+        "Implement gestures and scroll animations"
+      ],
+      "caveats": [
+        "Performance impact with many animations",
+        "Complex animations need careful planning",
+        "Some features require Motion+",
+        "Spring animations need tuning"
+      ],
+      "url": "https://motion.dev/",
+      "useCases": [
+        {
+          "title": "Component Animations",
+          "items": [
+            "Smooth transitions",
+            "Hover effects",
+            "Click animations",
+            "Page transitions"
+          ]
+        },
+        {
+          "title": "Gesture Interactions",
+          "items": [
+            "Drag and drop",
+            "Pan gestures",
+            "Pinch to zoom",
+            "Touch interactions"
+          ]
+        },
+        {
+          "title": "Scroll Effects",
+          "items": [
+            "Scroll-linked animations",
+            "Parallax effects",
+            "Scroll progress",
+            "Reveal on scroll"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "my-financial-future",
+      "title": "MyFinancialFuture",
+      "status": "Building",
+      "category": "Other",
+      "description": "Custom app for calculating living costs & target salary needs",
+      "howToUse": [
+        "Calculate needed salary for goals",
+        "Track cost-of-living data",
+        "Maintain financial awareness",
+        "Set motivational targets"
+      ],
+      "caveats": [
+        "Not used daily in app form, but output remains visible as motivation"
+      ],
+      "url": "https://www.myfinancialfuture.xyz/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "n8n",
+      "title": "n8n",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Open-source workflow automation platform with AI-native capabilities, offering secure self-hosting and advanced integrations for technical teams",
+      "howToUse": [
+        "Self-host or use cloud version",
+        "Create workflow automations",
+        "Connect various services",
+        "Add AI capabilities",
+        "Monitor and manage flows"
+      ],
+      "caveats": [
+        "Technical setup for self-hosting",
+        "Learning curve for complex flows",
+        "Some features need paid plan",
+        "Resource requirements"
+      ],
+      "url": "https://n8n.io/",
+      "useCases": [
+        {
+          "title": "Workflow Automation",
+          "items": [
+            "Service integration",
+            "Data synchronization",
+            "Process automation",
+            "Event handling"
+          ]
+        },
+        {
+          "title": "AI Integration",
+          "items": [
+            "LLM workflows",
+            "AI agent orchestration",
+            "Model integration",
+            "Data processing"
+          ]
+        },
+        {
+          "title": "Development Operations",
+          "items": [
+            "Backend prototyping",
+            "API orchestration",
+            "Error handling",
+            "Monitoring and logging"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "notion",
+      "title": "Notion",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "All-in-one workspace for docs, wikis, and simple project management",
+      "howToUse": [
+        "Personal relationship manager",
+        "Documentation and notes",
+        "Project planning and tracking",
+        "Knowledge base"
+      ],
+      "caveats": [
+        "Can be cumbersome to keep up-to-date",
+        "Not the fastest for capturing ephemeral notes"
+      ],
+      "url": "https://www.notion.so/",
+      "useCases": [
+        {
+          "title": "Personal Relationship Management",
+          "items": [
+            "Individual pages for each contact",
+            "Meeting notes and interaction history",
+            "Digital \"Rolodex\" system",
+            "Follow-up reminders"
+          ]
+        },
+        {
+          "title": "Documentation",
+          "items": [
+            "Project documentation",
+            "Personal wiki",
+            "Process documentation",
+            "Quick reference guides"
+          ]
+        },
+        {
+          "title": "Project Planning",
+          "items": [
+            "Simple kanban boards",
+            "Task tracking",
+            "Timeline planning",
+            "Resource organization"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "openrouter",
+      "title": "OpenRouter",
+      "status": "Using",
+      "category": "AI",
+      "description": "Unified API interface for accessing multiple LLM models with better pricing, uptime, and no subscription requirements",
+      "howToUse": [
+        "Get API key from OpenRouter",
+        "Choose from available models",
+        "Make API calls through unified interface",
+        "Monitor usage and costs",
+        "Scale as needed"
+      ],
+      "caveats": [
+        "Pay-per-use pricing",
+        "Model availability varies",
+        "Rate limits apply",
+        "Some models have restrictions"
+      ],
+      "url": "https://openrouter.ai/",
+      "useCases": [
+        {
+          "title": "LLM Integration",
+          "items": [
+            "Multi-model access",
+            "Cost optimization",
+            "Uptime reliability",
+            "Unified API calls"
+          ]
+        },
+        {
+          "title": "Model Selection",
+          "items": [
+            "Performance comparison",
+            "Cost management",
+            "Feature exploration",
+            "Fallback options"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "API integration",
+            "Response handling",
+            "Error management",
+            "Usage monitoring"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "perplexity",
+      "title": "Perplexity",
+      "status": "Using",
+      "category": "AI",
+      "description": "AI-powered search engine for quick research and discovery",
+      "howToUse": [
+        "Quick person/product research",
+        "Finding new tools",
+        "Understanding concepts",
+        "Exploring topics"
+      ],
+      "caveats": [
+        "Sometimes falls back to Google for better results"
+      ],
+      "url": "https://www.perplexity.ai/",
+      "useCases": [
+        {
+          "title": "Quick Research",
+          "items": [
+            "Person research",
+            "Product information",
+            "Company details",
+            "Market insights"
+          ]
+        },
+        {
+          "title": "Tool Discovery",
+          "items": [
+            "Finding new tools",
+            "Comparing alternatives",
+            "Feature exploration",
+            "User experiences"
+          ]
+        },
+        {
+          "title": "Initial Research",
+          "items": [
+            "Topic exploration",
+            "Quick fact-checking",
+            "Overview generation",
+            "Trend analysis"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "pickle",
+      "title": "Pickle",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "AI-powered video editing platform that automatically identifies and extracts key moments from long-form content to create engaging short-form clips",
+      "howToUse": [
+        "Upload long-form video",
+        "Let AI identify key moments",
+        "Edit and customize clips",
+        "Add captions and effects",
+        "Export for social media"
+      ],
+      "caveats": [
+        "Processing time varies",
+        "Quality depends on input",
+        "Some features need paid plan",
+        "File size limitations"
+      ],
+      "url": "https://getpickle.ai/",
+      "useCases": [
+        {
+          "title": "Content Repurposing",
+          "items": [
+            "Key moment extraction",
+            "Highlight identification",
+            "Clip generation",
+            "Format optimization",
+            "Batch processing"
+          ]
+        },
+        {
+          "title": "Video Enhancement",
+          "items": [
+            "Auto-captioning",
+            "Visual effects",
+            "Text overlays",
+            "Aspect ratio adjustment",
+            "Style customization"
+          ]
+        },
+        {
+          "title": "Social Distribution",
+          "items": [
+            "Multi-platform export",
+            "Format optimization",
+            "Engagement optimization",
+            "Content scheduling",
+            "Performance tracking"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "pinecone",
+      "title": "Pinecone",
+      "status": "Using",
+      "category": "Development",
+      "description": "Vector database service that helps me implement semantic search and similarity matching in applications",
+      "howToUse": [
+        "Initialize vector index with desired dimensions",
+        "Convert text/data to vectors using embeddings",
+        "Upsert vectors with metadata",
+        "Query vectors for similarity search",
+        "Manage and update vector indices"
+      ],
+      "caveats": [
+        "Requires understanding of vector embeddings",
+        "Pricing based on vector dimensions and storage",
+        "Need to handle rate limits in production",
+        "Vector conversion done separately"
+      ],
+      "url": "https://pinecone.io",
+      "useCases": [
+        {
+          "title": "Semantic Search Implementation",
+          "items": [
+            "Store and query vector embeddings",
+            "Enable natural language search",
+            "Implement similarity matching",
+            "Scale search functionality"
+          ]
+        },
+        {
+          "title": "Data Vectorization",
+          "items": [
+            "Store vectorized app data",
+            "Manage user-generated content",
+            "Handle message embeddings",
+            "Index document collections"
+          ]
+        },
+        {
+          "title": "Application Features",
+          "items": [
+            "Content recommendation systems",
+            "Similar item matching",
+            "Semantic search endpoints",
+            "Real-time vector operations"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "pinokio",
+      "title": "Pinokio",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Browser-based tool for installing, running, and managing server applications locally with one-click installation and management capabilities",
+      "howToUse": [
+        "Download Pinokio browser",
+        "Browse verified scripts",
+        "Install applications with one click",
+        "Manage running services",
+        "Control server applications"
+      ],
+      "caveats": [
+        "Local resource usage",
+        "System requirements vary",
+        "Some scripts need configuration",
+        "Installation space needed"
+      ],
+      "url": "https://pinokio.computer/",
+      "useCases": [
+        {
+          "title": "Application Management",
+          "items": [
+            "One-click installations",
+            "Service monitoring",
+            "Process control",
+            "Resource management"
+          ]
+        },
+        {
+          "title": "Development Environment",
+          "items": [
+            "Local server setup",
+            "AI model deployment",
+            "Database management",
+            "Service orchestration"
+          ]
+        },
+        {
+          "title": "Script Management",
+          "items": [
+            "Verified script library",
+            "Custom script creation",
+            "Installation automation",
+            "Configuration management"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "pnpm",
+      "title": "PNPM",
+      "status": "Using",
+      "category": "Development",
+      "description": "Fast, disk space efficient package manager that uses hard links and strict dependency management for better Node.js development",
+      "howToUse": [
+        "Install globally with npm i -g pnpm",
+        "Use pnpm add for dependencies",
+        "Leverage workspaces for monorepos",
+        "Enable strict mode for better security",
+        "Use pnpm import to migrate from npm/yarn"
+      ],
+      "caveats": [
+        "Some tools may not support pnpm",
+        "Learning curve from npm/yarn",
+        "CI/CD setup differences",
+        "Workspace setup complexity"
+      ],
+      "url": "https://pnpm.io/",
+      "useCases": [
+        {
+          "title": "Dependency Management",
+          "items": [
+            "Hard linking for disk efficiency",
+            "Strict dependency checking",
+            "Monorepo management",
+            "Workspace orchestration"
+          ]
+        },
+        {
+          "title": "Performance Optimization",
+          "items": [
+            "Parallel installation",
+            "Content-addressable store",
+            "Efficient caching",
+            "Fast package resolution"
+          ]
+        },
+        {
+          "title": "Project Management",
+          "items": [
+            "Workspace scripts",
+            "Dependency hoisting",
+            "Lock file management",
+            "Version management"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "podforyou",
+      "title": "PodForYou",
+      "status": "Building",
+      "category": "AI",
+      "description": "AI-powered platform that automatically generates custom podcasts with AI hosts to summarize your newsletters",
+      "howToUse": [
+        "1. Connect your newsletter subscriptions to the platform",
+        "2. AI automatically processes newsletter content",
+        "3. Listen to AI-generated podcast summaries with custom AI hosts",
+        "4. Stay updated on your newsletter content in audio format",
+        "5. Save time by consuming newsletter content while multitasking"
+      ],
+      "caveats": [
+        "Currently in development",
+        "AI voice synthesis quality may vary",
+        "Summarization accuracy depends on AI model performance",
+        "May not capture all nuances from original newsletters",
+        "Best suited for newsletters with clear, structured content"
+      ],
+      "url": "https://podforyou.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "railway",
+      "title": "Railway",
+      "status": "Using",
+      "category": "Development",
+      "description": "Modern cloud platform for deploying and managing services, databases, and Telegram bots with seamless Git integration",
+      "howToUse": [
+        "Connect GitHub repository",
+        "Configure environment variables",
+        "Deploy with git push",
+        "Monitor service health",
+        "Scale resources as needed"
+      ],
+      "caveats": [
+        "Free tier limitations",
+        "Some features require paid plan",
+        "Resource quotas to consider",
+        "Auto-sleep on free tier"
+      ],
+      "url": "https://railway.app/",
+      "useCases": [
+        {
+          "title": "Service Deployment",
+          "items": [
+            "Telegram bot hosting",
+            "Web applications",
+            "Backend services",
+            "Cron jobs"
+          ]
+        },
+        {
+          "title": "Database Management",
+          "items": [
+            "PostgreSQL instances",
+            "Redis caching",
+            "MongoDB clusters",
+            "Database backups"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "Git-based deployments",
+            "Environment management",
+            "Service monitoring",
+            "Log analysis"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "react-scan",
+      "title": "React Scan",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Performance debugging tool for React applications that helps identify slow renders, infinite loops, and other optimization opportunities",
+      "howToUse": [
+        "Install package in React project",
+        "Run scans during development",
+        "Analyze render patterns",
+        "Debug performance issues",
+        "Optimize component lifecycles"
+      ],
+      "caveats": [
+        "Development mode only",
+        "May impact dev performance",
+        "Learning curve for results",
+        "Setup configuration needed"
+      ],
+      "url": "https://react-scan.com/",
+      "useCases": [
+        {
+          "title": "Performance Analysis",
+          "items": [
+            "Detect slow renders",
+            "Find infinite loops",
+            "Track re-renders",
+            "Profile components"
+          ]
+        },
+        {
+          "title": "Debug Optimization",
+          "items": [
+            "Component lifecycle issues",
+            "State management problems",
+            "Hook dependencies",
+            "Render bottlenecks"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "Real-time monitoring",
+            "Issue prioritization",
+            "Performance metrics",
+            "Optimization suggestions"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "replicate",
+      "title": "Replicate",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Cloud platform for running open-source AI models via API, with support for fine-tuning and custom model deployment",
+      "howToUse": [
+        "Get API token from Replicate",
+        "Install SDK for your language",
+        "Choose from thousands of models",
+        "Make API calls with one line of code",
+        "Scale automatically with usage"
+      ],
+      "caveats": [
+        "Pay-per-compute pricing",
+        "Some models have usage restrictions",
+        "API rate limits apply",
+        "Model availability varies"
+      ],
+      "url": "https://replicate.com/",
+      "useCases": [
+        {
+          "title": "Model Deployment",
+          "items": [
+            "Run models with one line of code",
+            "Auto-scaling infrastructure",
+            "Pay-per-compute billing",
+            "Multiple GPU options"
+          ]
+        },
+        {
+          "title": "Fine-tuning",
+          "items": [
+            "Customize existing models",
+            "Train on your data",
+            "Create specialized versions",
+            "Deploy fine-tuned models"
+          ]
+        },
+        {
+          "title": "Custom Models",
+          "items": [
+            "Deploy your own models",
+            "Use Cog for packaging",
+            "Automatic API generation",
+            "Production-ready scaling"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "reweb",
+      "title": "Reweb",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Visual builder for Next.js and Tailwind CSS that exports clean code with shadcn/ui components, combining no-code speed with developer flexibility",
+      "howToUse": [
+        "Access visual builder interface",
+        "Design components visually",
+        "Export Next.js & Tailwind code",
+        "Customize exported code",
+        "Deploy anywhere"
+      ],
+      "caveats": [
+        "Some features need Pro plan",
+        "Limited to shadcn/ui components",
+        "Learning curve for visual builder",
+        "Export limitations on free tier"
+      ],
+      "url": "https://www.reweb.so/",
+      "useCases": [
+        {
+          "title": "Rapid Prototyping",
+          "items": [
+            "Visual component building",
+            "Layout experimentation",
+            "Quick iterations",
+            "Design exploration"
+          ]
+        },
+        {
+          "title": "Component Development",
+          "items": [
+            "shadcn/ui integration",
+            "Tailwind styling",
+            "Responsive design",
+            "Component customization"
+          ]
+        },
+        {
+          "title": "Project Acceleration",
+          "items": [
+            "Code export",
+            "Template usage",
+            "AI generation",
+            "Design system building"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "screen-studio",
+      "title": "Screen Studio",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "AI-powered screen recording and editing tool with smart cursor effects, multi-device capture, and streamlined post-production workflow",
+      "howToUse": [
+        "Use overlay toolbar for quick scene switching",
+        "Record desktop and mobile simultaneously",
+        "Leverage AI-powered cursor effects",
+        "Edit zoom animations post-recording",
+        "Customize cursor appearance"
+      ],
+      "caveats": [
+        "Paid tool",
+        "Learning curve for advanced features",
+        "Resource intensive during recording",
+        "Post-processing time for AI effects"
+      ],
+      "url": "https://www.screen.studio/",
+      "useCases": [
+        {
+          "title": "Tutorial Creation",
+          "items": [
+            "Software demonstrations",
+            "Product walkthroughs",
+            "Feature explanations",
+            "Technical guides"
+          ]
+        },
+        {
+          "title": "Multi-Device Recording",
+          "items": [
+            "Desktop screen capture",
+            "Mobile device streaming",
+            "Face camera integration",
+            "Scene switching"
+          ]
+        },
+        {
+          "title": "Post-Production",
+          "items": [
+            "AI cursor effects",
+            "Click animations",
+            "Zoom adjustments",
+            "Cursor customization"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "speechify",
+      "title": "Speechify",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "AI-powered text-to-speech tool for listening to articles, documents, and written content with natural-sounding voices",
+      "howToUse": [
+        "Install browser extension",
+        "Select text to listen to",
+        "Choose voice and speed",
+        "Listen on mobile or desktop",
+        "Save articles for later"
+      ],
+      "caveats": [
+        "Premium voices require subscription",
+        "Some voices sound robotic",
+        "OCR accuracy varies",
+        "Limited offline support"
+      ],
+      "url": "https://speechify.com/",
+      "useCases": [
+        {
+          "title": "Article Consumption",
+          "items": [
+            "Listen to blog posts",
+            "Process long articles",
+            "Absorb newsletters",
+            "Review documentation"
+          ]
+        },
+        {
+          "title": "Multitasking Enhancement",
+          "items": [
+            "Listen while exercising",
+            "Consume content during commutes",
+            "Process emails while walking",
+            "Review documents during tasks"
+          ]
+        },
+        {
+          "title": "Learning Support",
+          "items": [
+            "Process technical content",
+            "Review study materials",
+            "Listen to research papers",
+            "Absorb complex topics"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "spline",
+      "title": "Spline",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "Browser-based 3D design tool for creating and exporting interactive web experiences with WebGL, featuring real-time collaboration",
+      "howToUse": [
+        "Create account on Spline",
+        "Design in browser interface",
+        "Add interactions and animations",
+        "Export for web integration",
+        "Use React components"
+      ],
+      "caveats": [
+        "Learning curve for 3D design",
+        "Performance varies by complexity",
+        "Large file sizes possible",
+        "Browser compatibility concerns"
+      ],
+      "url": "https://spline.design/",
+      "useCases": [
+        {
+          "title": "3D Web Design",
+          "items": [
+            "Interactive scenes",
+            "Product showcases",
+            "Landing page elements",
+            "Animated illustrations"
+          ]
+        },
+        {
+          "title": "Interactive Development",
+          "items": [
+            "User interactions",
+            "Motion design",
+            "Event handling",
+            "Physics simulations"
+          ]
+        },
+        {
+          "title": "Web Integration",
+          "items": [
+            "React components",
+            "WebGL export",
+            "Performance optimization",
+            "Responsive design"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "storybook",
+      "title": "Storybook",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Frontend workshop for building UI components and pages in isolation, with support for testing, documentation, and visual development",
+      "howToUse": [
+        "Initialize with npx storybook",
+        "Create stories for components",
+        "Test UI in isolation",
+        "Add documentation",
+        "Share with team"
+      ],
+      "caveats": [
+        "Setup time for configuration",
+        "Learning curve for stories",
+        "Build size considerations",
+        "Integration complexity"
+      ],
+      "url": "https://storybook.js.org/",
+      "useCases": [
+        {
+          "title": "Component Development",
+          "items": [
+            "Isolated UI building",
+            "Edge case testing",
+            "Visual development",
+            "Component showcase"
+          ]
+        },
+        {
+          "title": "Documentation",
+          "items": [
+            "Auto-generated docs",
+            "Component examples",
+            "Usage guidelines",
+            "Design system docs"
+          ]
+        },
+        {
+          "title": "Testing Integration",
+          "items": [
+            "Visual testing",
+            "Interaction testing",
+            "Accessibility checks",
+            "Snapshot testing"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "substack",
+      "title": "Substack",
+      "status": "Using",
+      "category": "Communication",
+      "description": "Platform for publishing meaningful, long-form content and newsletters",
+      "howToUse": [
+        "Publish weighty blog posts",
+        "Share meaningful insights",
+        "Build a newsletter audience",
+        "Distribute substantial content"
+      ],
+      "caveats": [
+        "Reserved for more substantial content that deserves wider distribution"
+      ],
+      "url": "https://substack.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "super-so",
+      "title": "super.so",
+      "status": "Using",
+      "category": "Development",
+      "description": "Wraps Notion pages on a custom domain with additional styling/themes",
+      "howToUse": [
+        "Creating polished docs sites from Notion pages",
+        "Adding custom scripts and analytics",
+        "Custom domain hosting"
+      ],
+      "caveats": [
+        "Requires thorough Notion maintenance",
+        "Some advanced features behind a paywall"
+      ],
+      "url": "https://super.so/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "syncity",
+      "title": "SynCity",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Training-free approach for generating immersive 3D worlds from text prompts by combining 2D and 3D generative models in a tile-based system",
+      "howToUse": [
+        "Access the GitHub repository",
+        "Provide text prompts for world generation",
+        "Generate 3D worlds tile by tile",
+        "Explore generated worlds in 3D",
+        "Use fine-grained control for layout and appearance"
+      ],
+      "caveats": [
+        "Code not fully released yet (coming soon)",
+        "Requires powerful hardware for generation",
+        "Processing time increases with world size",
+        "May have seams between tiles in some cases"
+      ],
+      "url": "https://github.com/paulengstler/syncity",
+      "useCases": [
+        {
+          "title": "3D World Generation",
+          "items": [
+            "Virtual environments for games",
+            "Immersive experiences for VR/AR",
+            "Architectural visualizations",
+            "Environment prototyping"
+          ]
+        },
+        {
+          "title": "Content Creation",
+          "items": [
+            "Text-to-3D scene conversion",
+            "Expansive 3D environments",
+            "Custom themed worlds",
+            "Navigable 3D spaces"
+          ]
+        },
+        {
+          "title": "Advanced Features",
+          "items": [
+            "Tile-based world construction",
+            "Seamless tile blending",
+            "Fine-grained layout control",
+            "Context-aware generation"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/syncity.svg"
+    },
+    {
+      "id": "superstack",
+      "title": "SuperStack",
+      "status": "Plan to Build",
+      "category": "Development",
+      "description": "Your future platform to share and document tools/processes",
+      "howToUse": [
+        "One-click sharing of your entire toolkit",
+        "Track and test recommendations",
+        "Document tool usage and workflows"
+      ],
+      "caveats": [
+        "Currently a concept/prototype"
+      ],
+      "url": "https://www.superstack.so/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "tanstack-query",
+      "title": "TanStack Query",
+      "status": "Using",
+      "category": "Development",
+      "description": "Powerful asynchronous state management and data fetching library for React applications",
+      "howToUse": [
+        "Install via npm/yarn",
+        "Set up QueryClient and Provider",
+        "Use hooks like useQuery and useMutation",
+        "Configure caching and invalidation",
+        "Handle loading and error states"
+      ],
+      "caveats": [
+        "Learning curve for advanced features",
+        "Need to understand stale-while-revalidate pattern",
+        "Cache management requires planning",
+        "TypeScript setup needed for best experience"
+      ],
+      "url": "https://tanstack.com/query",
+      "useCases": [
+        {
+          "title": "Data Fetching",
+          "items": [
+            "Fetch and cache API data",
+            "Handle loading states",
+            "Manage error boundaries",
+            "Automatic background updates"
+          ]
+        },
+        {
+          "title": "State Management",
+          "items": [
+            "Cache server state",
+            "Optimize network requests",
+            "Manage pagination",
+            "Handle infinite scrolling"
+          ]
+        },
+        {
+          "title": "Real-time Updates",
+          "items": [
+            "Polling and refetching",
+            "Optimistic updates",
+            "WebSocket integration",
+            "Live data synchronization"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "tavily",
+      "title": "Tavily",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "AI-optimized search API designed specifically for LLMs and RAG applications, providing real-time, accurate web information with structured results",
+      "howToUse": [
+        "Get API key from Tavily",
+        "Install SDK for your language",
+        "Configure search parameters",
+        "Make API calls",
+        "Process structured results"
+      ],
+      "caveats": [
+        "API key required",
+        "Rate limits on free tier",
+        "Paid service for full features",
+        "Results may need filtering"
+      ],
+      "url": "https://tavily.com/",
+      "useCases": [
+        {
+          "title": "AI Integration",
+          "items": [
+            "LLM context enhancement",
+            "RAG applications",
+            "Real-time research",
+            "Fact verification"
+          ]
+        },
+        {
+          "title": "Data Retrieval",
+          "items": [
+            "Structured web search",
+            "Content aggregation",
+            "Source validation",
+            "Information filtering"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "API integration",
+            "Result processing",
+            "Error handling",
+            "Response formatting"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "telegram",
+      "title": "Telegram",
+      "status": "Using",
+      "category": "Communication",
+      "description": "Cross-platform messaging app with bot integration capabilities",
+      "howToUse": [
+        "Developer bot interactions",
+        "Cross-platform messaging",
+        "Group communication",
+        "File sharing"
+      ],
+      "caveats": [
+        "Less ubiquitous than WhatsApp or iMessage in some circles"
+      ],
+      "url": "https://telegram.org/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "textexpander",
+      "title": "TextExpander",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "Text expansion tool that turns shortcuts into pre-written content",
+      "howToUse": [],
+      "caveats": [
+        "Requires learning shortcut patterns to be effective"
+      ],
+      "url": "https://textexpander.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "todesktop",
+      "title": "ToDesktop",
+      "status": "Using",
+      "category": "Development",
+      "description": "No-code platform for converting web applications into native desktop apps with Electron, featuring native functionality and customizable UI",
+      "howToUse": [
+        "Input web app URL",
+        "Customize app design and icon",
+        "Configure native features",
+        "Add desktop-specific code",
+        "Publish and distribute"
+      ],
+      "caveats": [
+        "Electron app size overhead",
+        "Some features need paid plan",
+        "Performance considerations",
+        "Distribution setup needed"
+      ],
+      "url": "https://todesktop.com/",
+      "useCases": [
+        {
+          "title": "App Conversion",
+          "items": [
+            "Web to desktop migration",
+            "Native feature integration",
+            "UI customization",
+            "Cross-platform support"
+          ]
+        },
+        {
+          "title": "Native Features",
+          "items": [
+            "System notifications",
+            "Global shortcuts",
+            "File system access",
+            "Offline support",
+            "Tray integration"
+          ]
+        },
+        {
+          "title": "Distribution Management",
+          "items": [
+            "Auto-updates",
+            "Code signing",
+            "Download analytics",
+            "Version control",
+            "CDN distribution"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "trae",
+      "title": "Trae",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Adaptive AI IDE that enhances development workflow by collaborating with you to ship code faster and more efficiently",
+      "howToUse": [
+        "Download Trae IDE",
+        "Set up development environment",
+        "Enable AI collaboration",
+        "Use adaptive features",
+        "Optimize workflow speed"
+      ],
+      "caveats": [
+        "Early stage product",
+        "Learning curve for features",
+        "May need configuration",
+        "Performance considerations"
+      ],
+      "url": "https://www.trae.ai/",
+      "useCases": [
+        {
+          "title": "AI Collaboration",
+          "items": [
+            "Code assistance",
+            "Intelligent suggestions",
+            "Workflow optimization",
+            "Development speedup"
+          ]
+        },
+        {
+          "title": "Development Enhancement",
+          "items": [
+            "Smart code completion",
+            "Context awareness",
+            "Pattern recognition",
+            "Error prevention"
+          ]
+        },
+        {
+          "title": "Workflow Integration",
+          "items": [
+            "Project management",
+            "Version control",
+            "Team collaboration",
+            "Task automation"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "truffle",
+      "title": "Truffle",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Personal agentic computing device with on-device model execution",
+      "howToUse": [
+        "Run AI models locally with 64GB unified memory",
+        "Process tasks on-device for privacy",
+        "Execute mixed model workloads",
+        "Personal AI computing"
+      ],
+      "caveats": [
+        "Requires $500 deposit and $115/month subscription for 12 months"
+      ],
+      "url": "https://www.itsalltruffles.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "tweetpik",
+      "title": "TweetPik",
+      "status": "Using",
+      "category": "Development",
+      "description": "Professional Twitter screenshot tool with API access, custom branding, and automation capabilities for creating beautiful tweet images",
+      "howToUse": [
+        "Use browser extension",
+        "Configure custom themes",
+        "Take tweet screenshots",
+        "Use API for automation",
+        "Integrate with Zapier"
+      ],
+      "caveats": [
+        "Some features need paid plan",
+        "API rate limits apply",
+        "Custom themes need setup",
+        "Twitter API dependency"
+      ],
+      "url": "https://tweethunter.io/tweetpik",
+      "useCases": [
+        {
+          "title": "Content Creation",
+          "items": [
+            "Tweet screenshots",
+            "Custom branding",
+            "Multi-tweet threads",
+            "Quote formatting"
+          ]
+        },
+        {
+          "title": "Automation Flow",
+          "items": [
+            "API integration",
+            "Zapier workflows",
+            "Batch processing",
+            "Social scheduling"
+          ]
+        },
+        {
+          "title": "Brand Management",
+          "items": [
+            "Theme customization",
+            "Brand consistency",
+            "Style templates",
+            "Asset management"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "unicorn-studio",
+      "title": "Unicorn Studio",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "WebGL-powered website builder for creating immersive 3D web experiences with no-code interface",
+      "howToUse": [
+        "Sign up for waitlist",
+        "Create 3D web experiences",
+        "Use drag-and-drop interface",
+        "Add WebGL animations",
+        "Deploy interactive sites"
+      ],
+      "caveats": [
+        "Currently in waitlist",
+        "Learning curve for 3D design",
+        "Performance considerations",
+        "Browser compatibility"
+      ],
+      "url": "https://www.unicorn.studio/",
+      "useCases": [
+        {
+          "title": "3D Web Design",
+          "items": [
+            "Interactive websites",
+            "Portfolio showcases",
+            "Product presentations",
+            "Immersive experiences"
+          ]
+        },
+        {
+          "title": "WebGL Integration",
+          "items": [
+            "3D animations",
+            "Interactive elements",
+            "Custom effects",
+            "Performance optimization"
+          ]
+        },
+        {
+          "title": "Site Building",
+          "items": [
+            "No-code development",
+            "Visual editing",
+            "Component design",
+            "Responsive layouts"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "vercel",
+      "title": "Vercel",
+      "status": "Using",
+      "category": "Development",
+      "description": "Platform for deploying and hosting web applications with seamless Git integration",
+      "howToUse": [
+        "Deploy Next.js and other frontend applications",
+        "Automatic deployments from Git",
+        "Preview deployments for pull requests",
+        "Domain management and SSL",
+        "Serverless functions and edge computing"
+      ],
+      "caveats": [
+        "Some advanced features require paid plans",
+        "Limited build minutes on free tier",
+        "Cold starts on serverless functions"
+      ],
+      "url": "https://vercel.com",
+      "useCases": [
+        {
+          "title": "Web Application Deployment",
+          "items": [
+            "Next.js applications",
+            "React applications",
+            "Static websites",
+            "Serverless functions",
+            "Edge computing"
+          ]
+        },
+        {
+          "title": "Development Workflow",
+          "items": [
+            "Automatic deployments from Git",
+            "Preview deployments for PRs",
+            "Branch deployments",
+            "Team collaboration",
+            "Analytics and monitoring"
+          ]
+        },
+        {
+          "title": "Domain Management",
+          "items": [
+            "Custom domains",
+            "SSL certificates",
+            "DNS management",
+            "CDN and edge network",
+            "HTTPS enforcement"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "witney",
+      "title": "Witney",
+      "status": "Building",
+      "category": "AI",
+      "description": "AI companion that helps you navigate your Hero's Journey by capturing spoken reflections and automatically organizing them in Notion",
+      "howToUse": [
+        "Install desktop/web app",
+        "Connect Notion workspace",
+        "Share daily reflections via voice",
+        "Let AI organize and structure content",
+        "Review insights and patterns"
+      ],
+      "caveats": [
+        "Currently in development",
+        "Notion integration required",
+        "Voice quality impacts accuracy",
+        "Internet connection needed"
+      ],
+      "url": "https://www.witney.ai/about",
+      "useCases": [
+        {
+          "title": "Personal Development",
+          "items": [
+            "Daily reflections",
+            "Journey tracking",
+            "Pattern recognition",
+            "Growth celebration"
+          ]
+        },
+        {
+          "title": "Knowledge Management",
+          "items": [
+            "Voice-to-Notion capture",
+            "Automatic organization",
+            "Contact tracking",
+            "Learning journaling"
+          ]
+        },
+        {
+          "title": "Life Navigation",
+          "items": [
+            "Goal alignment",
+            "Value reflection",
+            "Decision support",
+            "Progress tracking"
+          ]
+        }
+      ],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "x-twitter",
+      "title": "X",
+      "status": "Using",
+      "category": "Communication",
+      "description": "Social platform for tech and AI ecosystem updates",
+      "howToUse": [
+        "Stay updated on AI/tech news",
+        "Find opportunities",
+        "Network with professionals",
+        "Share updates"
+      ],
+      "caveats": [
+        "Rapidly changing features and policies"
+      ],
+      "url": "https://twitter.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "status": "Using",
+      "category": "Other",
+      "description": "A vast platform for learning through video content, tutorials, and educational channels",
+      "howToUse": [
+        "1. Subscribe to educational channels in your areas of interest",
+        "2. Create playlists to organize videos by topic",
+        "3. Use the Watch Later feature for content you want to revisit",
+        "4. Enable notifications for channels you want to follow closely",
+        "5. Use playback speed controls to optimize learning time",
+        "6. Take advantage of chapters in videos to jump to relevant sections",
+        "7. Read comments for additional insights and resources"
+      ],
+      "caveats": [
+        "Can be a source of distraction with recommended videos",
+        "Quality of content varies significantly between creators",
+        "Need to verify credibility of information sources",
+        "Easy to fall into passive consumption instead of active learning",
+        "Algorithms may not always surface the most educational content"
+      ],
+      "url": "https://www.youtube.com/",
+      "useCases": [],
+      "addedOn": "2025-01-01",
+      "recommendedBy": null
+    },
+    {
+      "id": "waitlist",
+      "title": "Waitlist",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "A powerful waitlist management platform for launching products, with features for collecting signups, managing access, and analyzing user engagement",
+      "howToUse": [
+        "Create waitlist landing page",
+        "Customize signup form",
+        "Set up email notifications",
+        "Track signup analytics",
+        "Manage access codes"
+      ],
+      "caveats": [
+        "Free tier limitations",
+        "Email delivery rates",
+        "API rate limits",
+        "Integration complexity"
+      ],
+      "url": "https://getwaitlist.com/",
+      "useCases": [
+        {
+          "title": "Product Launch",
+          "items": [
+            "Pre-launch signup collection",
+            "Early access management",
+            "Beta testing coordination",
+            "Launch momentum building"
+          ]
+        },
+        {
+          "title": "User Management",
+          "items": [
+            "Signup queue organization",
+            "Access code distribution",
+            "User engagement tracking",
+            "Referral management"
+          ]
+        },
+        {
+          "title": "Analytics",
+          "items": [
+            "Signup trend analysis",
+            "Conversion tracking",
+            "Engagement metrics",
+            "Referral source tracking"
+          ]
+        }
+      ],
+      "addedOn": "2024-02-17",
+      "recommendedBy": null
+    },
+    {
+      "id": "supademo",
+      "title": "Supademo Screenshot Tool",
+      "status": "Plan to Try",
+      "category": "Design",
+      "description": "Free online tool for enhancing screenshot backgrounds with beautiful gradients, patterns, and shadows, perfect for creating professional-looking documentation and social media content",
+      "howToUse": [
+        "Upload screenshot or image",
+        "Choose background style",
+        "Adjust padding and shadows",
+        "Customize colors and patterns",
+        "Download enhanced image"
+      ],
+      "caveats": [
+        "Web-based tool only",
+        "Image size limitations",
+        "Limited export formats",
+        "Some styles may be premium"
+      ],
+      "url": "https://supademo.com/tools/screenshot-background-tool",
+      "useCases": [
+        {
+          "title": "Documentation",
+          "items": [
+            "Product screenshots",
+            "Tutorial images",
+            "Feature highlights",
+            "UI documentation"
+          ]
+        },
+        {
+          "title": "Social Media",
+          "items": [
+            "Twitter posts",
+            "LinkedIn content",
+            "Blog illustrations",
+            "Marketing materials"
+          ]
+        },
+        {
+          "title": "Design Enhancement",
+          "items": [
+            "Background styling",
+            "Shadow effects",
+            "Pattern generation",
+            "Color customization"
+          ]
+        }
+      ],
+      "addedOn": "2024-02-17",
+      "recommendedBy": null
+    },
+    {
+      "id": "screenpipe",
+      "title": "Screenpipe",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Personal desktop activity analytics tool that helps track and understand your computer usage patterns, productivity trends, and application habits",
+      "howToUse": [
+        "Install desktop client",
+        "Configure tracking preferences",
+        "Monitor activity analytics",
+        "Review usage patterns",
+        "Export activity data"
+      ],
+      "caveats": [
+        "Privacy considerations",
+        "Local data storage only",
+        "Resource overhead",
+        "MacOS only currently"
+      ],
+      "url": "https://screenpi.pe/",
+      "useCases": [
+        {
+          "title": "Activity Tracking",
+          "items": [
+            "Application usage analysis",
+            "Time tracking insights",
+            "Productivity patterns",
+            "Focus monitoring"
+          ]
+        },
+        {
+          "title": "Productivity Analysis",
+          "items": [
+            "Work pattern insights",
+            "Distraction identification",
+            "Efficiency metrics",
+            "Habit formation"
+          ]
+        },
+        {
+          "title": "Data Management",
+          "items": [
+            "Local data storage",
+            "Privacy controls",
+            "Export capabilities",
+            "Pattern visualization"
+          ]
+        }
+      ],
+      "addedOn": "2024-02-17",
+      "recommendedBy": null
+    },
+    {
+      "id": "beeai",
+      "title": "BeeAI Framework",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Open-source framework for building autonomous AI agents with swarm intelligence principles, focusing on collaborative behavior and emergent intelligence",
+      "howToUse": [
+        "Clone repository and install dependencies",
+        "Configure agent parameters",
+        "Define swarm behaviors",
+        "Implement custom agents",
+        "Deploy and monitor swarms"
+      ],
+      "caveats": [
+        "Early stage project",
+        "Documentation in progress",
+        "Requires AI/ML knowledge",
+        "Resource intensive"
+      ],
+      "url": "https://i-am-bee.github.io/beeai-framework",
+      "useCases": [
+        {
+          "title": "Agent Development",
+          "items": [
+            "Autonomous agents",
+            "Swarm intelligence",
+            "Multi-agent systems",
+            "Emergent behavior"
+          ]
+        },
+        {
+          "title": "System Architecture",
+          "items": [
+            "Agent communication",
+            "Task coordination",
+            "Resource sharing",
+            "Knowledge distribution"
+          ]
+        },
+        {
+          "title": "Integration Features",
+          "items": [
+            "API endpoints",
+            "Event handling",
+            "State management",
+            "Monitoring tools"
+          ]
+        }
+      ],
+      "addedOn": "2024-02-17",
+      "recommendedBy": null
+    },
+    {
+      "id": "rork",
+      "title": "Rork",
+      "status": "Plan to Try",
+      "category": "Productivity",
+      "description": "A productivity tool designed to help users organize tasks, manage projects, and streamline workflows with a clean, intuitive interface",
+      "howToUse": [
+        "Create an account",
+        "Set up projects and tasks",
+        "Configure workflow preferences",
+        "Integrate with other tools",
+        "Track progress and productivity"
+      ],
+      "caveats": [
+        "Feature availability may vary by plan",
+        "Learning curve for advanced features",
+        "Limited integrations in free tier",
+        "Mobile app may have fewer features"
+      ],
+      "url": "http://rork.app/",
+      "useCases": [
+        {
+          "title": "Task Management",
+          "items": [
+            "Personal to-do lists",
+            "Team task assignment",
+            "Priority management",
+            "Deadline tracking"
+          ]
+        },
+        {
+          "title": "Project Organization",
+          "items": [
+            "Project timeline views",
+            "Resource allocation",
+            "Progress visualization",
+            "Milestone tracking"
+          ]
+        },
+        {
+          "title": "Workflow Optimization",
+          "items": [
+            "Process automation",
+            "Template creation",
+            "Recurring task setup",
+            "Productivity analytics"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/rork.svg"
+    },
+    {
+      "id": "composio",
+      "title": "Composio",
+      "status": "Plan to Try",
+      "category": "Development",
+      "description": "Integration platform for AI Agents & LLMs that connects to 250+ tools through managed MCP servers with built-in authentication support",
+      "howToUse": [
+        "Sign up for Composio API key",
+        "Select tools from MCP directory",
+        "Connect to Cursor, Claude, or other LLMs",
+        "Use managed authentication",
+        "Integrate with AI agents via SDK"
+      ],
+      "caveats": [
+        "Free tier limited to 10 actions",
+        "Some tools require OAuth setup",
+        "Custom MCP servers not yet available",
+        "Authentication management needed"
+      ],
+      "url": "https://composio.dev/",
+      "useCases": [
+        {
+          "title": "LLM Integration",
+          "items": [
+            "Connect Claude to tools",
+            "Add MCP servers to Cursor",
+            "Access tools via function calling",
+            "Stream tool responses"
+          ]
+        },
+        {
+          "title": "MCP Server Routing",
+          "items": [
+            "Route requests to appropriate tools",
+            "Manage authentication across services",
+            "Optimize tool accuracy",
+            "Standardize API access"
+          ]
+        },
+        {
+          "title": "AI Agent Development",
+          "items": [
+            "Connect agents to external tools",
+            "Streamline API integrations",
+            "Simplify authentication",
+            "Build powerful agent workflows"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/composio.svg"
+    },
+    {
+      "id": "tavus",
+      "title": "Tavus",
+      "status": "Plan to Try",
+      "category": "AI",
+      "description": "Advanced AI video platform for creating digital twins with APIs for video generation and real-time conversational video interfaces",
+      "howToUse": [
+        "Sign up for API access",
+        "Record video samples for custom replica",
+        "Integrate APIs into your application",
+        "Generate personalized videos or create conversational interfaces",
+        "Implement with white-label capabilities"
+      ],
+      "caveats": [
+        "Training time for custom replicas",
+        "API key required",
+        "Usage limits on free tier",
+        "Content moderation requirements"
+      ],
+      "url": "https://www.tavus.io/",
+      "useCases": [
+        {
+          "title": "Digital Twin Creation",
+          "items": [
+            "Custom AI video avatars",
+            "Personalized video messages",
+            "Interactive AI replicas",
+            "Multi-language support"
+          ]
+        },
+        {
+          "title": "Video Applications",
+          "items": [
+            "Real-time conversational video",
+            "AI-powered video generation",
+            "White-labeled video solutions",
+            "Script-to-video conversion"
+          ]
+        },
+        {
+          "title": "Integration Options",
+          "items": [
+            "Developer-friendly APIs",
+            "SDK implementation",
+            "Content security features",
+            "Custom model training"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": "Lamar",
+      "imageUrl": "/images/tools/tavus.svg"
+    },
+    {
+      "id": "teleprompter",
+      "title": "Teleprompter",
+      "status": "Trying",
+      "category": "Productivity",
+      "description": "Free iOS app for turning an iPhone or iPad into a teleprompter with text mirroring and script management",
+      "howToUse": [
+        "Create or import scripts",
+        "Configure scroll speed and text size",
+        "Use mirroring for on-camera rigs",
+        "Record video while reading script",
+        "Control remotely via browser or AirPlay"
+      ],
+      "caveats": [
+        "iOS/iPadOS only",
+        "Free version has ads or feature limits",
+        "Remote control might require premium",
+        "Requires practice for natural delivery"
+      ],
+      "url": "https://apps.apple.com/us/app/teleprompter/id941620509",
+      "useCases": [
+        {
+          "title": "Video Recording",
+          "items": [
+            "Scripted video content",
+            "Product demonstrations",
+            "Tutorial creation",
+            "News reporting style"
+          ]
+        },
+        {
+          "title": "Public Speaking",
+          "items": [
+            "Presentation practice",
+            "Speech delivery aid",
+            "Lecture notes",
+            "Performance lyrics"
+          ]
+        },
+        {
+          "title": "Script Management",
+          "items": [
+            "Unlimited script storage",
+            "Script organization",
+            "Cloud synchronization",
+            "Import/Export scripts"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/teleprompter.svg"
+    },
+    {
+      "id": "turboscribe",
+      "title": "Turboscribe",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "AI-powered transcription service for audio and video files, offering a cost-effective alternative to Descript for transcription processing.",
+      "howToUse": [
+        "Upload audio or video files",
+        "Select transcription language",
+        "Receive transcriptions",
+        "Export transcripts in various formats"
+      ],
+      "caveats": [
+        "Accuracy may vary depending on audio quality",
+        "Focuses primarily on transcription, fewer editing features than Descript",
+        "Free tier has limitations on file size or usage"
+      ],
+      "url": "https://turboscribe.ai/",
+      "useCases": [
+        {
+          "title": "Transcription",
+          "items": [
+            "Transcribing interviews",
+            "Meeting transcription",
+            "Video content transcription",
+            "Audio note conversion"
+          ]
+        },
+        {
+          "title": "Cost Efficiency",
+          "items": [
+            "Affordable transcription processing",
+            "Alternative to more expensive platforms",
+            "Pay-per-use or subscription options"
+          ]
+        },
+        {
+          "title": "Workflow Integration",
+          "items": [
+            "API access for automation",
+            "Bulk file processing",
+            "Integration with other tools"
+          ]
+        }
+      ],
+      "addedOn": "2025-04-01",
+      "recommendedBy": null,
+      "imageUrl": "/images/tools/turboscribe.svg"
+    }
+  ]
+}
