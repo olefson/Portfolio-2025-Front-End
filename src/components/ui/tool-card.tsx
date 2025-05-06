@@ -33,6 +33,13 @@ const getToolLogo = (slug: string): string => {
     'linear': 'linear',
     'cursor': 'cursor',
     'super-so': 'super-so',
+    'bland-ai': 'bland-ai',
+    'anki': 'anki',
+    'replit': 'replit',
+    'creality-k1': 'creality-k1',
+    'snipaste': 'snipaste',
+    'raspberry-pi': 'raspberry-pi',
+    'audible': 'audible'
   }
 
   return `/images/tools/${logoMap[slug] || slug}.svg`

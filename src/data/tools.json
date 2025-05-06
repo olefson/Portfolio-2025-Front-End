@@ -8,7 +8,7 @@
       "description": "My primary platform for consuming books through audiobooks, allowing me to learn while multitasking.",
       "howToUse": [],
       "caveats": [
-        "Monthly subscription required. Credits expire after a year. Not all books are available in audio format."
+        "Monthly subscription required. Not all books are available in audio format."
       ],
       "url": "https://www.audible.com",
       "useCases": [
@@ -24,20 +24,19 @@
           "title": "Professional Development",
           "items": [
             "Stay updated with industry trends",
-            "Learn new skills through comprehensive guides",
-            "Access business and technology books"
+            "Learn new skills through comprehensive guides"
           ]
         },
         {
           "title": "Entertainment & Enrichment",
           "items": [
             "Enjoy fiction during downtime",
-            "Explore various genres and topics",
+            "Help with sleep",
             "Listen to exclusive Audible originals"
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "05-12-2022",
       "recommendedBy": null
     },
     {
@@ -45,19 +44,49 @@
       "title": "Canva",
       "status": "Using",
       "category": "Design",
-      "description": "Online design platform with templates and quick editing capabilities",
+      "description": "A rapidly expanding online design platform with templates and quick editing capabilities",
       "howToUse": [
         "Creating visuals with specific dimensions",
         "Social media banners and images",
         "Background removal",
-        "Quick graphic design tasks"
+        "Quick graphic design tasks",
+        "Creating social media posts",
+        "Creating short videos"
       ],
       "caveats": [
-        "Heavy customization can be cumbersome, mostly template-oriented"
+        "Monthly subscription required."
       ],
       "url": "https://www.canva.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Social Media Content",
+          "items": [
+            "Social media posts and banners",
+            "Profile and cover images",
+            "Story and reel graphics",
+            "Social media templates"
+          ]
+        },
+        {
+          "title": "Marketing Materials",
+          "items": [
+            "Business presentations",
+            "Marketing flyers",
+            "Email headers",
+            "Branded templates"
+          ]
+        },
+        {
+          "title": "Design Projects",
+          "items": [
+            "Quick graphic design tasks",
+            "Background removal",
+            "Image editing",
+            "Visual content creation"
+          ]
+        }
+      ],
+      "addedOn": "05-12-2017",
       "recommendedBy": null
     },
   
@@ -77,8 +106,35 @@
         "Knowledge cutoff date limits newest info, though Pro access helps."
       ],
       "url": "https://chat.openai.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Development Assistance",
+          "items": [
+            "Code debugging and optimization",
+            "Algorithm design and implementation",
+            "Technical documentation writing",
+            "Code review and suggestions"
+          ]
+        },
+        {
+          "title": "Content Creation",
+          "items": [
+            "Post drafting",
+            "Technical writing",
+            "Documentation generation"
+          ]
+        },
+        {
+          "title": "Learning and Research",
+          "items": [
+            "Technical concept explanation",
+            "Research assistance",
+            "Problem-solving guidance",
+            "Knowledge verification"
+          ]
+        }
+      ],
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -101,36 +157,8 @@
         "Scaling considerations"
       ],
       "url": "https://www.trychroma.com/",
-      "useCases": [
-        {
-          "title": "Vector Storage",
-          "items": [
-            "Embedding management",
-            "Vector search",
-            "Similarity matching",
-            "Multi-modal data"
-          ]
-        },
-        {
-          "title": "Search Features",
-          "items": [
-            "Full-text search",
-            "Metadata filtering",
-            "Document storage",
-            "Query optimization"
-          ]
-        },
-        {
-          "title": "AI Integration",
-          "items": [
-            "RAG applications",
-            "LLM context storage",
-            "Multi-modal retrieval",
-            "Knowledge bases"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -149,8 +177,33 @@
         "Can still produce incorrect answers despite high confidence"
       ],
       "url": "https://claude.ai/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Technical Development",
+          "items": [
+            "Complex code analysis",
+            "Performance optimization"
+          ]
+        },
+        {
+          "title": "Research and Analysis",
+          "items": [
+            "Deep technical research",
+            "Data analysis assistance",
+            "Technical documentation review"
+          ]
+        },
+        {
+          "title": "Content Generation",
+          "items": [
+            "Technical documentation",
+            "Research summaries",
+            "Detailed explanations",
+            "Complex topic breakdowns"
+          ]
+        }
+      ],
+      "addedOn": "06-15-2024",
       "recommendedBy": null
     },
     {
@@ -173,36 +226,8 @@
         "Costs can scale with usage"
       ],
       "url": "https://cloud.google.com/functions",
-      "useCases": [
-        {
-          "title": "Asynchronous Processing",
-          "items": [
-            "Vectorize messages and content",
-            "Convert file formats",
-            "Process uploaded media",
-            "Handle background tasks"
-          ]
-        },
-        {
-          "title": "Event-Driven Operations",
-          "items": [
-            "Respond to database changes",
-            "Process pub/sub messages",
-            "Handle webhook requests",
-            "Schedule periodic tasks"
-          ]
-        },
-        {
-          "title": "Integration Tasks",
-          "items": [
-            "Connect different services",
-            "Transform data formats",
-            "Trigger notifications",
-            "Sync data between systems"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": "12-03-2024",
       "recommendedBy": null
     },
     {
@@ -225,36 +250,8 @@
         "Consider rate limiting"
       ],
       "url": "https://github.com/unclecode/crawl4ai",
-      "useCases": [
-        {
-          "title": "Data Collection",
-          "items": [
-            "Structured content extraction",
-            "Smart content filtering",
-            "Schema-based scraping",
-            "LLM-friendly formatting"
-          ]
-        },
-        {
-          "title": "Web Automation",
-          "items": [
-            "Browser automation",
-            "JavaScript handling",
-            "Rate limit management",
-            "Cache optimization"
-          ]
-        },
-        {
-          "title": "Content Processing",
-          "items": [
-            "JSON extraction",
-            "CSS selectors",
-            "Microdata parsing",
-            "Token optimization"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -273,8 +270,18 @@
         "As with any AI coding tool, outputs must be verified"
       ],
       "url": "https://cursor.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Development Flow",
+          "items": [
+            "Flow-state coding environment",
+            "AI-powered auto-completion",
+            "Code refactoring assistance",
+            "Intelligent code suggestions"
+          ]
+        }
+      ],
+      "addedOn": "04-12-2025",
       "recommendedBy": null
     },
     {
@@ -293,8 +300,36 @@
         "Interface can feel overwhelming, better suited for large teams than small intimate groups"
       ],
       "url": "https://discord.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Team Communication",
+          "items": [
+            "Real-time team discussions",
+            "Project coordination",
+            "Code review discussions",
+            "Knowledge sharing"
+          ]
+        },
+        {
+          "title": "Community Management",
+          "items": [
+            "Community engagement",
+            "Support channels",
+            "Announcement distribution",
+            "Event organization"
+          ]
+        },
+        {
+          "title": "Integration Hub",
+          "items": [
+            "Bot automation",
+            "Service notifications",
+            "CI/CD alerts",
+            "System monitoring"
+          ]
+        }
+      ],
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -352,59 +387,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
-      "recommendedBy": null
-    },
-    {
-      "id": "flowvoice",
-      "title": "FlowVoice",
-      "status": "Using",
-      "category": "Productivity",
-      "description": "AI-powered voice dictation tool for efficient text input across applications",
-      "howToUse": [
-        "Install FlowVoice desktop app",
-        "Use keyboard shortcuts to start/stop dictation",
-        "Speak naturally for text input",
-        "Edit text using voice commands",
-        "Works seamlessly with Cursor and other apps"
-      ],
-      "caveats": [
-        "May require internet connection",
-        "Accuracy depends on audio quality",
-        "Some accents may need training",
-        "Background noise can affect performance"
-      ],
-      "url": "https://www.flowvoice.ai/",
-      "useCases": [
-        {
-          "title": "Code Documentation",
-          "items": [
-            "Dictate comments and documentation",
-            "Write README files",
-            "Create code explanations",
-            "Document function purposes"
-          ]
-        },
-        {
-          "title": "Content Creation",
-          "items": [
-            "Write essays and articles",
-            "Draft emails and messages",
-            "Create blog posts",
-            "Take quick notes"
-          ]
-        },
-        {
-          "title": "Development Workflow",
-          "items": [
-            "Dictate git commit messages",
-            "Write pull request descriptions",
-            "Document code changes",
-            "Create task descriptions"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -455,7 +438,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -508,7 +491,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -528,7 +511,7 @@
       ],
       "url": "https://calendar.google.com/",
       "useCases": [],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -548,7 +531,7 @@
       ],
       "url": "https://www.google.com/",
       "useCases": [],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -568,13 +551,13 @@
       ],
       "url": "https://www.granola.ai/",
       "useCases": [],
-      "addedOn": "2025-01-01",
+      "addedOn": null,
       "recommendedBy": null
     },
     {
       "id": "huggingface-spaces",
       "title": "Hugging Face Spaces",
-      "status": "Tried. Not adopting.",
+      "status": "Plan to Try",
       "category": "AI",
       "description": "Directory and hosting platform for AI applications, offering a searchable collection of community-built models, demos, and tools with easy deployment",
       "howToUse": [
@@ -591,36 +574,8 @@
         "Performance depends on load"
       ],
       "url": "https://huggingface.co/spaces",
-      "useCases": [
-        {
-          "title": "AI Discovery",
-          "items": [
-            "Model exploration",
-            "Tool comparison",
-            "Demo testing",
-            "Feature research"
-          ]
-        },
-        {
-          "title": "Application Testing",
-          "items": [
-            "Model evaluation",
-            "Performance testing",
-            "Feature validation",
-            "Use case exploration"
-          ]
-        },
-        {
-          "title": "Deployment Platform",
-          "items": [
-            "Space hosting",
-            "Model serving",
-            "App sharing",
-            "Community engagement"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -643,36 +598,8 @@
         "Learning curve for prompts"
       ],
       "url": "https://www.magicpatterns.com/",
-      "useCases": [
-        {
-          "title": "UI Generation",
-          "items": [
-            "Component creation",
-            "Design iteration",
-            "Theme application",
-            "Visual brainstorming"
-          ]
-        },
-        {
-          "title": "Team Collaboration",
-          "items": [
-            "Real-time editing",
-            "Design sharing",
-            "Project management",
-            "Context preservation"
-          ]
-        },
-        {
-          "title": "Development Workflow",
-          "items": [
-            "React export",
-            "Figma integration",
-            "Design system building",
-            "Rapid prototyping"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -691,8 +618,36 @@
         "Requires Discord and prompt engineering skills"
       ],
       "url": "https://www.midjourney.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Visual Content Creation",
+          "items": [
+            "Blog post illustrations",
+            "Social media graphics",
+            "Concept visualization",
+            "Brand imagery"
+          ]
+        },
+        {
+          "title": "Design Exploration",
+          "items": [
+            "Creative brainstorming",
+            "Style exploration",
+            "Mood board creation",
+            "Visual prototyping"
+          ]
+        },
+        {
+          "title": "Artistic Development",
+          "items": [
+            "Artistic inspiration",
+            "Style experimentation",
+            "Creative direction",
+            "Visual storytelling"
+          ]
+        }
+      ],
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -744,7 +699,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -766,34 +721,34 @@
       "url": "https://www.notion.so/",
       "useCases": [
         {
-          "title": "Personal Relationship Management",
+          "title": "Knowledge Management",
           "items": [
-            "Individual pages for each contact",
-            "Meeting notes and interaction history",
-            "Digital \"Rolodex\" system",
-            "Follow-up reminders"
+            "Documentation organization",
+            "Wiki creation",
+            "Knowledge base building",
+            "Information architecture"
           ]
         },
         {
-          "title": "Documentation",
+          "title": "Project Management",
           "items": [
-            "Project documentation",
-            "Personal wiki",
-            "Process documentation",
-            "Quick reference guides"
-          ]
-        },
-        {
-          "title": "Project Planning",
-          "items": [
-            "Simple kanban boards",
             "Task tracking",
-            "Timeline planning",
+            "Project planning",
+            "Team collaboration",
             "Resource organization"
+          ]
+        },
+        {
+          "title": "Personal Organization",
+          "items": [
+            "Note taking",
+            "Personal wiki",
+            "Task management",
+            "Information tracking"
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -816,36 +771,8 @@
         "Some models have restrictions"
       ],
       "url": "https://openrouter.ai/",
-      "useCases": [
-        {
-          "title": "LLM Integration",
-          "items": [
-            "Multi-model access",
-            "Cost optimization",
-            "Uptime reliability",
-            "Unified API calls"
-          ]
-        },
-        {
-          "title": "Model Selection",
-          "items": [
-            "Performance comparison",
-            "Cost management",
-            "Feature exploration",
-            "Fallback options"
-          ]
-        },
-        {
-          "title": "Development Workflow",
-          "items": [
-            "API integration",
-            "Response handling",
-            "Error management",
-            "Usage monitoring"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -868,36 +795,60 @@
         "Installation space needed"
       ],
       "url": "https://pinokio.computer/",
+      "useCases": [],
+      "addedOn": null,
+      "recommendedBy": null
+    },
+    {
+      "id": "npm",
+      "title": "NPM",
+      "status": "Using",
+      "category": "Development",
+      "description": "Node Package Manager, the standard package manager for JavaScript and Node.js applications",
+      "howToUse": [
+        "Install packages with npm install",
+        "Initialize projects with npm init",
+        "Run scripts defined in package.json",
+        "Manage dependencies and devDependencies",
+        "Publish packages to npm registry"
+      ],
+      "caveats": [
+        "Can be slower than alternatives like pnpm",
+        "Global installations can cause version conflicts",
+        "Large node_modules folder size",
+        "Flat dependency tree can cause issues"
+      ],
+      "url": "https://www.npmjs.com/",
       "useCases": [
         {
-          "title": "Application Management",
+          "title": "Package Management",
           "items": [
-            "One-click installations",
-            "Service monitoring",
-            "Process control",
-            "Resource management"
+            "Dependency installation",
+            "Version management",
+            "Package publishing",
+            "Registry interaction"
           ]
         },
         {
-          "title": "Development Environment",
+          "title": "Project Setup",
           "items": [
-            "Local server setup",
-            "AI model deployment",
-            "Database management",
-            "Service orchestration"
+            "Project initialization",
+            "Script configuration",
+            "Dependency management",
+            "Workspace setup"
           ]
         },
         {
-          "title": "Script Management",
+          "title": "Development Workflow",
           "items": [
-            "Verified script library",
-            "Custom script creation",
-            "Installation automation",
-            "Configuration management"
+            "Local development",
+            "CI/CD integration",
+            "Package distribution",
+            "Version control"
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2016",
       "recommendedBy": null
     },
     {
@@ -949,7 +900,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "05-12-2021",
       "recommendedBy": null
     },
     {
@@ -997,11 +948,12 @@
             "Process technical content",
             "Review study materials",
             "Listen to research papers",
-            "Absorb complex topics"
+            "Absorb complex topics",
+            "Helps with ADHD"
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -1053,7 +1005,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -1105,7 +1057,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -1124,8 +1076,36 @@
         "Some advanced features behind a paywall"
       ],
       "url": "https://super.so/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Documentation Sites",
+          "items": [
+            "Technical documentation",
+            "Product documentation",
+            "Knowledge bases",
+            "Team wikis"
+          ]
+        },
+        {
+          "title": "Portfolio Sites",
+          "items": [
+            "Personal portfolios",
+            "Project showcases",
+            "Team portfolios",
+            "Work samples"
+          ]
+        },
+        {
+          "title": "Content Publishing",
+          "items": [
+            "Blog sites",
+            "Newsletters",
+            "Content hubs",
+            "Resource centers"
+          ]
+        }
+      ],
+      "addedOn": "01-01-2025",
       "recommendedBy": null
     },
     {
@@ -1177,13 +1157,13 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "12-09-2023",
       "recommendedBy": null
     },
     {
       "id": "telegram",
       "title": "Telegram",
-      "status": "Using",
+      "status": "Suspended",
       "category": "Communication",
       "description": "Cross-platform messaging app with bot integration capabilities",
       "howToUse": [
@@ -1196,14 +1176,42 @@
         "Less ubiquitous than WhatsApp or iMessage in some circles"
       ],
       "url": "https://telegram.org/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Team Communication",
+          "items": [
+            "Group discussions",
+            "File sharing",
+            "Bot integration",
+            "Team coordination"
+          ]
+        },
+        {
+          "title": "Bot Development",
+          "items": [
+            "Automation tools",
+            "Notification systems",
+            "Service integration",
+            "Custom workflows"
+          ]
+        },
+        {
+          "title": "Community Building",
+          "items": [
+            "Community channels",
+            "Support groups",
+            "Announcement channels",
+            "Discussion forums"
+          ]
+        }
+      ],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
       "id": "todesktop",
       "title": "ToDesktop",
-      "status": "Using",
+      "status": "Plan to Try",
       "category": "Development",
       "description": "No-code platform for converting web applications into native desktop apps with Electron, featuring native functionality and customizable UI",
       "howToUse": [
@@ -1220,38 +1228,8 @@
         "Distribution setup needed"
       ],
       "url": "https://todesktop.com/",
-      "useCases": [
-        {
-          "title": "App Conversion",
-          "items": [
-            "Web to desktop migration",
-            "Native feature integration",
-            "UI customization",
-            "Cross-platform support"
-          ]
-        },
-        {
-          "title": "Native Features",
-          "items": [
-            "System notifications",
-            "Global shortcuts",
-            "File system access",
-            "Offline support",
-            "Tray integration"
-          ]
-        },
-        {
-          "title": "Distribution Management",
-          "items": [
-            "Auto-updates",
-            "Code signing",
-            "Download analytics",
-            "Version control",
-            "CDN distribution"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -1274,36 +1252,8 @@
         "Browser compatibility"
       ],
       "url": "https://www.unicorn.studio/",
-      "useCases": [
-        {
-          "title": "3D Web Design",
-          "items": [
-            "Interactive websites",
-            "Portfolio showcases",
-            "Product presentations",
-            "Immersive experiences"
-          ]
-        },
-        {
-          "title": "WebGL Integration",
-          "items": [
-            "3D animations",
-            "Interactive elements",
-            "Custom effects",
-            "Performance optimization"
-          ]
-        },
-        {
-          "title": "Site Building",
-          "items": [
-            "No-code development",
-            "Visual editing",
-            "Component design",
-            "Responsive layouts"
-          ]
-        }
-      ],
-      "addedOn": "2025-01-01",
+      "useCases": [],
+      "addedOn": null,
       "recommendedBy": null
     },
     {
@@ -1357,7 +1307,7 @@
           ]
         }
       ],
-      "addedOn": "2025-01-01",
+      "addedOn": "2-15-2025",
       "recommendedBy": null
     },
     {
@@ -1383,8 +1333,348 @@
         "Algorithms may not always surface the most educational content"
       ],
       "url": "https://www.youtube.com/",
-      "useCases": [],
-      "addedOn": "2025-01-01",
+      "useCases": [
+        {
+          "title": "Learning and Education",
+          "items": [
+            "Technical tutorials",
+            "Skill development",
+            "Concept explanation",
+            "Best practices"
+          ]
+        },
+        {
+          "title": "Research and Reference",
+          "items": [
+            "Technical documentation",
+            "Product reviews",
+            "Industry insights",
+            "Case studies"
+          ]
+        },
+        {
+          "title": "Professional Development",
+          "items": [
+            "Industry trends",
+            "Expert interviews",
+            "Conference talks",
+            "Professional insights"
+          ]
+        }
+      ],
+      "addedOn": "3-12-2010",
+      "recommendedBy": null
+    },
+    {
+      "id": "bland-ai",
+      "title": "Bland.ai",
+      "status": "Using",
+      "category": "AI",
+      "description": "AI-powered voice calling platform that enables automated phone calls with natural-sounding voices",
+      "howToUse": [
+        "Set up API key and configuration",
+        "Define call scripts and voice parameters",
+        "Configure call routing and handling",
+        "Monitor call analytics and performance",
+        "Integrate with existing systems"
+      ],
+      "caveats": [
+        "Requires careful script design for natural conversations",
+        "Voice quality varies by model",
+        "Costs scale with usage",
+        "Need to handle call failures gracefully"
+      ],
+      "url": "https://bland.ai/",
+      "useCases": [
+        {
+          "title": "Automated Calling",
+          "items": [
+            "Appointment reminders",
+            "Customer follow-ups",
+            "Survey calls",
+            "Information dissemination"
+          ]
+        },
+        {
+          "title": "Business Automation",
+          "items": [
+            "Customer service calls",
+            "Lead qualification",
+            "Order confirmations",
+            "Service notifications"
+          ]
+        },
+        {
+          "title": "Integration Features",
+          "items": [
+            "CRM integration",
+            "Call analytics",
+            "Custom call routing",
+            "Response handling"
+          ]
+        }
+      ],
+      "addedOn": "01-15-2025",
+      "recommendedBy": null
+    },
+    {
+      "id": "anki",
+      "title": "Anki",
+      "status": "Using",
+      "category": "Learning",
+      "description": "Spaced repetition flashcard program that helps with efficient memorization and long-term retention",
+      "howToUse": [
+        "Create decks for different subjects",
+        "Add cards with questions and answers",
+        "Review cards daily using spaced repetition",
+        "Use tags for organization",
+        "Sync across devices"
+      ],
+      "caveats": [
+        "Requires consistent daily review",
+        "Initial setup can be time-consuming",
+        "Learning curve for advanced features",
+        "Mobile app requires separate purchase"
+      ],
+      "url": "https://apps.ankiweb.net/",
+      "useCases": [
+        {
+          "title": "Language Learning",
+          "items": [
+            "Vocabulary building",
+            "Grammar rules",
+            "Phrase memorization",
+            "Character recognition"
+          ]
+        },
+        {
+          "title": "Technical Learning",
+          "items": [
+            "Programming concepts",
+            "Technical terms",
+            "Command memorization",
+            "API documentation"
+          ]
+        },
+        {
+          "title": "General Knowledge",
+          "items": [
+            "Fact memorization",
+            "Concept reinforcement",
+            "Exam preparation",
+            "Skill retention"
+          ]
+        }
+      ],
+      "addedOn": "06-22-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "replit",
+      "title": "Replit",
+      "status": "Using",
+      "category": "Development",
+      "description": "Cloud-based development environment that enables coding in any language with zero setup",
+      "howToUse": [
+        "Create new projects or import existing ones",
+        "Use built-in terminal and editor",
+        "Collaborate in real-time",
+        "Deploy directly from the platform",
+        "Use templates for quick starts"
+      ],
+      "caveats": [
+        "Limited resources on free tier",
+        "Internet connection required",
+        "Some advanced features need paid plan",
+        "Performance varies by project size"
+      ],
+      "url": "https://replit.com/",
+      "useCases": [
+        {
+          "title": "Rapid Development",
+          "items": [
+            "Quick prototyping",
+            "Code testing",
+            "Project experimentation",
+            "Learning new languages"
+          ]
+        },
+        {
+          "title": "Collaboration",
+          "items": [
+            "Pair programming",
+            "Team projects",
+            "Code sharing",
+            "Real-time editing"
+          ]
+        },
+        {
+          "title": "Education",
+          "items": [
+            "Teaching programming",
+            "Student assignments",
+            "Code demonstrations",
+            "Workshop environments"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2023",
+      "recommendedBy": null
+    },
+    {
+      "id": "creality-k1",
+      "title": "Creality K1",
+      "status": "Using",
+      "category": "Hardware",
+      "description": "High-speed 3D printer with advanced features for rapid prototyping and production",
+      "howToUse": [
+        "Set up printer and level bed",
+        "Load and prepare filament",
+        "Slice models with Creality software",
+        "Monitor print progress",
+        "Perform maintenance as needed"
+      ],
+      "caveats": [
+        "Requires regular maintenance",
+        "Filament costs can add up",
+        "Learning curve for optimal settings",
+        "Need to handle failed prints"
+      ],
+      "url": "https://www.creality.com/products/k1-3d-printer",
+      "useCases": [
+        {
+          "title": "Prototyping",
+          "items": [
+            "Product design",
+            "Concept validation",
+            "Iterative testing",
+            "Functional prototypes"
+          ]
+        },
+        {
+          "title": "Production",
+          "items": [
+            "Small batch manufacturing",
+            "Custom parts",
+            "Replacement components",
+            "Specialized tools"
+          ]
+        },
+        {
+          "title": "Education",
+          "items": [
+            "Design learning",
+            "Engineering projects",
+            "Creative exploration",
+            "Technical education"
+          ]
+        }
+      ],
+      "addedOn": "01-05-2025",
+      "recommendedBy": null
+    },
+    {
+      "id": "snipaste",
+      "title": "Snipaste",
+      "status": "Using",
+      "category": "Productivity",
+      "description": "Powerful screenshot and image editing tool with advanced features for productivity",
+      "howToUse": [
+        "Use F1 for quick screenshot",
+        "Edit screenshots with built-in tools",
+        "Pin images to screen",
+        "Use color picker",
+        "Customize keyboard shortcuts"
+      ],
+      "caveats": [
+        "Windows only",
+        "Some features need pro version",
+        "Memory usage with many pinned images",
+        "Learning curve for advanced features"
+      ],
+      "url": "https://www.snipaste.com/",
+      "useCases": [
+        {
+          "title": "Screenshot Management",
+          "items": [
+            "Quick captures",
+            "Image editing",
+            "Annotation tools",
+            "Multiple monitor support"
+          ]
+        },
+        {
+          "title": "Workflow Enhancement",
+          "items": [
+            "Reference pinning",
+            "Color picking",
+            "Image comparison",
+            "Quick sharing"
+          ]
+        },
+        {
+          "title": "Documentation",
+          "items": [
+            "Tutorial creation",
+            "Bug reporting",
+            "Design feedback",
+            "Process documentation"
+          ]
+        }
+      ],
+      "addedOn": "08-10-2021",
+      "recommendedBy": null
+    },
+    {
+      "id": "raspberry-pi",
+      "title": "Raspberry Pi",
+      "status": "Using",
+      "category": "Hardware",
+      "description": "Versatile single-board computer used for IoT projects, automation, and edge computing, particularly for plant monitoring and ML model deployment",
+      "howToUse": [
+        "Set up Raspberry Pi OS",
+        "Configure camera module",
+        "Set up scheduled tasks",
+        "Connect to cloud services",
+        "Deploy ML models"
+      ],
+      "caveats": [
+        "Limited processing power for complex ML",
+        "Requires stable power supply",
+        "Network dependency for cloud integration",
+        "Environmental considerations for outdoor use"
+      ],
+      "url": "https://www.raspberrypi.com/",
+      "useCases": [
+        {
+          "title": "Plant Monitoring",
+          "items": [
+            "Automated image capture",
+            "Growth tracking",
+            "Disease detection",
+            "Environmental monitoring"
+          ]
+        },
+        {
+          "title": "ML Pipeline",
+          "items": [
+            "Image data collection",
+            "Cloud integration",
+            "Model deployment",
+            "Automated analysis"
+          ]
+        },
+        {
+          "title": "IoT Integration",
+          "items": [
+            "Sensor management",
+            "Data aggregation",
+            "Cloud synchronization",
+            "Automated scheduling"
+          ]
+        }
+      ],
+      "addedOn": "07-15-2023",
       "recommendedBy": null
     }
   ]
