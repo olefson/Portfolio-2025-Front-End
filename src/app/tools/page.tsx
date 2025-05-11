@@ -10,16 +10,19 @@ export default function ToolsPage() {
   const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    fetch('/api/dev/content')
+    fetch('/api/tools')
       .then(res => res.json())
       .then(data => {
-        setTools(data.tools)
+        setTools(data)
+      })
+      .catch(error => {
+        console.error('Error fetching tools:', error)
       })
   }, [])
 
   // Filter tools based on search term
   const filteredTools = tools.filter(tool => 
-    tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
     tool.category.toLowerCase().includes(searchTerm.toLowerCase())
   );

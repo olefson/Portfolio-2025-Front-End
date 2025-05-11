@@ -15,16 +15,23 @@ export enum ProcessCategory {
   Other = "Other",
 }
 
+export interface UseCase {
+  title: string;
+  description: string;
+}
+
 export interface Tool {
   id: string;
   name: string;
   description: string;
   category: ToolCategory;
-  iconUrl?: string;
-  link?: string;
+  iconUrl: string | null;
+  link: string | null;
   status: string;
+  acquired: Date;
   createdBy: string;
-  updatedAt: string;
+  updatedAt: Date;
+  useCases?: UseCase[];
 }
 
 export interface Process {

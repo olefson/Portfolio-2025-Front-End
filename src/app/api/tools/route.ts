@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
+import { Tool } from "@prisma/client"
 
 export async function GET() {
   try {
@@ -19,19 +20,25 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-    const tool = await prisma.tool.create({
-      data: {
-        name: data.name,
-        description: data.description,
-        category: data.category,
-        iconUrl: data.iconUrl,
-        link: data.link,
-        status: data.status,
-        acquired: new Date(), // Set to current date/time
-        createdBy: "admin", // TODO: Replace with actual user ID
-      },
-    })
-    return NextResponse.json(tool)
+    const result = await prisma.$queryRaw<Tool[]>`
+      INSERT INTO "Tool" (
+        id, name, description, category, "iconUrl", link, status, acquired, "createdBy", "updatedAt", "useCases"
+      ) VALUES (
+        gen_random_uuid(),
+        ${data.name},
+        ${data.description},
+        ${data.category}::"ToolCategory",
+        ${data.iconUrl},
+        ${data.link},
+        ${data.status},
+        ${new Date()},
+        'admin',
+        ${new Date()},
+        ${data.useCases ? JSON.stringify(data.useCases) : null}::jsonb
+      )
+      RETURNING *
+    `
+    return NextResponse.json(result[0])
   } catch (error) {
     console.error("Error in POST /api/tools:", error)
     return NextResponse.json(

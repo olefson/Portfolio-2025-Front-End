@@ -1676,6 +1676,671 @@
       ],
       "addedOn": "07-15-2023",
       "recommendedBy": null
+    },
+    {
+      "id": "stripe",
+      "title": "Stripe",
+      "status": "Using",
+      "category": "Development",
+      "description": "Payment processing platform for handling online transactions and subscriptions",
+      "howToUse": [
+        "Set up API keys",
+        "Implement payment flows",
+        "Handle webhooks",
+        "Manage subscriptions"
+      ],
+      "caveats": [
+        "Requires careful security implementation",
+        "Transaction fees apply",
+        "Need to handle failed payments"
+      ],
+      "url": "https://stripe.com",
+      "useCases": [
+        {
+          "title": "Payment Processing",
+          "items": [
+            "Credit card payments",
+            "Subscription billing",
+            "Payment intents",
+            "Refund handling"
+          ]
+        },
+        {
+          "title": "Business Operations",
+          "items": [
+            "Revenue tracking",
+            "Customer management",
+            "Invoice generation",
+            "Tax compliance"
+          ]
+        }
+      ],
+      "addedOn": "01-15-2025",
+      "recommendedBy": null
+    },
+    {
+      "id": "aws",
+      "title": "AWS",
+      "status": "Using",
+      "category": "Development",
+      "description": "Amazon Web Services cloud platform providing various infrastructure and platform services",
+      "howToUse": [
+        "Set up AWS account",
+        "Configure IAM roles",
+        "Deploy services",
+        "Monitor usage"
+      ],
+      "caveats": [
+        "Costs can scale quickly",
+        "Complex service ecosystem",
+        "Security configuration required"
+      ],
+      "url": "https://aws.amazon.com",
+      "useCases": [
+        {
+          "title": "Infrastructure",
+          "items": [
+            "EC2 instances",
+            "S3 storage",
+            "Lambda functions",
+            "CloudFront CDN"
+          ]
+        },
+        {
+          "title": "Database Services",
+          "items": [
+            "RDS databases",
+            "DynamoDB",
+            "ElastiCache",
+            "DocumentDB"
+          ]
+        },
+        {
+          "title": "DevOps",
+          "items": [
+            "CI/CD pipelines",
+            "Container orchestration",
+            "Monitoring and logging",
+            "Auto-scaling"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "react",
+      "title": "React",
+      "status": "Using",
+      "category": "Development",
+      "description": "JavaScript library for building user interfaces with component-based architecture",
+      "howToUse": [
+        "Create components",
+        "Manage state",
+        "Handle routing",
+        "Implement hooks"
+      ],
+      "caveats": [
+        "Learning curve for complex patterns",
+        "Need to understand JavaScript well",
+        "Performance optimization required"
+      ],
+      "url": "https://reactjs.org",
+      "useCases": [
+        {
+          "title": "Frontend Development",
+          "items": [
+            "Single page applications",
+            "Component libraries",
+            "Interactive UIs",
+            "Real-time updates"
+          ]
+        },
+        {
+          "title": "State Management",
+          "items": [
+            "Local state",
+            "Context API",
+            "Redux integration",
+            "Data fetching"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "python",
+      "title": "Python",
+      "status": "Using",
+      "category": "Development",
+      "description": "Versatile programming language known for readability and extensive libraries",
+      "howToUse": [
+        "Write scripts",
+        "Use virtual environments",
+        "Install packages",
+        "Run applications"
+      ],
+      "caveats": [
+        "Slower than compiled languages",
+        "GIL limitations",
+        "Version compatibility"
+      ],
+      "url": "https://python.org",
+      "useCases": [
+        {
+          "title": "Data Science",
+          "items": [
+            "Data analysis",
+            "Machine learning",
+            "Scientific computing",
+            "Data visualization"
+          ]
+        },
+        {
+          "title": "Web Development",
+          "items": [
+            "Backend services",
+            "API development",
+            "Web scraping",
+            "Automation"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "javascript",
+      "title": "JavaScript",
+      "status": "Using",
+      "category": "Development",
+      "description": "Core programming language for web development and modern applications",
+      "howToUse": [
+        "Write scripts",
+        "Use ES6+ features",
+        "Handle async operations",
+        "Work with APIs"
+      ],
+      "caveats": [
+        "Browser compatibility",
+        "Async complexity",
+        "Type safety needs"
+      ],
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "useCases": [
+        {
+          "title": "Web Development",
+          "items": [
+            "Frontend logic",
+            "DOM manipulation",
+            "Event handling",
+            "API integration"
+          ]
+        },
+        {
+          "title": "Server Development",
+          "items": [
+            "Node.js applications",
+            "API servers",
+            "CLI tools",
+            "Automation scripts"
+          ]
+        }
+      ],
+      "addedOn": "06-15-2021",
+      "recommendedBy": null
+    },
+    {
+      "id": "mongodb",
+      "title": "MongoDB",
+      "status": "Using",
+      "category": "Development",
+      "description": "NoSQL database for flexible, document-based data storage",
+      "howToUse": [
+        "Set up database",
+        "Create collections",
+        "Write queries",
+        "Handle indexing"
+      ],
+      "caveats": [
+        "Schema validation needed",
+        "Memory usage",
+        "Scaling complexity"
+      ],
+      "url": "https://mongodb.com",
+      "useCases": [
+        {
+          "title": "Data Storage",
+          "items": [
+            "Document storage",
+            "Real-time data",
+            "Content management",
+            "User data"
+          ]
+        },
+        {
+          "title": "Analytics",
+          "items": [
+            "Data aggregation",
+            "Real-time analytics",
+            "Reporting",
+            "Data processing"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "rabbitmq",
+      "title": "RabbitMQ",
+      "status": "Using",
+      "category": "Development",
+      "description": "Message broker for handling asynchronous communication between services",
+      "howToUse": [
+        "Set up queues",
+        "Configure exchanges",
+        "Handle routing",
+        "Monitor messages"
+      ],
+      "caveats": [
+        "Message persistence needed",
+        "Queue management",
+        "Error handling"
+      ],
+      "url": "https://rabbitmq.com",
+      "useCases": [
+        {
+          "title": "Message Queuing",
+          "items": [
+            "Service communication",
+            "Task distribution",
+            "Event handling",
+            "Load balancing"
+          ]
+        },
+        {
+          "title": "System Integration",
+          "items": [
+            "Microservices",
+            "Event-driven architecture",
+            "Background jobs",
+            "Real-time updates"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "postgresql",
+      "title": "PostgreSQL",
+      "status": "Using",
+      "category": "Development",
+      "description": "Advanced open-source relational database with robust features",
+      "howToUse": [
+        "Create databases",
+        "Write queries",
+        "Manage schemas",
+        "Handle transactions"
+      ],
+      "caveats": [
+        "Performance tuning needed",
+        "Backup management",
+        "Connection pooling"
+      ],
+      "url": "https://postgresql.org",
+      "useCases": [
+        {
+          "title": "Data Storage",
+          "items": [
+            "Structured data",
+            "Complex queries",
+            "Data integrity",
+            "Transactions"
+          ]
+        },
+        {
+          "title": "Advanced Features",
+          "items": [
+            "JSON support",
+            "Full-text search",
+            "Geospatial data",
+            "Custom functions"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "wordpress",
+      "title": "WordPress",
+      "status": "Using",
+      "category": "Development",
+      "description": "Content management system for building websites and blogs",
+      "howToUse": [
+        "Install themes",
+        "Add plugins",
+        "Create content",
+        "Manage users"
+      ],
+      "caveats": [
+        "Security updates needed",
+        "Plugin compatibility",
+        "Performance optimization"
+      ],
+      "url": "https://wordpress.org",
+      "useCases": [
+        {
+          "title": "Content Management",
+          "items": [
+            "Blog creation",
+            "Website building",
+            "Content publishing",
+            "Media management"
+          ]
+        },
+        {
+          "title": "Customization",
+          "items": [
+            "Theme development",
+            "Plugin creation",
+            "Custom post types",
+            "API integration"
+          ]
+        }
+      ],
+      "addedOn": "06-15-2021",
+      "recommendedBy": null
+    },
+    {
+      "id": "docker",
+      "title": "Docker",
+      "status": "Using",
+      "category": "Development",
+      "description": "Containerization platform for building, shipping, and running applications",
+      "howToUse": [
+        "Create Dockerfiles",
+        "Build images",
+        "Run containers",
+        "Manage networks"
+      ],
+      "caveats": [
+        "Resource management",
+        "Security configuration",
+        "Volume persistence"
+      ],
+      "url": "https://docker.com",
+      "useCases": [
+        {
+          "title": "Development",
+          "items": [
+            "Environment consistency",
+            "Local development",
+            "Testing environments",
+            "CI/CD pipelines"
+          ]
+        },
+        {
+          "title": "Deployment",
+          "items": [
+            "Container orchestration",
+            "Service scaling",
+            "Load balancing",
+            "Microservices"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "tensorflow",
+      "title": "TensorFlow",
+      "status": "Using",
+      "category": "Development",
+      "description": "Open-source machine learning framework for building and training models",
+      "howToUse": [
+        "Build models",
+        "Train networks",
+        "Deploy solutions",
+        "Use pre-trained models"
+      ],
+      "caveats": [
+        "GPU requirements",
+        "Learning curve",
+        "Resource intensive"
+      ],
+      "url": "https://tensorflow.org",
+      "useCases": [
+        {
+          "title": "Machine Learning",
+          "items": [
+            "Neural networks",
+            "Deep learning",
+            "Model training",
+            "Inference"
+          ]
+        },
+        {
+          "title": "AI Development",
+          "items": [
+            "Computer vision",
+            "Natural language processing",
+            "Time series analysis",
+            "Recommendation systems"
+          ]
+        }
+      ],
+      "addedOn": "01-15-2023",
+      "recommendedBy": null
+    },
+    {
+      "id": "heroku",
+      "title": "Heroku",
+      "status": "Using",
+      "category": "Development",
+      "description": "Cloud platform for deploying and managing applications",
+      "howToUse": [
+        "Deploy applications",
+        "Configure add-ons",
+        "Scale dynos",
+        "Monitor performance"
+      ],
+      "caveats": [
+        "Cost scaling",
+        "Resource limits",
+        "Sleep mode on free tier"
+      ],
+      "url": "https://heroku.com",
+      "useCases": [
+        {
+          "title": "Application Deployment",
+          "items": [
+            "Web applications",
+            "API services",
+            "Background workers",
+            "Database hosting"
+          ]
+        },
+        {
+          "title": "Development",
+          "items": [
+            "Staging environments",
+            "CI/CD pipelines",
+            "Team collaboration",
+            "Add-on integration"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "keras",
+      "title": "Keras",
+      "status": "Using",
+      "category": "Development",
+      "description": "High-level neural network API for building and training deep learning models",
+      "howToUse": [
+        "Build models",
+        "Train networks",
+        "Evaluate performance",
+        "Save and load models"
+      ],
+      "caveats": [
+        "Backend dependency",
+        "Performance overhead",
+        "Version compatibility"
+      ],
+      "url": "https://keras.io",
+      "useCases": [
+        {
+          "title": "Deep Learning",
+          "items": [
+            "Neural networks",
+            "Model prototyping",
+            "Transfer learning",
+            "Model evaluation"
+          ]
+        },
+        {
+          "title": "Research",
+          "items": [
+            "Experiment design",
+            "Model architecture",
+            "Hyperparameter tuning",
+            "Visualization"
+          ]
+        }
+      ],
+      "addedOn": "01-15-2023",
+      "recommendedBy": null
+    },
+    {
+      "id": "pytorch",
+      "title": "PyTorch",
+      "status": "Using",
+      "category": "Development",
+      "description": "Deep learning framework for building and training neural networks",
+      "howToUse": [
+        "Create tensors",
+        "Build models",
+        "Train networks",
+        "Deploy models"
+      ],
+      "caveats": [
+        "GPU requirements",
+        "Memory management",
+        "Learning curve"
+      ],
+      "url": "https://pytorch.org",
+      "useCases": [
+        {
+          "title": "Deep Learning",
+          "items": [
+            "Neural networks",
+            "Computer vision",
+            "NLP models",
+            "Reinforcement learning"
+          ]
+        },
+        {
+          "title": "Research",
+          "items": [
+            "Model development",
+            "Experiment tracking",
+            "Custom layers",
+            "Model optimization"
+          ]
+        }
+      ],
+      "addedOn": "01-15-2023",
+      "recommendedBy": null
+    },
+    {
+      "id": "postman",
+      "title": "Postman",
+      "status": "Using",
+      "category": "Development",
+      "description": "API development and testing platform",
+      "howToUse": [
+        "Create requests",
+        "Build collections",
+        "Write tests",
+        "Share APIs"
+      ],
+      "caveats": [
+        "Team features need subscription",
+        "Environment management",
+        "Version control"
+      ],
+      "url": "https://postman.com",
+      "useCases": [
+        {
+          "title": "API Development",
+          "items": [
+            "Request testing",
+            "API documentation",
+            "Collection sharing",
+            "Environment setup"
+          ]
+        },
+        {
+          "title": "Testing",
+          "items": [
+            "Automated tests",
+            "Performance testing",
+            "Integration testing",
+            "Mock servers"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
+    },
+    {
+      "id": "sql",
+      "title": "SQL",
+      "status": "Using",
+      "category": "Development",
+      "description": "Standard language for managing and manipulating relational databases",
+      "howToUse": [
+        "Write queries",
+        "Create tables",
+        "Manage data",
+        "Optimize performance"
+      ],
+      "caveats": [
+        "Query optimization needed",
+        "Security considerations",
+        "Data integrity"
+      ],
+      "url": "https://www.w3schools.com/sql/",
+      "useCases": [
+        {
+          "title": "Database Management",
+          "items": [
+            "Data querying",
+            "Table creation",
+            "Data modification",
+            "Index management"
+          ]
+        },
+        {
+          "title": "Data Analysis",
+          "items": [
+            "Complex queries",
+            "Data aggregation",
+            "Reporting",
+            "Data transformation"
+          ]
+        }
+      ],
+      "addedOn": "03-15-2022",
+      "recommendedBy": null
     }
   ]
 }

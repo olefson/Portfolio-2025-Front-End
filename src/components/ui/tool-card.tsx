@@ -64,7 +64,30 @@ const getStatusTooltip = (status: Tool['status']): string => {
   }
 }
 
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'Using':
+      return 'bg-green-600 text-white';
+    case 'Plan to Try':
+      return 'bg-blue-500 text-white';
+    case 'Archived':
+      return 'bg-gray-500 text-white';
+    case 'Building':
+      return 'bg-amber-500 text-white animate-pulse shadow-lg shadow-amber-200/50 dark:shadow-amber-900/50';
+    case 'Plan to Build':
+      return 'bg-purple-500 text-white';
+    case 'Trying':
+      return 'bg-sky-500 text-white';
+    case 'Retired':
+      return 'bg-rose-500 text-white';
+    default:
+      return 'bg-muted text-foreground';
+  }
+}
+
 export function ToolCard({ tool, showContent = false }: ToolCardProps) {
+  console.log('ToolCard render:', { showContent, useCases: tool.useCases });
+  const acquiredDate = new Date(tool.acquired);
   const handleCardClick = (e: React.MouseEvent) => {
     // If clicking the badge, don't navigate
     if (e.target instanceof Element && e.target.closest('.badge')) {
@@ -88,14 +111,15 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="flex items-center gap-3">
                 <ToolLogo
-                  src={getToolLogo(tool.id)}
-                  alt={`${tool.title} logo`}
+                  src={tool.iconUrl || getToolLogo(tool.id)}
+                  alt={`${tool.name} logo`}
                 />
                 <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors truncate">
-                  {tool.title}
+                  {tool.name}
                 </CardTitle>
               </div>
-              <TooltipProvider delayDuration={0}>
+              
+              <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button 
@@ -106,26 +130,7 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
                       }}
                     >
                       <Badge
-                        variant={
-                          tool.status === "Using"
-                            ? "default"
-                            : tool.status === "Plan to Try"
-                            ? "secondary"
-                            : tool.status === "Building"
-                            ? "gold"
-                            : tool.status === "Plan to Build"
-                            ? "monochrome"
-                            : tool.status === "Trying"
-                            ? "default"
-                            : "destructive"
-                        }
-                        className={`w-fit badge ${
-                          tool.status === "Building"
-                            ? "bg-amber-500 hover:bg-amber-600 animate-pulse shadow-lg shadow-amber-200/50 dark:shadow-amber-900/50"
-                            : tool.status === "Trying"
-                            ? "bg-blue-500 hover:bg-blue-600"
-                            : ""
-                        }`}
+                        className={`w-fit badge ${getStatusColor(tool.status)}`}
                       >
                         {tool.status}
                       </Badge>
@@ -137,69 +142,45 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <div className="flex gap-2 flex-wrap justify-center">
+            
+            <div className="flex justify-center gap-2 flex-wrap">
               <Badge variant="outline">{tool.category}</Badge>
-              {tool.addedOn && (
-                <Badge variant="outline" className="text-xs">
-                  Added {new Date(tool.addedOn).toLocaleDateString()}
-                </Badge>
-              )}
+              <Badge variant="outline" className="text-xs">
+                Added {acquiredDate.toLocaleDateString()}
+              </Badge>
             </div>
           </CardHeader>
           <CardContent className="flex-1 space-y-6">
             <p className="text-muted-foreground text-center">
               {tool.description}
             </p>
-            {showContent && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-6">
-                  {/* Use Cases Section */}
-                  {tool.useCases && tool.useCases.length > 0 && (
-                    <div className="space-y-4">
-                      <h2 className="text-lg font-semibold">Use Cases</h2>
-                      {tool.useCases.map((useCase, index) => (
-                        <div key={index} className="space-y-2">
-                          <h3 className="text-sm font-medium text-muted-foreground">{useCase.title}</h3>
-                          <ul className="list-disc pl-4 space-y-1">
-                            {useCase.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="text-sm text-muted-foreground">{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+            {showContent && tool.useCases && tool.useCases.length > 0 && (
+              <div className="mt-6">
+                <h2 className="text-lg font-semibold mb-2">Use Cases</h2>
+                <div className="space-y-4">
+                  {tool.useCases.map((useCase, idx) => (
+                    <div key={idx} className="space-y-1">
+                      <h3 className="text-md font-medium">{useCase.title}</h3>
+                      <ul className="list-disc pl-6">
+                        {useCase.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className="text-sm text-muted-foreground">{item}</li>
+                        ))}
+                      </ul>
                     </div>
-                  )}
-                </div>
-                <div className="space-y-6">
-                  {/* Pro Tips Section */}
-                  {tool.tips && tool.tips.length > 0 && (
-                    <div className="space-y-4">
-                      <h2 className="text-lg font-semibold">Pro Tips</h2>
-                      {tool.tips.map((tip, index) => (
-                        <div key={index} className="space-y-2">
-                          <h3 className="text-sm font-medium text-muted-foreground">{tip.title}</h3>
-                          <ul className="list-disc pl-4 space-y-1">
-                            {tip.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="text-sm text-muted-foreground">{item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  ))}
                 </div>
               </div>
             )}
           </CardContent>
         </Card>
       </GlowCard>
-      {tool.url && (
+      {tool.link && (
         <div className="mt-2 px-6 text-center">
           <ExternalLink 
-            href={tool.url}
+            href={tool.link}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            {tool.url} ↗
+            {tool.link} ↗
           </ExternalLink>
         </div>
       )}
