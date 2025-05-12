@@ -8,14 +8,24 @@ export async function GET(
   try {
     const tool = await prisma.tool.findUnique({
       where: { id: params.id },
-    })
+    }) as any;
     if (!tool) {
       return NextResponse.json(
         { error: "Tool not found" },
         { status: 404 }
       )
     }
-    return NextResponse.json(tool)
+    let useCases = [];
+    if (tool['useCases']) {
+      try {
+        useCases = typeof tool['useCases'] === 'string'
+          ? JSON.parse(tool['useCases'])
+          : tool['useCases'];
+      } catch (e) {
+        useCases = [];
+      }
+    }
+    return NextResponse.json({ ...tool, useCases })
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to fetch tool" },
@@ -30,6 +40,7 @@ export async function PUT(
 ) {
   try {
     const data = await request.json()
+    let useCases = Array.isArray(data.useCases) ? data.useCases : [];
     const tool = await prisma.tool.update({
       where: { id: params.id },
       data: {
@@ -39,7 +50,8 @@ export async function PUT(
         iconUrl: data.iconUrl,
         link: data.link,
         status: data.status,
-      },
+        useCases,
+      } as any,
     })
     return NextResponse.json(tool)
   } catch (error) {

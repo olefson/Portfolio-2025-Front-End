@@ -20,25 +20,22 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-    const result = await prisma.$queryRaw<Tool[]>`
-      INSERT INTO "Tool" (
-        id, name, description, category, "iconUrl", link, status, acquired, "createdBy", "updatedAt", "useCases"
-      ) VALUES (
-        gen_random_uuid(),
-        ${data.name},
-        ${data.description},
-        ${data.category}::"ToolCategory",
-        ${data.iconUrl},
-        ${data.link},
-        ${data.status},
-        ${new Date()},
-        'admin',
-        ${new Date()},
-        ${data.useCases ? JSON.stringify(data.useCases) : null}::jsonb
-      )
-      RETURNING *
-    `
-    return NextResponse.json(result[0])
+    let useCases = Array.isArray(data.useCases) ? data.useCases : [];
+    const result = await prisma.tool.create({
+      data: {
+        name: data.name,
+        description: data.description,
+        category: data.category,
+        iconUrl: data.iconUrl,
+        link: data.link,
+        status: data.status,
+        acquired: data.acquired ? new Date(data.acquired) : new Date(),
+        createdBy: 'admin',
+        updatedAt: new Date(),
+        useCases,
+      } as any,
+    })
+    return NextResponse.json(result)
   } catch (error) {
     console.error("Error in POST /api/tools:", error)
     return NextResponse.json(
