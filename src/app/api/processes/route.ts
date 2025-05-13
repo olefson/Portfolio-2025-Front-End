@@ -3,9 +3,14 @@ import { prisma } from "@/lib/prisma"
 
 export async function GET() {
   try {
-    const processes = await prisma.process.findMany()
+    const processes = await prisma.process.findMany({
+      orderBy: {
+        acquired: 'desc'
+      }
+    })
     return NextResponse.json(processes)
   } catch (error) {
+    console.error('Error fetching processes:', error)
     return NextResponse.json(
       { error: "Failed to fetch processes" },
       { status: 500 }
@@ -25,10 +30,12 @@ export async function POST(request: Request) {
         category: data.category,
         tools: data.tools,
         createdBy: "admin", // TODO: Replace with actual user ID
+        acquired: new Date(), // Set acquired date to current date
       },
     })
     return NextResponse.json(process)
   } catch (error) {
+    console.error('Error creating process:', error)
     return NextResponse.json(
       { error: "Failed to create process" },
       { status: 500 }

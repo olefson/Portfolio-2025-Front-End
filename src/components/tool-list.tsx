@@ -1,12 +1,13 @@
 "use client"
 
+import * as React from "react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Tool, ToolCategory } from "@/types"
 import { Modal, ModalContent, ModalTitle, ModalDescription, ModalClose } from "@/components/ui/modal"
 import { ToolForm } from "@/components/tool-form"
-import React from "react"
-import { X } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle, X } from "lucide-react"
 
 function parseUseCases(raw: any): { title: string; items?: string[]; description?: string }[] {
   if (!raw) return [{ title: "", items: [""], description: "" }];
@@ -251,7 +252,8 @@ function ToolEditForm({ tool, onSave, onCancel }: { tool: Tool, onSave: (tool: T
 export function ToolList() {
   const [tools, setTools] = useState<Tool[]>([])
   const [loading, setLoading] = useState(true)
-  const [editing, setEditing] = useState<Tool | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [editing, setEditing] = useState<Tool | undefined>(undefined)
   const [editingLoading, setEditingLoading] = useState(false)
   const [search, setSearch] = useState("")
 
@@ -261,12 +263,17 @@ export function ToolList() {
 
   const fetchTools = async () => {
     try {
+      setError(null)
       const response = await fetch("http://localhost:3001/api/tools")
-      if (!response.ok) throw new Error("Failed to fetch tools")
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Failed to fetch tools")
+      }
       const data = await response.json()
       setTools(data)
     } catch (error) {
       console.error("Error fetching tools:", error)
+      setError(error instanceof Error ? error.message : "Failed to fetch tools")
     } finally {
       setLoading(false)
     }
@@ -275,12 +282,16 @@ export function ToolList() {
   const handleEditClick = async (toolId: string) => {
     setEditingLoading(true)
     try {
-      const response = await fetch(`http://localhost:3001/api/tools/${toolId}`)
-      if (!response.ok) throw new Error("Failed to fetch tool details")
+      const response = await fetch(`/api/tools/${toolId}`)
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Failed to fetch tool details")
+      }
       const fullTool = await response.json()
       setEditing(fullTool)
     } catch (error) {
       console.error("Error fetching tool details:", error)
+      setError(error instanceof Error ? error.message : "Failed to fetch tool details")
     } finally {
       setEditingLoading(false)
     }
@@ -288,23 +299,49 @@ export function ToolList() {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/tools/${id}`, {
+      const response = await fetch(`/api/tools/${id}`, {
         method: "DELETE",
       })
-      if (!response.ok) throw new Error("Failed to delete tool")
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Failed to delete tool")
+      }
       setTools(tools.filter((tool) => tool.id !== id))
     } catch (error) {
       console.error("Error deleting tool:", error)
+      setError(error instanceof Error ? error.message : "Failed to delete tool")
     }
   }
 
   const handleEditSave = (updated: Tool) => {
     setTools(tools.map(t => t.id === updated.id ? updated : t))
-    setEditing(null)
+    setEditing(undefined)
   }
 
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-muted-foreground">Loading tools...</div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <Alert variant="destructive">
+        <AlertCircle className="h-4 w-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>{error}</AlertDescription>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="mt-4"
+          onClick={fetchTools}
+        >
+          Try Again
+        </Button>
+      </Alert>
+    )
   }
 
   const filteredTools = tools.filter(tool =>
@@ -313,21 +350,30 @@ export function ToolList() {
     tool.category.toLowerCase().includes(search.toLowerCase())
   );
 
+  if (filteredTools.length === 0) {
+    return (
+      <div className="text-center p-8 text-muted-foreground">
+        No tools found. Create your first tool using the form.
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Tools List</h2>
-      <input
-        type="text"
-        placeholder="Search tools..."
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        className="input w-full mb-2 rounded-xl px-4 py-2 bg-muted/40 border border-border focus:ring-2 focus:ring-primary transition"
-      />
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search tools..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="w-full h-11 rounded-lg px-4 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
+        />
+      </div>
       <div className="grid gap-4">
         {filteredTools.map((tool) => (
           <div
             key={tool.id}
-            className="flex items-center justify-between p-4 border rounded-lg"
+            className="flex items-center justify-between p-4 border rounded-lg hover:border-primary/50 transition-colors"
           >
             <div>
               <h3 className="font-medium">{tool.name}</h3>
@@ -340,9 +386,23 @@ export function ToolList() {
                   {tool.status}
                 </span>
               </div>
+              {tool.useCases && tool.useCases.length > 0 && (
+                <div className="mt-2">
+                  <h4 className="text-sm font-medium">Use Cases:</h4>
+                  <ul className="list-disc list-inside text-sm text-muted-foreground">
+                    {tool.useCases.map((useCase, index) => (
+                      <li key={index}>{useCase.title}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => handleEditClick(tool.id)}>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => handleEditClick(tool.id)}
+              >
                 Edit
               </Button>
               <Button
@@ -356,21 +416,20 @@ export function ToolList() {
           </div>
         ))}
       </div>
-      {editing && (
-        <Modal open={!!editing} onOpenChange={open => !open && setEditing(null)}>
-          <ModalContent>
-            {editingLoading ? (
-              <div className="p-8 text-center">Loading tool details...</div>
-            ) : (
-              <ToolEditForm
-                tool={editing}
-                onSave={handleEditSave}
-                onCancel={() => setEditing(null)}
-              />
-            )}
-          </ModalContent>
-        </Modal>
-      )}
+
+      <Modal open={!!editing} onOpenChange={open => !open && setEditing(undefined)}>
+        <ModalContent>
+          {editingLoading ? (
+            <div className="p-8 text-center">Loading tool details...</div>
+          ) : editing && (
+            <ToolForm
+              tool={editing}
+              onSave={handleEditSave}
+              onCancel={() => setEditing(undefined)}
+            />
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   )
 } 
