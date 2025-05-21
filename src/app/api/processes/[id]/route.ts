@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
+import { prisma } from "@/lib/db"
 
 export async function GET(
   request: Request,
@@ -17,6 +17,7 @@ export async function GET(
     }
     return NextResponse.json(process)
   } catch (error) {
+    console.error("Error fetching process:", error)
     return NextResponse.json(
       { error: "Failed to fetch process" },
       { status: 500 }
@@ -43,6 +44,7 @@ export async function PUT(
     })
     return NextResponse.json(process)
   } catch (error) {
+    console.error("Error updating process:", error)
     return NextResponse.json(
       { error: "Failed to update process" },
       { status: 500 }
@@ -60,6 +62,7 @@ export async function DELETE(
     })
     return NextResponse.json({ message: "Process deleted successfully" })
   } catch (error) {
+    console.error("Error deleting process:", error)
     return NextResponse.json(
       { error: "Failed to delete process" },
       { status: 500 }

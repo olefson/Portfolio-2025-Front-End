@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
-import { Tool } from "@prisma/client"
+import { prisma } from "@/lib/db"
 
 export async function GET() {
   try {
@@ -20,7 +19,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-    let useCases = Array.isArray(data.useCases) ? data.useCases : [];
+    const useCases = Array.isArray(data.useCases) ? data.useCases : [];
     const result = await prisma.tool.create({
       data: {
         name: data.name,
@@ -33,7 +32,7 @@ export async function POST(request: Request) {
         createdBy: 'admin',
         updatedAt: new Date(),
         useCases,
-      } as any,
+      },
     })
     return NextResponse.json(result)
   } catch (error) {

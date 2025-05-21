@@ -1,10 +1,11 @@
 'use client'
 
-import { Tool, UseCase } from "@/types"
+import { Tool } from "@/types"
 import Link from "next/link"
 import { ChevronLeft, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
+import Image from 'next/image'
 
 interface ToolDetailsProps {
   tool: Tool
@@ -64,10 +65,12 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
               transition={{ type: "spring", stiffness: 300 }}
             >
               {tool.iconUrl && (
-                <img
+                <Image
                   src={tool.iconUrl}
                   alt={tool.name}
-                  className="object-cover w-full h-full"
+                  width={100}
+                  height={100}
+                  className="w-24 h-24 object-contain"
                 />
               )}
             </motion.div>

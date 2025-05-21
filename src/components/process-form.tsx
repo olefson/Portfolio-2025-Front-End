@@ -13,12 +13,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ProcessCategory, Process, Tool } from "@/types"
-import { X } from "lucide-react"
+import { X, Check, ChevronsUpDown, AlertCircle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Check, ChevronsUpDown } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 interface ProcessFormProps {
   process?: Process
@@ -72,6 +72,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSaving(true)
+    setError(null)
     console.log('Form submission started with data:', formData)
     
     try {
@@ -87,24 +88,40 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
       }
       
       // Validate required fields
+      if (!filteredData.title.trim()) {
+        throw new Error("Title is required")
+      }
+      if (!filteredData.description.trim()) {
+        throw new Error("Description is required")
+      }
       if (filteredData.steps.length === 0) {
         throw new Error("At least one step is required")
       }
       if (filteredData.tools.length === 0) {
         throw new Error("At least one tool is required")
       }
+      if (!filteredData.status) {
+        throw new Error("Status is required")
+      }
+      if (!filteredData.category) {
+        throw new Error("Category is required")
+      }
       
       // Format data according to backend schema
       const submitData = {
         ...filteredData,
-        acquired: new Date().toISOString()
+        acquired: new Date().toISOString(),
+        createdBy: "admin" // TODO: Replace with actual user ID
       }
       
       console.log('Submitting data:', submitData)
       
       const response = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify(submitData),
       })
       console.log('Response status:', response.status)
@@ -172,6 +189,14 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {error && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+      
       <div className="space-y-1">
         <h2 className="text-2xl font-bold">{process ? "Edit Process" : "Add New Process"}</h2>
         <p className="text-muted-foreground">

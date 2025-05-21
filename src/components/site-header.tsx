@@ -15,8 +15,12 @@ export function SiteHeader() {
 
   const routes = [
     {
-      href: "/",
-      label: "Home",
+      href: "/about",
+      label: "About Me",
+    },
+    {
+      href: "/projects",
+      label: "Projects",
     },
     {
       href: "/tools",
@@ -39,7 +43,6 @@ export function SiteHeader() {
         <div className="flex-1">
           <Link href="/" className="inline-flex items-center gap-3">
             <Logo />
-            <span className="font-bold">Jason&apos;s Stack</span>
           </Link>
         </div>
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium">

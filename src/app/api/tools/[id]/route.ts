@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
+import { prisma } from "@/lib/db"
+import { Tool } from "@prisma/client"
 
 export async function GET(
   request: Request,
@@ -8,7 +9,7 @@ export async function GET(
   try {
     const tool = await prisma.tool.findUnique({
       where: { id: params.id },
-    }) as any;
+    })
     if (!tool) {
       return NextResponse.json(
         { error: "Tool not found" },
@@ -16,17 +17,18 @@ export async function GET(
       )
     }
     let useCases = [];
-    if (tool['useCases']) {
+    if (tool.useCases) {
       try {
-        useCases = typeof tool['useCases'] === 'string'
-          ? JSON.parse(tool['useCases'])
-          : tool['useCases'];
-      } catch (e) {
+        useCases = typeof tool.useCases === 'string'
+          ? JSON.parse(tool.useCases)
+          : tool.useCases;
+      } catch {
         useCases = [];
       }
     }
     return NextResponse.json({ ...tool, useCases })
   } catch (error) {
+    console.error("Error fetching tool:", error)
     return NextResponse.json(
       { error: "Failed to fetch tool" },
       { status: 500 }
@@ -40,7 +42,7 @@ export async function PUT(
 ) {
   try {
     const data = await request.json()
-    let useCases = Array.isArray(data.useCases) ? data.useCases : [];
+    const useCases = Array.isArray(data.useCases) ? data.useCases : [];
     const tool = await prisma.tool.update({
       where: { id: params.id },
       data: {
@@ -51,10 +53,11 @@ export async function PUT(
         link: data.link,
         status: data.status,
         useCases,
-      } as any,
+      },
     })
     return NextResponse.json(tool)
   } catch (error) {
+    console.error("Error updating tool:", error)
     return NextResponse.json(
       { error: "Failed to update tool" },
       { status: 500 }
@@ -72,6 +75,7 @@ export async function DELETE(
     })
     return NextResponse.json({ message: "Tool deleted successfully" })
   } catch (error) {
+    console.error("Error deleting tool:", error)
     return NextResponse.json(
       { error: "Failed to delete tool" },
       { status: 500 }

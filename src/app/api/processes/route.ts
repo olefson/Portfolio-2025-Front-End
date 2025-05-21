@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
+import { prisma } from "@/lib/db"
+import { processSchema } from "@/lib/validations/process"
 
 export async function GET() {
   try {
@@ -21,6 +22,19 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
+    
+    // Validate the data
+    const validationResult = processSchema.safeParse(data)
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { 
+          error: "Validation failed",
+          errors: validationResult.error.errors
+        },
+        { status: 400 }
+      )
+    }
+
     const process = await prisma.process.create({
       data: {
         title: data.title,
@@ -29,8 +43,8 @@ export async function POST(request: Request) {
         status: data.status,
         category: data.category,
         tools: data.tools,
-        createdBy: "admin", // TODO: Replace with actual user ID
-        acquired: new Date(), // Set acquired date to current date
+        createdBy: data.createdBy || "admin",
+        acquired: new Date(data.acquired),
       },
     })
     return NextResponse.json(process)
