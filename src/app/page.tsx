@@ -49,32 +49,32 @@ export default function Home() {
       </video>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
 
       {/* Content Container */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-[90vw] max-w-xl mx-auto px-6 py-8 flex flex-col items-center gap-12"
+        className="relative z-10 w-[90vw] max-w-2xl mx-auto px-6 py-12 flex flex-col items-center gap-16"
       >
         {/* Title */}
-        <div className="space-y-4 text-center">
+        <div className="space-y-6 text-center">
           <motion.h1
-            className="text-2xl xs:text-3xl sm:text-4xl font-light text-white/90 tracking-tight"
+            className="text-3xl xs:text-4xl sm:text-5xl font-medium text-white tracking-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
             {displayed}
             <motion.span
-              className="inline-block w-[2px] h-[1em] bg-white/80 ml-1 -mb-1"
+              className="inline-block w-[3px] h-[1em] bg-white ml-1 -mb-1"
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
             />
           </motion.h1>
           <motion.p
-            className="text-base sm:text-lg text-white/60 font-light max-w-md mx-auto"
+            className="text-lg sm:text-xl text-white/80 font-light max-w-lg mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Buttons */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-2xl"
           initial="hidden"
           animate="visible"
           variants={{
@@ -96,15 +96,15 @@ export default function Home() {
             <motion.a
               key={btn.label}
               href={btn.href}
-              className="group relative px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/10 flex items-center justify-center gap-2 transition-all duration-300"
+              className="group relative px-8 py-4 rounded-full bg-white/15 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center gap-3 transition-all duration-300"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-              whileHover={{ y: -2 }}
+              whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ y: 1 }}
             >
               {btn.icon}
-              <span className="text-sm font-light text-white/90">
+              <span className="text-base font-medium text-white">
                 {btn.label}
               </span>
             </motion.a>
