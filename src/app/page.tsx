@@ -56,25 +56,25 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-[90vw] max-w-2xl mx-auto px-6 py-12 flex flex-col items-center gap-16"
+        className="relative z-10 w-[90vw] max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col items-center gap-8 sm:gap-16"
       >
         {/* Title */}
-        <div className="space-y-6 text-center">
+        <div className="space-y-4 sm:space-y-6 text-center">
           <motion.h1
-            className="text-3xl xs:text-4xl sm:text-5xl font-medium text-white tracking-tight"
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
             {displayed}
             <motion.span
-              className="inline-block w-[3px] h-[1em] bg-white ml-1 -mb-1"
+              className="inline-block w-[2px] sm:w-[3px] h-[1em] bg-white ml-1 -mb-1"
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
             />
           </motion.h1>
           <motion.p
-            className="text-lg sm:text-xl text-white/80 font-light max-w-lg mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-white/80 font-light max-w-lg mx-auto leading-relaxed px-2 sm:px-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -85,28 +85,24 @@ export default function Home() {
 
         {/* Buttons */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-2xl"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: { transition: { staggerChildren: 0.1 } },
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto"
         >
-          {buttons.map((btn, idx) => (
+          {buttons.map((button, index) => (
             <motion.a
-              key={btn.label}
-              href={btn.href}
-              className="group relative px-8 py-4 rounded-full bg-white/15 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center gap-3 transition-all duration-300"
-              initial={{ opacity: 0, y: 10 }}
+              key={button.label}
+              href={button.href}
+              className="group relative flex items-center justify-center gap-2 px-6 py-3 text-sm sm:text-base font-medium text-white bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-              whileHover={{ y: -2, scale: 1.02 }}
-              whileTap={{ y: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
             >
-              {btn.icon}
-              <span className="text-base font-medium text-white">
-                {btn.label}
-              </span>
+              {button.icon}
+              {button.label}
             </motion.a>
           ))}
         </motion.div>

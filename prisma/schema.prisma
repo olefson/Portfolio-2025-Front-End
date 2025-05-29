@@ -16,8 +16,8 @@ model Tool {
   status        String
   category      String
   description   String
-  howToUse      String[]
-  caveats       String[]
+  howToUse      Json
+  caveats       Json
   url           String?
   useCases      Json
   tips          Json
@@ -31,12 +31,25 @@ model Process {
   id           String   @id @default(cuid())
   title        String
   description  String
-  toolsInvolved String[]
-  steps        String[]
+  toolsInvolved Json
+  steps        Json
   category     String
   status       String
   tips         Json
   addedOn      DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  category     String
+  technologies Json     // Will store as JSON array
+  githubUrl    String
+  liveUrl      String
+  image        String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 } 
