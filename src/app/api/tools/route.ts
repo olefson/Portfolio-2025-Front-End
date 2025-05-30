@@ -18,27 +18,45 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    console.log("POST /api/tools - Starting request handling")
     const data = await request.json()
-    const useCases = Array.isArray(data.useCases) ? data.useCases : [];
+    console.log("Received data:", data)
+    
+    // Validate required fields
+    if (!data.title || !data.description || !data.category || !data.status) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      )
+    }
+
     const result = await prisma.tool.create({
       data: {
-        name: data.name,
+        title: data.title,
         description: data.description,
         category: data.category,
-        iconUrl: data.iconUrl,
-        link: data.link,
         status: data.status,
-        acquired: data.acquired ? new Date(data.acquired) : new Date(),
-        createdBy: 'admin',
+        url: data.url || null,
+        howToUse: data.howToUse || {},
+        caveats: data.caveats || {},
+        tips: data.tips || {},
+        useCases: data.useCases || {},
+        addedOn: data.addedOn ? new Date(data.addedOn) : new Date(),
+        recommendedBy: data.recommendedBy || null,
+        createdAt: new Date(),
         updatedAt: new Date(),
-        useCases,
       },
     })
+    console.log("Created tool:", result)
     return NextResponse.json(result)
   } catch (error) {
     console.error("Error in POST /api/tools:", error)
     return NextResponse.json(
-      { error: "Failed to create tool", details: error instanceof Error ? error.message : "Unknown error" },
+      { 
+        error: "Failed to create tool", 
+        details: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined
+      },
       { status: 500 }
     )
   }

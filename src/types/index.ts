@@ -22,16 +22,26 @@ export interface UseCase {
 
 export interface Tool {
   id: string;
+  title: string;
   name: string;
   description: string;
   category: ToolCategory;
-  iconUrl: string | null;
-  link: string | null;
   status: string;
-  acquired: Date;
-  createdBy: string;
+  url: string | null;
+  iconUrl?: string;
+  link?: string;
+  howToUse: any;
+  caveats: any;
+  tips: any;
+  useCases: {
+    title: string;
+    items: string[];
+    description?: string;
+  }[];
+  addedOn: Date | null;
+  recommendedBy: string | null;
+  createdAt: Date;
   updatedAt: Date;
-  useCases?: UseCase[];
 }
 
 export interface Process {

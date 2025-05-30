@@ -29,13 +29,17 @@ interface FormUseCase {
 
 export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
   const [formData, setFormData] = useState({
-    name: "",
+    title: "",
     description: "",
     category: "",
-    iconUrl: "",
-    link: "",
     status: "",
-    acquired: new Date().toISOString().slice(0, 10), // default to today, format YYYY-MM-DD
+    url: "",
+    howToUse: {},
+    caveats: {},
+    tips: {},
+    useCases: {},
+    addedOn: new Date().toISOString().slice(0, 10),
+    recommendedBy: ""
   })
   const [useCases, setUseCases] = useState<FormUseCase[]>([
     { title: "", description: "", items: [""] }
@@ -45,19 +49,19 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
   useEffect(() => {
     if (tool) {
       setFormData({
-        name: tool.name,
+        title: tool.title,
         description: tool.description,
         category: tool.category,
-        iconUrl: tool.iconUrl || "",
-        link: tool.link || "",
         status: tool.status,
-        acquired: new Date(tool.acquired).toISOString().slice(0, 10),
+        url: tool.url || "",
+        howToUse: tool.howToUse || {},
+        caveats: tool.caveats || {},
+        tips: tool.tips || {},
+        useCases: tool.useCases || {},
+        addedOn: tool.addedOn ? new Date(tool.addedOn).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10),
+        recommendedBy: tool.recommendedBy || ""
       })
-      setUseCases(tool.useCases?.map(uc => ({
-        title: uc.title,
-        description: uc.description || "",
-        items: (uc as any).items || [""]
-      })) || [{ title: "", description: "", items: [""] }])
+      setUseCases(tool.useCases ? JSON.parse(JSON.stringify(tool.useCases)) : [{ title: "", description: "", items: [""] }])
     }
   }, [tool])
 
@@ -84,21 +88,21 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
     e.preventDefault()
     setSaving(true)
     try {
-      // Convert the date to ISO-8601 format with time
-      const acquiredDate = new Date(formData.acquired + 'T00:00:00.000Z').toISOString()
+      console.log("Form submission started")
       const requestBody = { 
-        ...formData, 
-        acquired: acquiredDate,
-        useCases: useCases.map(uc => ({
-          title: uc.title,
-          description: uc.description,
-          items: uc.items
-        })), 
-        createdBy: "Jason" 
+        ...formData,
+        addedOn: new Date(formData.addedOn + 'T00:00:00.000Z').toISOString(),
+        useCases: useCases,
+        howToUse: {},
+        caveats: {},
+        tips: {}
       }
+      console.log("Request body:", requestBody)
 
-      const url = tool ? `/api/tools/${tool.id}` : "/api/tools"
+      const baseUrl = window.location.origin
+      const url = tool ? `${baseUrl}/api/tools/${tool.id}` : `${baseUrl}/api/tools`
       const method = tool ? "PUT" : "POST"
+      console.log("Making request to:", url, "with method:", method)
 
       const response = await fetch(url, {
         method,
@@ -107,24 +111,36 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
         },
         body: JSON.stringify(requestBody),
       })
+      console.log("Response status:", response.status)
 
-      if (!response.ok) throw new Error(`Failed to ${tool ? 'update' : 'create'} tool`)
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error("Error response:", errorData)
+        throw new Error(errorData.error || `Failed to ${tool ? 'update' : 'create'} tool`)
+      }
       const updated = await response.json()
+      console.log("Success response:", updated)
 
       if (onSave) {
         onSave(updated)
       } else {
         // Reset form if creating new tool
         setFormData({
-          name: "",
+          title: "",
           description: "",
           category: "",
-          iconUrl: "",
-          link: "",
           status: "",
-          acquired: new Date().toISOString().slice(0, 10),
+          url: "",
+          howToUse: {},
+          caveats: {},
+          tips: {},
+          useCases: {},
+          addedOn: new Date().toISOString().slice(0, 10),
+          recommendedBy: ""
         })
         setUseCases([{ title: "", description: "", items: [""] }])
+        // Dispatch event to notify tool list
+        window.dispatchEvent(new Event('toolCreated'))
       }
     } catch (error) {
       console.error(`Error ${tool ? 'updating' : 'creating'} tool:`, error)
@@ -143,11 +159,11 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-base font-semibold">Name</Label>
+            <Label htmlFor="title" className="text-base font-semibold">Title</Label>
             <Input
-              id="name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              id="title"
+              value={formData.title}
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
               className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
               required
             />
@@ -186,21 +202,11 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="iconUrl" className="text-base font-semibold">Icon URL</Label>
+            <Label htmlFor="url" className="text-base font-semibold">URL</Label>
             <Input
-              id="iconUrl"
-              value={formData.iconUrl}
-              onChange={(e) => setFormData({ ...formData, iconUrl: e.target.value })}
-              className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="link" className="text-base font-semibold">Link</Label>
-            <Input
-              id="link"
-              value={formData.link}
-              onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+              id="url"
+              value={formData.url}
+              onChange={(e) => setFormData({ ...formData, url: e.target.value })}
               className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
             />
           </div>
@@ -225,12 +231,12 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="acquired" className="text-base font-semibold">Acquired Date</Label>
+            <Label htmlFor="addedOn" className="text-base font-semibold">Added On</Label>
             <Input
-              id="acquired"
+              id="addedOn"
               type="date"
-              value={formData.acquired}
-              onChange={e => setFormData({ ...formData, acquired: e.target.value })}
+              value={formData.addedOn}
+              onChange={e => setFormData({ ...formData, addedOn: e.target.value })}
               className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
               required
             />

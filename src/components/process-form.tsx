@@ -44,7 +44,8 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
     // Fetch available tools
     const fetchTools = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/tools")
+        const baseUrl = window.location.origin
+        const response = await fetch(`${baseUrl}/api/tools`)
         if (response.ok) {
           const tools = await response.json()
           setAvailableTools(tools)
@@ -274,8 +275,8 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
               </SelectTrigger>
               <SelectContent>
                 {availableTools.map((tool) => (
-                  <SelectItem key={tool.id} value={tool.name}>
-                    {tool.name}
+                  <SelectItem key={tool.id} value={tool.title}>
+                    {tool.title}
                   </SelectItem>
                 ))}
               </SelectContent>

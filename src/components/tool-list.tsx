@@ -257,59 +257,66 @@ export function ToolList() {
   const [editingLoading, setEditingLoading] = useState(false)
   const [search, setSearch] = useState("")
 
-  useEffect(() => {
-    fetchTools()
-  }, [])
-
   const fetchTools = async () => {
     try {
-      setError(null)
-      const response = await fetch("http://localhost:3001/api/tools")
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to fetch tools")
-      }
+      setLoading(true)
+      const baseUrl = window.location.origin
+      const response = await fetch(`${baseUrl}/api/tools`)
+      if (!response.ok) throw new Error("Failed to fetch tools")
       const data = await response.json()
+      console.log("Fetched tools:", data)
       setTools(data)
     } catch (error) {
       console.error("Error fetching tools:", error)
-      setError(error instanceof Error ? error.message : "Failed to fetch tools")
+      setError("Failed to load tools")
     } finally {
       setLoading(false)
     }
   }
 
+  // Add event listener for tool creation
+  useEffect(() => {
+    const handleToolCreated = () => {
+      console.log("Tool created, refreshing list...")
+      fetchTools()
+    }
+
+    window.addEventListener('toolCreated', handleToolCreated)
+    return () => window.removeEventListener('toolCreated', handleToolCreated)
+  }, [])
+
+  useEffect(() => {
+    fetchTools()
+  }, [])
+
   const handleEditClick = async (toolId: string) => {
     setEditingLoading(true)
     try {
-      const response = await fetch(`/api/tools/${toolId}`)
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to fetch tool details")
-      }
-      const fullTool = await response.json()
-      setEditing(fullTool)
+      const baseUrl = window.location.origin
+      const response = await fetch(`${baseUrl}/api/tools/${toolId}`)
+      if (!response.ok) throw new Error("Failed to fetch tool")
+      const tool = await response.json()
+      setEditing(tool)
     } catch (error) {
-      console.error("Error fetching tool details:", error)
-      setError(error instanceof Error ? error.message : "Failed to fetch tool details")
+      console.error("Error fetching tool:", error)
+      setError("Failed to load tool details")
     } finally {
       setEditingLoading(false)
     }
   }
 
   const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this tool?")) return
     try {
-      const response = await fetch(`/api/tools/${id}`, {
+      const baseUrl = window.location.origin
+      const response = await fetch(`${baseUrl}/api/tools/${id}`, {
         method: "DELETE",
       })
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || "Failed to delete tool")
-      }
-      setTools(tools.filter((tool) => tool.id !== id))
+      if (!response.ok) throw new Error("Failed to delete tool")
+      await fetchTools()
     } catch (error) {
       console.error("Error deleting tool:", error)
-      setError(error instanceof Error ? error.message : "Failed to delete tool")
+      setError("Failed to delete tool")
     }
   }
 
@@ -345,7 +352,7 @@ export function ToolList() {
   }
 
   const filteredTools = tools.filter(tool =>
-    tool.name.toLowerCase().includes(search.toLowerCase()) ||
+    tool.title.toLowerCase().includes(search.toLowerCase()) ||
     tool.description.toLowerCase().includes(search.toLowerCase()) ||
     tool.category.toLowerCase().includes(search.toLowerCase())
   );
@@ -376,7 +383,7 @@ export function ToolList() {
             className="flex items-center justify-between p-4 border rounded-lg hover:border-primary/50 transition-colors"
           >
             <div>
-              <h3 className="font-medium">{tool.name}</h3>
+              <h3 className="font-medium">{tool.title}</h3>
               <p className="text-sm text-muted-foreground">{tool.description}</p>
               <div className="flex gap-2 mt-2">
                 <span className="text-xs bg-secondary px-2 py-1 rounded">
