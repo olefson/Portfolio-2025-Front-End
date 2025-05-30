@@ -26,14 +26,23 @@ interface ProcessFormProps {
   onCancel?: () => void
 }
 
+interface FormData {
+  title: string
+  description: string
+  steps: string[]
+  status: string
+  category: string
+  tools: string[]
+}
+
 export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     title: "",
     description: "",
     steps: [""],
     status: "",
     category: "",
-    tools: [""],
+    tools: [],
   })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -152,7 +161,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
           steps: [""],
           status: "",
           category: "",
-          tools: [""],
+          tools: [],
         })
       }
     } catch (error) {
@@ -178,14 +187,14 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
     setFormData({ ...formData, steps: newSteps })
   }
 
-  const addTool = (toolName: string) => {
-    if (!formData.tools.includes(toolName)) {
-      setFormData({ ...formData, tools: [...formData.tools, toolName] })
+  const addTool = (toolTitle: string) => {
+    if (!formData.tools.includes(toolTitle)) {
+      setFormData({ ...formData, tools: [...formData.tools.filter(t => t !== ""), toolTitle] })
     }
   }
 
-  const removeTool = (toolName: string) => {
-    setFormData({ ...formData, tools: formData.tools.filter(t => t !== toolName) })
+  const removeTool = (toolTitle: string) => {
+    setFormData({ ...formData, tools: formData.tools.filter(t => t !== toolTitle) })
   }
 
   return (
@@ -269,29 +278,36 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
 
           <div className="space-y-2">
             <Label htmlFor="tools" className="text-base font-semibold">Tools</Label>
-            <Select onValueChange={addTool}>
+            <Select 
+              onValueChange={(value) => {
+                const selectedTool = availableTools.find(tool => tool.id === value)
+                if (selectedTool) {
+                  addTool(selectedTool.title)
+                }
+              }}
+            >
               <SelectTrigger className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition">
                 <SelectValue placeholder="Select a tool" />
               </SelectTrigger>
               <SelectContent>
                 {availableTools.map((tool) => (
-                  <SelectItem key={tool.id} value={tool.title}>
+                  <SelectItem key={tool.id} value={tool.id}>
                     {tool.title}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
             <div className="flex flex-wrap gap-2 mt-2">
-              {formData.tools.map((tool) => (
+              {formData.tools.map((toolTitle, index) => (
                 <Badge
-                  key={tool}
+                  key={`${toolTitle}-${index}`}
                   variant="secondary"
                   className="px-3 py-1 text-sm"
                 >
-                  {tool}
+                  {toolTitle}
                   <button
                     type="button"
-                    onClick={() => removeTool(tool)}
+                    onClick={() => removeTool(toolTitle)}
                     className="ml-2 hover:text-destructive"
                   >
                     <X className="h-3 w-3" />
