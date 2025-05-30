@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,11 +21,13 @@ interface Project {
   id: string
   title: string
   description: string
-  category: string
-  technologies: string[]
+  imagePath?: string
   githubUrl: string
-  liveUrl: string
-  image?: string
+  liveUrl?: string
+  tags: string[]
+  acquired: Date
+  createdBy: string
+  updatedAt: string
 }
 
 export function ProjectList() {
@@ -45,7 +47,11 @@ export function ProjectList() {
         throw new Error("Failed to fetch projects")
       }
       const data = await response.json()
-      setProjects(data)
+      setProjects(data.map((project: any) => ({
+        ...project,
+        acquired: new Date(project.acquired),
+        tags: typeof project.tags === 'string' ? JSON.parse(project.tags) : project.tags
+      })))
     } catch (error) {
       toast.error("Failed to fetch projects")
       console.error(error)
@@ -79,99 +85,108 @@ export function ProjectList() {
   const filteredProjects = projects.filter((project) =>
     project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.category.toLowerCase().includes(searchQuery.toLowerCase())
+    project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
   )
 
-  if (selectedProject) {
-    return (
-      <div className="space-y-4">
-        <Button
-          variant="outline"
-          onClick={() => setSelectedProject(null)}
-        >
-          Back to Projects
-        </Button>
-        <ProjectForm
-          project={selectedProject}
-          onSuccess={() => {
-            setSelectedProject(null)
-            fetchProjects()
-          }}
-        />
-      </div>
-    )
-  }
-
   return (
-    <Card>
-      <div className="p-4 space-y-4">
-        <div className="flex items-center gap-4">
-          <Input
-            placeholder="Search projects..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="max-w-sm"
-          />
-        </div>
-
-        {isLoading ? (
-          <div className="text-center py-4">Loading projects...</div>
-        ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Technologies</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredProjects.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={4} className="text-center py-4">
-                    No projects found
-                  </TableCell>
-                </TableRow>
-              ) : (
-                filteredProjects.map((project) => (
-                  <TableRow key={project.id}>
-                    <TableCell className="font-medium">{project.title}</TableCell>
-                    <TableCell>{project.category}</TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <div className="flex justify-end gap-2">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => setSelectedProject(project)}
-                        >
-                          <Pencil className="h-4 w-4" />
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => handleDelete(project.id)}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
-        )}
+    <div className="space-y-4">
+      <div className="flex justify-between items-center">
+        <Input
+          placeholder="Search projects..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="max-w-sm"
+        />
+        <Button onClick={() => setSelectedProject(null)}>Add New Project</Button>
       </div>
-    </Card>
+
+      {selectedProject ? (
+        <Card>
+          <CardHeader>
+            <CardTitle>Edit Project</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ProjectForm project={selectedProject} onSuccess={() => {
+              setSelectedProject(null)
+              fetchProjects()
+            }} />
+          </CardContent>
+        </Card>
+      ) : (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Title</TableHead>
+              <TableHead>Description</TableHead>
+              <TableHead>Tags</TableHead>
+              <TableHead>GitHub</TableHead>
+              <TableHead>Live URL</TableHead>
+              <TableHead>Date Acquired</TableHead>
+              <TableHead>Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filteredProjects.map((project) => (
+              <TableRow key={project.id}>
+                <TableCell>{project.title}</TableCell>
+                <TableCell>{project.description}</TableCell>
+                <TableCell>
+                  <div className="flex flex-wrap gap-1">
+                    {project.tags.map((tag, index) => (
+                      <Badge key={index} variant="secondary">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    View on GitHub
+                  </a>
+                </TableCell>
+                <TableCell>
+                  {project.liveUrl ? (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      Visit Site
+                    </a>
+                  ) : (
+                    <span className="text-muted-foreground">Not available</span>
+                  )}
+                </TableCell>
+                <TableCell>{project.acquired.toLocaleDateString()}</TableCell>
+                <TableCell>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setSelectedProject(project)}
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(project.id)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      )}
+    </div>
   )
 } 

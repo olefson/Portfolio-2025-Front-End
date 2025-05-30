@@ -42,14 +42,14 @@ model Process {
 }
 
 model Project {
-  id           String   @id @default(cuid())
-  title        String
-  description  String
-  category     String
-  technologies Json     // Will store as JSON array
-  githubUrl    String
-  liveUrl      String
-  image        String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  imagePath   String?
+  githubUrl   String
+  liveUrl     String?
+  tags        Json      // Will store as JSON array since SQLite doesn't support arrays
+  acquired    DateTime
+  createdBy   String    // Reference to User.id
+  updatedAt   DateTime  @updatedAt
 } 

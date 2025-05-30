@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const projects = await prisma.project.findMany({
       orderBy: {
-        createdAt: "desc",
+        updatedAt: "desc",
       },
     })
     return NextResponse.json(projects)
@@ -21,15 +21,17 @@ export async function POST(request: Request) {
       data: {
         title: data.title,
         description: data.description,
-        category: data.category,
-        technologies: data.technologies,
+        imagePath: data.imagePath,
         githubUrl: data.githubUrl,
         liveUrl: data.liveUrl,
-        image: data.image,
+        tags: data.tags, // Already in JSON format
+        acquired: new Date(data.acquired),
+        createdBy: "admin", // TODO: Get from auth context
       },
     })
     return NextResponse.json(project)
   } catch (error) {
+    console.error("Error creating project:", error)
     return NextResponse.json({ error: "Failed to create project" }, { status: 500 })
   }
 }
@@ -42,15 +44,16 @@ export async function PUT(request: Request) {
       data: {
         title: data.title,
         description: data.description,
-        category: data.category,
-        technologies: data.technologies,
+        imagePath: data.imagePath,
         githubUrl: data.githubUrl,
         liveUrl: data.liveUrl,
-        image: data.image,
+        tags: data.tags, // Already in JSON format
+        acquired: new Date(data.acquired),
       },
     })
     return NextResponse.json(project)
   } catch (error) {
+    console.error("Error updating project:", error)
     return NextResponse.json({ error: "Failed to update project" }, { status: 500 })
   }
 }
@@ -69,6 +72,7 @@ export async function DELETE(request: Request) {
     })
     return NextResponse.json({ message: "Project deleted successfully" })
   } catch (error) {
+    console.error("Error deleting project:", error)
     return NextResponse.json({ error: "Failed to delete project" }, { status: 500 })
   }
 } 

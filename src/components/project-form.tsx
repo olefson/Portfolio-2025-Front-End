@@ -36,19 +36,19 @@ const projectFormSchema = z.object({
   description: z.string().min(10, {
     message: "Description must be at least 10 characters.",
   }),
-  category: z.string({
-    required_error: "Please select a category.",
-  }),
-  technologies: z.array(z.string()).min(1, {
-    message: "Please add at least one technology.",
-  }),
+  imagePath: z.string().optional(),
   githubUrl: z.string().url({
     message: "Please enter a valid GitHub URL.",
   }),
   liveUrl: z.string().url({
-    message: "Please enter a valid live URL.",
+    message: "Please enter a valid URL.",
+  }).optional().or(z.literal("")),
+  tags: z.array(z.string()).min(1, {
+    message: "Please add at least one tag.",
   }),
-  image: z.string().optional(),
+  acquired: z.date({
+    required_error: "Please select a date.",
+  }),
 })
 
 type ProjectFormValues = z.infer<typeof projectFormSchema>
@@ -59,8 +59,8 @@ interface ProjectFormProps {
 }
 
 export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
-  const [technologies, setTechnologies] = useState<string[]>(project?.technologies || [])
-  const [newTech, setNewTech] = useState("")
+  const [tags, setTags] = useState<string[]>(project?.tags || [])
+  const [newTag, setNewTag] = useState("")
   const [isUploading, setIsUploading] = useState(false)
 
   const form = useForm<ProjectFormValues>({
@@ -69,18 +69,21 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       id: project?.id,
       title: project?.title || "",
       description: project?.description || "",
-      category: project?.category || "",
-      technologies: project?.technologies || [],
+      imagePath: project?.imagePath || "",
       githubUrl: project?.githubUrl || "",
-      liveUrl: project?.liveUrl || "",
-      image: project?.image || "",
+      liveUrl: typeof project?.liveUrl === "string" ? project.liveUrl : "",
+      tags: project?.tags || [],
+      acquired: project?.acquired || new Date(),
     },
   })
 
   useEffect(() => {
     if (project) {
-      form.reset(project)
-      setTechnologies(project.technologies)
+      form.reset({
+        ...project,
+        liveUrl: typeof project.liveUrl === "string" ? project.liveUrl : "",
+      })
+      setTags(project.tags)
     }
   }, [project, form])
 
@@ -94,7 +97,10 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          tags: data.tags,
+        }),
       })
 
       if (!response.ok) {
@@ -103,7 +109,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
       toast.success(project?.id ? "Project updated successfully" : "Project created successfully")
       form.reset()
-      setTechnologies([])
+      setTags([])
       onSuccess?.()
     } catch (error) {
       toast.error("Failed to save project")
@@ -111,18 +117,18 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
     }
   }
 
-  const addTechnology = () => {
-    if (newTech && !technologies.includes(newTech)) {
-      setTechnologies([...technologies, newTech])
-      form.setValue("technologies", [...technologies, newTech])
-      setNewTech("")
+  const addTag = () => {
+    if (newTag && !tags.includes(newTag)) {
+      setTags([...tags, newTag])
+      form.setValue("tags", [...tags, newTag])
+      setNewTag("")
     }
   }
 
-  const removeTechnology = (tech: string) => {
-    const updatedTechs = technologies.filter((t) => t !== tech)
-    setTechnologies(updatedTechs)
-    form.setValue("technologies", updatedTechs)
+  const removeTag = (tagToRemove: string) => {
+    const newTags = tags.filter(tag => tag !== tagToRemove)
+    setTags(newTags)
+    form.setValue("tags", newTags)
   }
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -144,7 +150,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       }
 
       const data = await response.json()
-      form.setValue("image", data.url)
+      form.setValue("imagePath", data.url)
       toast.success("Image uploaded successfully")
     } catch (error) {
       toast.error("Failed to upload image")
@@ -196,75 +202,6 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
             <FormField
               control={form.control}
-              name="category"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a category" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Web Development">Web Development</SelectItem>
-                      <SelectItem value="Mobile">Mobile</SelectItem>
-                      <SelectItem value="Desktop">Desktop</SelectItem>
-                      <SelectItem value="Other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="technologies"
-              render={() => (
-                <FormItem>
-                  <FormLabel>Technologies</FormLabel>
-                  <FormControl>
-                    <div className="space-y-4">
-                      <div className="flex gap-2">
-                        <Input
-                          placeholder="Add technology"
-                          value={newTech}
-                          onChange={(e) => setNewTech(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                              e.preventDefault()
-                              addTechnology()
-                            }
-                          }}
-                        />
-                        <Button type="button" onClick={addTechnology}>
-                          Add
-                        </Button>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary">
-                            {tech}
-                            <button
-                              type="button"
-                              onClick={() => removeTechnology(tech)}
-                              className="ml-1 hover:text-destructive"
-                            >
-                              <X className="h-3 w-3" />
-                            </button>
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
               name="githubUrl"
               render={({ field }) => (
                 <FormItem>
@@ -282,7 +219,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
               name="liveUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Live URL</FormLabel>
+                  <FormLabel>Live URL (Optional)</FormLabel>
                   <FormControl>
                     <Input placeholder="https://example.com" {...field} />
                   </FormControl>
@@ -293,7 +230,69 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
             <FormField
               control={form.control}
-              name="image"
+              name="tags"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tags</FormLabel>
+                  <FormControl>
+                    <div className="flex flex-wrap gap-2">
+                      {tags.map((tag, index) => (
+                        <Badge key={index} variant="secondary">
+                          {tag}
+                          <button
+                            type="button"
+                            onClick={() => removeTag(tag)}
+                            className="ml-1 hover:text-destructive"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </Badge>
+                      ))}
+                    </div>
+                  </FormControl>
+                  <div className="flex gap-2">
+                    <Input
+                      placeholder="Add a tag"
+                      value={newTag}
+                      onChange={(e) => setNewTag(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault()
+                          addTag()
+                        }
+                      }}
+                    />
+                    <Button type="button" onClick={addTag}>
+                      Add
+                    </Button>
+                  </div>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="acquired"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Date Acquired</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="date"
+                      {...field}
+                      value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
+                      onChange={(e) => field.onChange(new Date(e.target.value))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="imagePath"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Project Image</FormLabel>
@@ -328,7 +327,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
             />
 
             <Button type="submit" disabled={isUploading}>
-              {project?.id ? "Update Project" : "Add Project"}
+              {project?.id ? "Update Project" : "Create Project"}
             </Button>
           </form>
         </Form>
