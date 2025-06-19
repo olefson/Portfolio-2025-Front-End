@@ -87,7 +87,6 @@ const getStatusColor = (status: string) => {
 
 export function ToolCard({ tool, showContent = false }: ToolCardProps) {
   console.log('ToolCard render:', { showContent, useCases: tool.useCases });
-  const acquiredDate = new Date(tool.acquired);
   const handleCardClick = (e: React.MouseEvent) => {
     // If clicking the badge, don't navigate
     if (e.target instanceof Element && e.target.closest('.badge')) {
@@ -145,9 +144,6 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
             
             <div className="flex justify-center gap-2 flex-wrap">
               <Badge variant="outline">{tool.category}</Badge>
-              <Badge variant="outline" className="text-xs">
-                Added {acquiredDate.toLocaleDateString()}
-              </Badge>
             </div>
           </CardHeader>
           <CardContent className="flex-1 space-y-6">

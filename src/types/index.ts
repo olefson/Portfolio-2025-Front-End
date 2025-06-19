@@ -22,7 +22,6 @@ export interface UseCase {
 
 export interface Tool {
   id: string;
-  title: string;
   name: string;
   description: string;
   category: ToolCategory;
@@ -38,10 +37,6 @@ export interface Tool {
     items: string[];
     description?: string;
   }[];
-  addedOn: Date | null;
-  recommendedBy: string | null;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface Process {

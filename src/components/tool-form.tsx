@@ -99,7 +99,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       }
       console.log("Request body:", requestBody)
 
-      const baseUrl = window.location.origin
+      const baseUrl = 'http://localhost:3001';
       const url = tool ? `${baseUrl}/api/tools/${tool.id}` : `${baseUrl}/api/tools`
       const method = tool ? "PUT" : "POST"
       console.log("Making request to:", url, "with method:", method)
@@ -228,18 +228,6 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
               <option value="Trying">Trying</option>
               <option value="Retired">Retired</option>
             </select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="addedOn" className="text-base font-semibold">Added On</Label>
-            <Input
-              id="addedOn"
-              type="date"
-              value={formData.addedOn}
-              onChange={e => setFormData({ ...formData, addedOn: e.target.value })}
-              className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
-              required
-            />
           </div>
         </div>
       </div>

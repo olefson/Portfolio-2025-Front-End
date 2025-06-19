@@ -260,7 +260,7 @@ export function ToolList() {
   const fetchTools = async () => {
     try {
       setLoading(true)
-      const baseUrl = window.location.origin
+      const baseUrl = 'http://localhost:3001'
       const response = await fetch(`${baseUrl}/api/tools`)
       if (!response.ok) throw new Error("Failed to fetch tools")
       const data = await response.json()
@@ -292,7 +292,7 @@ export function ToolList() {
   const handleEditClick = async (toolId: string) => {
     setEditingLoading(true)
     try {
-      const baseUrl = window.location.origin
+      const baseUrl = 'http://localhost:3001'
       const response = await fetch(`${baseUrl}/api/tools/${toolId}`)
       if (!response.ok) throw new Error("Failed to fetch tool")
       const tool = await response.json()
@@ -308,7 +308,7 @@ export function ToolList() {
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this tool?")) return
     try {
-      const baseUrl = window.location.origin
+      const baseUrl = 'http://localhost:3001'
       const response = await fetch(`${baseUrl}/api/tools/${id}`, {
         method: "DELETE",
       })

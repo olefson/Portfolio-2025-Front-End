@@ -141,7 +141,7 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
             >
               {/* <span>Created by {tool.createdBy}</span>
               <span>•</span> */}
-              <span>Last updated {new Date(tool.updatedAt).toLocaleDateString()}</span>
+              {/* <span>Last updated {new Date(tool.updatedAt).toLocaleDateString()}</span> */}
             </motion.div>
           </motion.div>
         </motion.div>

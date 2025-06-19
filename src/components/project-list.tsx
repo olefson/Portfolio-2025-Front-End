@@ -42,7 +42,7 @@ export function ProjectList() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("/api/projects")
+      const response = await fetch('http://localhost:3001/api/projects')
       if (!response.ok) {
         throw new Error("Failed to fetch projects")
       }
@@ -66,7 +66,7 @@ export function ProjectList() {
     }
 
     try {
-      const response = await fetch(`/api/projects?id=${id}`, {
+      const response = await fetch(`http://localhost:3001/api/projects?id=${id}`, {
         method: "DELETE",
       })
 

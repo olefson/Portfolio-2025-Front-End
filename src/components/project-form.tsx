@@ -89,7 +89,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
   async function onSubmit(data: ProjectFormValues) {
     try {
-      const url = project?.id ? "/api/projects" : "/api/projects"
+      const url = project?.id ? 'http://localhost:3001/api/projects' : 'http://localhost:3001/api/projects'
       const method = project?.id ? "PUT" : "POST"
 
       const response = await fetch(url, {
