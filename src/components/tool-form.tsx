@@ -29,17 +29,15 @@ interface FormUseCase {
 
 export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
   const [formData, setFormData] = useState({
-    title: "",
+    name: "",
     description: "",
-    category: "",
-    status: "",
+    category: "Other",
+    status: "Plan to Try",
     url: "",
     howToUse: {},
     caveats: {},
     tips: {},
-    useCases: {},
-    addedOn: new Date().toISOString().slice(0, 10),
-    recommendedBy: ""
+    useCases: {}
   })
   const [useCases, setUseCases] = useState<FormUseCase[]>([
     { title: "", description: "", items: [""] }
@@ -49,7 +47,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
   useEffect(() => {
     if (tool) {
       setFormData({
-        title: tool.title,
+        name: tool.name,
         description: tool.description,
         category: tool.category,
         status: tool.status,
@@ -57,9 +55,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
         howToUse: tool.howToUse || {},
         caveats: tool.caveats || {},
         tips: tool.tips || {},
-        useCases: tool.useCases || {},
-        addedOn: tool.addedOn ? new Date(tool.addedOn).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10),
-        recommendedBy: tool.recommendedBy || ""
+        useCases: tool.useCases || {}
       })
       setUseCases(tool.useCases ? JSON.parse(JSON.stringify(tool.useCases)) : [{ title: "", description: "", items: [""] }])
     }
@@ -91,7 +87,6 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       console.log("Form submission started")
       const requestBody = { 
         ...formData,
-        addedOn: new Date(formData.addedOn + 'T00:00:00.000Z').toISOString(),
         useCases: useCases,
         howToUse: {},
         caveats: {},
@@ -126,17 +121,15 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       } else {
         // Reset form if creating new tool
         setFormData({
-          title: "",
+          name: "",
           description: "",
-          category: "",
-          status: "",
+          category: "Other",
+          status: "Plan to Try",
           url: "",
           howToUse: {},
           caveats: {},
           tips: {},
-          useCases: {},
-          addedOn: new Date().toISOString().slice(0, 10),
-          recommendedBy: ""
+          useCases: {}
         })
         setUseCases([{ title: "", description: "", items: [""] }])
         // Dispatch event to notify tool list
@@ -159,11 +152,11 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-base font-semibold">Title</Label>
+            <Label htmlFor="name" className="text-base font-semibold">Name</Label>
             <Input
-              id="title"
-              value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              id="name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
               required
             />

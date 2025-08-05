@@ -17,7 +17,7 @@ export default function ToolkitPage() {
               <span className="absolute inset-0 blur-2xl opacity-30 dark:opacity-20 animate-pulse tracking-normal text-white dark:text-black">
                 Jason&apos;s Stack
               </span>
-              <span className="relative tracking-normal text-emerald-500 dark:text-emerald-400 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_0_15px_rgba(0,0,0,1)]">
+              <span className="relative tracking-normal text-emerald-500 dark:text-emerald-400 drop-shadow-[0_0_7.5px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_0_7.5px_rgba(0,0,0,1)]">
                 Jason&apos;s Stack
               </span>
             </h1>
@@ -25,7 +25,7 @@ export default function ToolkitPage() {
               <span className="absolute inset-0 blur-2xl opacity-40 dark:opacity-30 animate-pulse tracking-normal text-white dark:text-black">
                 A curated collection of tools and processes I use to build, learn, and grow.
               </span>
-              <span className="relative text-gray-900 dark:text-gray-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_0_15px_rgba(0,0,0,1)]">
+              <span className="relative text-white drop-shadow-[0_0_7.5px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_0_7.5px_rgba(0,0,0,1)]">
                 A curated collection of tools and processes I use to build, learn, and grow.
               </span>
             </p>
@@ -38,23 +38,10 @@ export default function ToolkitPage() {
               </Link>
               <Link
                 href="/processes"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-emerald-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-700 disabled:pointer-events-none disabled:opacity-50"
               >
                 View My Processes
               </Link>
-            </div>
-            <div className="flex flex-col gap-2 items-center">
-              <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
-                Fork this template to showcase your own stack!
-              </p>
-              <a
-                href={GITHUB_REPO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-emerald-600 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-400"
-              >
-                View on GitHub ↗
-              </a>
             </div>
           </div>
 
@@ -77,24 +64,10 @@ export default function ToolkitPage() {
                     alt="Discord"
                     width={40}
                     height={40}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
-                <OrbitingCircles
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[40px] border-none bg-transparent"
-                  radius={260}
-                  duration={35}
-                  delay={17.5}
-                  path={false}
-                >
-                  <Image
-                    src="/images/tools/canva.svg"
-                    alt="Canva"
-                    width={40}
-                    height={40}
-                    className="dark:invert"
-                  />
-                </OrbitingCircles>
+                
 
                 {/* Widest Layer */}
                 <OrbitingCircles
@@ -109,7 +82,7 @@ export default function ToolkitPage() {
                     alt="Perplexity"
                     width={40}
                     height={40}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
                 <OrbitingCircles
@@ -124,7 +97,7 @@ export default function ToolkitPage() {
                     alt="Descript"
                     width={40}
                     height={40}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
 
@@ -156,7 +129,7 @@ export default function ToolkitPage() {
                     alt="Firebase"
                     width={50}
                     height={50}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
 
@@ -173,7 +146,7 @@ export default function ToolkitPage() {
                     alt="GitHub"
                     width={50}
                     height={50}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
 
@@ -191,7 +164,7 @@ export default function ToolkitPage() {
                     alt="ChatGPT"
                     width={50}
                     height={50}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
 
@@ -208,7 +181,7 @@ export default function ToolkitPage() {
                     alt="Notion"
                     width={50}
                     height={50}
-                    className="dark:invert"
+                    className="brightness-0 invert"
                   />
                 </OrbitingCircles>
               </div>
