@@ -40,10 +40,10 @@ export default function AboutPage() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-[#0a2342] to-[#185a9d]">
+    <div ref={containerRef} className="min-h-screen">
       {/* Hero Section - Clean and Professional */}
       <section className="relative flex flex-col items-center justify-center text-center py-24 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a2342]/80 via-[#185a9d]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full flex flex-col items-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">Jason Olefson</h1>
           <p className="text-xl md:text-2xl text-white font-light mb-8">Full-stack Developer & UI/UX Enthusiast</p>
