@@ -3,12 +3,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { motion } from "framer-motion"
+import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { cn } from "@/lib/utils"
+import { GlowCard } from "@/components/ui/glow-card"
+import { ProjectCard } from "@/components/ui/project-card"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -29,46 +29,80 @@ const itemVariants = {
   animate: { opacity: 1, y: 0 }
 }
 
+// Mock featured projects data
+const featuredProjects = [
+  {
+    id: 1,
+    title: "Portfolio Website",
+    description: "A modern portfolio website showcasing my work and skills. Features a responsive design, dark mode support, and interactive components.",
+    image: "/placeholder.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
+    category: "Web Development"
+  },
+  {
+    id: 2,
+    title: "E-commerce Platform",
+    description: "A full-featured e-commerce platform with product management, shopping cart, and payment integration.",
+    image: "/placeholder.png",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
+    category: "Web Development"
+  }
+]
+
 export default function AboutPage() {
-  const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
-
   return (
-    <div ref={containerRef} className="min-h-screen">
-      {/* Hero Section - Clean and Professional */}
+    <div className="min-h-screen">
+      {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center py-24 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full flex flex-col items-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">Jason Olefson</h1>
-          <p className="text-xl md:text-2xl text-white font-light mb-8">Full-stack Developer & UI/UX Enthusiast</p>
-          <div className="flex justify-center gap-6">
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-[#baff39] text-[#baff39] hover:bg-[#baff39]/20 hover:text-[#0a2342]" asChild>
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Jason Olefson
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl text-muted-foreground font-light mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Full-stack Developer & UI/UX Enthusiast
+          </motion.p>
+          <motion.div
+            className="flex justify-center gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
               <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                 <Github className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-[#baff39] text-[#baff39] hover:bg-[#baff39]/20 hover:text-[#0a2342]" asChild>
+            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-[#baff39] text-[#baff39] hover:bg-[#baff39]/20 hover:text-[#0a2342]" asChild>
+            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <Twitter className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full border-[#baff39] text-[#baff39] hover:bg-[#baff39]/20 hover:text-[#0a2342]" asChild>
+            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
               <a href="mailto:your.email@example.com">
                 <Mail className="h-6 w-6" />
               </a>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -81,69 +115,50 @@ export default function AboutPage() {
         >
           {/* About Section */}
           <motion.div variants={itemVariants}>
-            <Card className="relative overflow-hidden border border-white/20 bg-white/10 backdrop-blur-lg">
-              <CardContent className="relative p-10">
-                <h2 className="text-4xl font-bold mb-6 text-white">
-                  About Me
-                </h2>
-                <p className="text-xl text-white leading-relaxed">
-                  I'm a passionate full-stack developer with a keen eye for design and user experience. 
-                  With over 5 years of experience in web development, I specialize in building modern, 
-                  scalable applications that not only look great but also provide exceptional user experiences.
-                </p>
-              </CardContent>
-            </Card>
+            <GlowCard>
+              <Card className="relative overflow-hidden">
+                <CardContent className="relative p-10">
+                  <h2 className="text-4xl font-bold mb-6">
+                    About Me
+                  </h2>
+                  <p className="text-xl text-muted-foreground leading-relaxed">
+                    I'm a passionate full-stack developer with a keen eye for design and user experience. 
+                    With over 5 years of experience in web development, I specialize in building modern, 
+                    scalable applications that not only look great but also provide exceptional user experiences.
+                  </p>
+                </CardContent>
+              </Card>
+            </GlowCard>
           </motion.div>
 
-          {/* Projects Section with Tabs */}
+          {/* Featured Projects Section */}
           <motion.div variants={itemVariants}>
-            <Tabs defaultValue="featured" className="w-full">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
-                <h2 className="text-4xl font-bold text-white">
-                  Projects
-                </h2>
-                <TabsList className="bg-white/10 border border-white/20 backdrop-blur-md">
-                  <TabsTrigger value="featured" className="data-[state=active]:bg-[#baff39]/20 data-[state=active]:text-[#baff39]">Featured</TabsTrigger>
-                  <TabsTrigger value="all" className="data-[state=active]:bg-[#baff39]/20 data-[state=active]:text-[#baff39]">All Projects</TabsTrigger>
-                </TabsList>
-              </div>
-              <TabsContent value="featured" className="space-y-8">
-                <Card className="group hover:shadow-xl transition-all duration-300 border border-white/20 bg-white/10 backdrop-blur-lg">
-                  <CardContent className="p-8">
-                    <div className="flex flex-col md:flex-row gap-8">
-                      <div className="md:w-1/3">
-                        <div className="aspect-video rounded-xl bg-white/10 backdrop-blur-md border border-white/10 relative overflow-hidden" />
-                      </div>
-                      <div className="md:w-2/3 space-y-6">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h3 className="text-3xl font-semibold mb-3 text-white">Portfolio Website</h3>
-                            <p className="text-lg text-white">
-                              A modern portfolio website showcasing my work and skills. Features a responsive design,
-                              dark mode support, and interactive components.
-                            </p>
-                          </div>
-                          <Button variant="ghost" size="icon" className="group-hover:translate-x-1 transition-transform text-[#baff39]">
-                            <ArrowRight className="h-6 w-6" />
-                          </Button>
-                        </div>
-                        <div className="flex flex-wrap gap-3">
-                          <Badge variant="secondary" className="px-4 py-1.5 text-sm bg-white/10 text-[#baff39] border border-white/20">Next.js</Badge>
-                          <Badge variant="secondary" className="px-4 py-1.5 text-sm bg-white/10 text-[#baff39] border border-white/20">TypeScript</Badge>
-                          <Badge variant="secondary" className="px-4 py-1.5 text-sm bg-white/10 text-[#baff39] border border-white/20">Tailwind CSS</Badge>
-                          <Badge variant="secondary" className="px-4 py-1.5 text-sm bg-white/10 text-[#baff39] border border-white/20">Framer Motion</Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            </Tabs>
+            <div className="mb-8">
+              <h2 className="text-4xl font-bold mb-4">
+                Featured Projects
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                A selection of my most impactful work
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project.id} {...project} showContent={true} />
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Button asChild>
+                <a href="/projects">
+                  View All Projects
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
           </motion.div>
 
-          {/* Skills Section with Interactive Cards */}
+          {/* Skills Section */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-4xl font-bold mb-10 text-white">
+            <h2 className="text-4xl font-bold mb-10">
               Technical Skills
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -161,29 +176,31 @@ export default function AboutPage() {
                   skills: ["Git", "Docker", "AWS", "CI/CD", "Jest"],
                 }
               ].map((category, index) => (
-                <Card key={category.title} className="group hover:shadow-xl transition-all duration-300 border border-white/20 bg-white/10 backdrop-blur-lg">
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold mb-6 text-white">{category.title}</h3>
-                    <div className="flex flex-wrap gap-3">
-                      {category.skills.map((skill) => (
-                        <Badge 
-                          key={skill}
-                          variant="secondary"
-                          className="px-4 py-1.5 text-sm bg-white/10 text-[#baff39] border border-white/20 group-hover:scale-105 transition-transform"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <GlowCard key={category.title}>
+                  <Card className="group h-full">
+                    <CardContent className="p-8">
+                      <h3 className="text-2xl font-semibold mb-6">{category.title}</h3>
+                      <div className="flex flex-wrap gap-3">
+                        {category.skills.map((skill) => (
+                          <Badge 
+                            key={skill}
+                            variant="secondary"
+                            className="group-hover:scale-105 transition-transform"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </GlowCard>
               ))}
             </div>
           </motion.div>
 
-          {/* Experience Section with Timeline */}
+          {/* Experience Section */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-4xl font-bold mb-10 text-white">
+            <h2 className="text-4xl font-bold mb-10">
               Professional Experience
             </h2>
             <div className="space-y-8">
@@ -209,27 +226,29 @@ export default function AboutPage() {
                   ]
                 }
               ].map((job, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border border-white/20 bg-white/10 backdrop-blur-lg">
-                  <CardContent className="p-8">
-                    <div className="flex flex-col md:flex-row md:items-center gap-6">
-                      <div className="md:w-1/3">
-                        <h3 className="text-2xl font-semibold mb-2 text-white">{job.title}</h3>
-                        <p className="text-lg text-white">{job.company}</p>
-                        <p className="text-base text-white/70">{job.period}</p>
+                <GlowCard key={index}>
+                  <Card className="group">
+                    <CardContent className="p-8">
+                      <div className="flex flex-col md:flex-row md:items-center gap-6">
+                        <div className="md:w-1/3">
+                          <h3 className="text-2xl font-semibold mb-2">{job.title}</h3>
+                          <p className="text-lg text-muted-foreground">{job.company}</p>
+                          <p className="text-base text-muted-foreground">{job.period}</p>
+                        </div>
+                        <div className="md:w-2/3">
+                          <ul className="space-y-3">
+                            {job.achievements.map((achievement, i) => (
+                              <li key={i} className="text-lg flex gap-2 items-start">
+                                <span className="text-emerald-500 text-xl mt-1">•</span>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div className="md:w-2/3">
-                        <ul className="space-y-3 pl-0 list-disc">
-                          {job.achievements.map((achievement, i) => (
-                            <li key={i} className="text-lg text-white flex gap-2 items-center">
-                              <span className="text-[#baff39] text-xl">•</span>
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </GlowCard>
               ))}
             </div>
           </motion.div>

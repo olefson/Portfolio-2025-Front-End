@@ -31,7 +31,7 @@ export default function Home() {
   // Button data
   const buttons = [
     { label: "About Me", href: "/about", icon: <User className="w-5 h-5" /> },
-    { label: "My Work", href: "/work", icon: <Briefcase className="w-5 h-5" /> },
+    { label: "My Work", href: "/projects", icon: <Briefcase className="w-5 h-5" /> },
     { label: "My Toolkit", href: "/toolkit", icon: <Wrench className="w-5 h-5" /> },
   ];
 
