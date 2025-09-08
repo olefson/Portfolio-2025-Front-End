@@ -51,7 +51,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
         description: tool.description,
         category: tool.category,
         status: tool.status,
-        url: tool.url || "",
+        url: tool.link || "",
         howToUse: tool.howToUse || {},
         caveats: tool.caveats || {},
         tips: tool.tips || {},

@@ -352,7 +352,7 @@ export function ToolList() {
   }
 
   const filteredTools = tools.filter(tool =>
-    tool.title.toLowerCase().includes(search.toLowerCase()) ||
+    tool.name.toLowerCase().includes(search.toLowerCase()) ||
     tool.description.toLowerCase().includes(search.toLowerCase()) ||
     tool.category.toLowerCase().includes(search.toLowerCase())
   );
@@ -383,7 +383,7 @@ export function ToolList() {
             className="flex items-center justify-between p-4 border rounded-lg hover:border-primary/50 transition-colors"
           >
             <div>
-              <h3 className="font-medium">{tool.title}</h3>
+              <h3 className="font-medium">{tool.name}</h3>
               <p className="text-sm text-muted-foreground">{tool.description}</p>
               <div className="flex gap-2 mt-2">
                 <span className="text-xs bg-secondary px-2 py-1 rounded">

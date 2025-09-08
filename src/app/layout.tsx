@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { siteConfig } from "@/config/site"
 import { ThemeProvider } from "@/components/theme-provider"
-import { SiteHeader } from "@/components/site-header"
+
 import { cn } from "@/lib/utils"
 import { SiteFooter } from "@/components/site-footer"
 import { ConditionalSiteHeader } from "@/components/ConditionalSiteHeader"

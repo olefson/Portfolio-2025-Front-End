@@ -1,20 +1,26 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/db"
+
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
-    const process = await prisma.process.findUnique({
-      where: { id: params.id },
-    })
-    if (!process) {
-      return NextResponse.json(
-        { error: "Process not found" },
-        { status: 404 }
-      )
+    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`)
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        return NextResponse.json(
+          { error: "Process not found" },
+          { status: 404 }
+        )
+      }
+      throw new Error(`Backend responded with status: ${response.status}`)
     }
+    
+    const process = await response.json()
     return NextResponse.json(process)
   } catch (error) {
     console.error("Error fetching process:", error)
@@ -27,21 +33,24 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
     const data = await request.json()
-    const process = await prisma.process.update({
-      where: { id: params.id },
-      data: {
-        title: data.title,
-        description: data.description,
-        steps: data.steps,
-        status: data.status,
-        category: data.category,
-        tools: data.tools,
+    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify(data),
     })
+    
+    if (!response.ok) {
+      throw new Error(`Backend responded with status: ${response.status}`)
+    }
+    
+    const process = await response.json()
     return NextResponse.json(process)
   } catch (error) {
     console.error("Error updating process:", error)
@@ -54,13 +63,20 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
-    await prisma.process.delete({
-      where: { id: params.id },
+    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+      method: 'DELETE',
     })
-    return NextResponse.json({ message: "Process deleted successfully" })
+    
+    if (!response.ok) {
+      throw new Error(`Backend responded with status: ${response.status}`)
+    }
+    
+    const result = await response.json()
+    return NextResponse.json(result)
   } catch (error) {
     console.error("Error deleting process:", error)
     return NextResponse.json(

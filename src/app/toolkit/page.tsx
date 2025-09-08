@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { OrbitingCircles } from "@/components/ui/orbiting-circles"
 import { WarpBackground } from "@/components/ui/warp-background"
-import { GITHUB_REPO_URL } from "@/lib/constants"
+
 
 export default function ToolkitPage() {
   return (
