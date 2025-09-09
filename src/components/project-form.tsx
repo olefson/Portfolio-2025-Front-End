@@ -39,15 +39,12 @@ const projectFormSchema = z.object({
   imagePath: z.string().optional(),
   githubUrl: z.string().url({
     message: "Please enter a valid GitHub URL.",
-  }),
+  }).optional().or(z.literal("")),
   liveUrl: z.string().url({
     message: "Please enter a valid URL.",
   }).optional().or(z.literal("")),
   tags: z.array(z.string()).min(1, {
     message: "Please add at least one tag.",
-  }),
-  acquired: z.date({
-    required_error: "Please select a date.",
   }),
 })
 
@@ -73,7 +70,6 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       githubUrl: project?.githubUrl || "",
       liveUrl: typeof project?.liveUrl === "string" ? project.liveUrl : "",
       tags: project?.tags || [],
-      acquired: project?.acquired || new Date(),
     },
   })
 
@@ -205,7 +201,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
               name="githubUrl"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>GitHub URL</FormLabel>
+                  <FormLabel>GitHub URL (Optional)</FormLabel>
                   <FormControl>
                     <Input placeholder="https://github.com/username/repo" {...field} />
                   </FormControl>
@@ -271,24 +267,6 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="acquired"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Date Acquired</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="date"
-                      {...field}
-                      value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
-                      onChange={(e) => field.onChange(new Date(e.target.value))}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             <FormField
               control={form.control}

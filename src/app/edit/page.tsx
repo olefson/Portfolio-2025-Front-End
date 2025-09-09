@@ -90,20 +90,20 @@ export default function EditPage() {
       label: "Projects",
       icon: <Briefcase className="w-5 h-5" />,
       content: (
-        <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           <Card className="p-6 shadow-md border bg-card">
             <div className="mb-4">
               <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
                 <Briefcase className="w-6 h-6" /> Add or Edit Project
               </h2>
               <p className="text-muted-foreground mb-2">
-                Create a new project or update an existing one. Add details about your work and showcase your skills.
+                Create a new project or update an existing one. GitHub URL is optional, and no dates are required.
               </p>
             </div>
             <Separator className="mb-4" />
             <ProjectForm />
           </Card>
-          <Card className="p-6 shadow-md border bg-card">
+          <Card className="p-6 shadow-md border bg-card max-h-[70vh] overflow-y-auto">
             <div className="mb-4">
               <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
                 <Briefcase className="w-6 h-6" /> Project List
