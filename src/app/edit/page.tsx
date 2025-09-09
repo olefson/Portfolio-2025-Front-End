@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator"
 import { Wrench, Workflow, Briefcase } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 
 export default function EditPage() {
@@ -137,6 +137,9 @@ export default function EditPage() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <SheetHeader>
+              <SheetTitle>Content Management</SheetTitle>
+            </SheetHeader>
             <nav className="flex flex-col gap-4 mt-8">
               {tabs.map((tab) => (
                 <Button
