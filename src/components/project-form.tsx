@@ -85,7 +85,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
   async function onSubmit(data: ProjectFormValues) {
     try {
-      const url = project?.id ? 'http://localhost:3001/api/projects' : 'http://localhost:3001/api/projects'
+      const url = project?.id ? `http://localhost:3001/api/projects/${project.id}` : 'http://localhost:3001/api/projects'
       const method = project?.id ? "PUT" : "POST"
 
       const response = await fetch(url, {
@@ -134,9 +134,9 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
     try {
       setIsUploading(true)
       const formData = new FormData()
-      formData.append("file", file)
+      formData.append("image", file)
 
-      const response = await fetch("/api/upload", {
+      const response = await fetch("http://localhost:3001/api/upload", {
         method: "POST",
         body: formData,
       })
@@ -288,7 +288,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                       {field.value && (
                         <div className="relative w-full aspect-video">
                           <img
-                            src={field.value}
+                            src={field.value.startsWith('http') ? field.value : `http://localhost:3001${field.value}`}
                             alt="Project preview"
                             className="object-cover rounded-lg"
                           />
