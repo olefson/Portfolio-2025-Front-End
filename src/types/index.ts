@@ -47,8 +47,6 @@ export interface Process {
   status: string;
   category: ProcessCategory;
   tools: string[];
-  createdBy: string;
-  updatedAt: string;
 }
 
 export interface SiteConfig {
