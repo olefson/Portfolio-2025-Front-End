@@ -60,7 +60,7 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
           {/* Tool Header */}
           <div className="space-y-4">
             <motion.div 
-              className="relative aspect-square rounded-lg overflow-hidden bg-muted/50"
+              className="relative w-24 h-24 rounded-lg overflow-hidden bg-muted/50 flex items-center justify-center"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -68,9 +68,8 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
                 <Image
                   src={tool.iconUrl}
                   alt={tool.name}
-                  width={100}
-                  height={100}
-                  className="w-24 h-24 object-contain"
+                  fill
+                  className="object-contain dark:invert"
                 />
               )}
             </motion.div>

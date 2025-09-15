@@ -34,6 +34,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
     category: "Other",
     status: "Plan to Try",
     url: "",
+    iconUrl: "",
     howToUse: {},
     caveats: {},
     tips: {},
@@ -52,6 +53,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
         category: tool.category,
         status: tool.status,
         url: tool.link || "",
+        iconUrl: tool.iconUrl || "",
         howToUse: tool.howToUse || {},
         caveats: tool.caveats || {},
         tips: tool.tips || {},
@@ -126,6 +128,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
           category: "Other",
           status: "Plan to Try",
           url: "",
+          iconUrl: "",
           howToUse: {},
           caveats: {},
           tips: {},
@@ -202,6 +205,20 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
               onChange={(e) => setFormData({ ...formData, url: e.target.value })}
               className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
             />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="iconUrl" className="text-base font-semibold">Icon URL</Label>
+            <Input
+              id="iconUrl"
+              value={formData.iconUrl}
+              onChange={(e) => setFormData({ ...formData, iconUrl: e.target.value })}
+              placeholder="https://icons8.com/icon/example"
+              className="h-11 bg-muted/40 border-2 border-border focus:ring-2 focus:ring-primary transition"
+            />
+            <p className="text-sm text-muted-foreground">
+              Optional: Link to an icon for this tool (e.g., from icons8.com)
+            </p>
           </div>
 
           <div className="space-y-2">
