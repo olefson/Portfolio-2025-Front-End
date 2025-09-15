@@ -283,7 +283,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
               onValueChange={(value) => {
                 const selectedTool = availableTools.find(tool => tool.id === value)
                 if (selectedTool) {
-                  addTool(selectedTool.title)
+                  addTool(selectedTool.name)
                 }
               }}
             >
@@ -293,7 +293,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
               <SelectContent>
                 {availableTools.map((tool) => (
                   <SelectItem key={tool.id} value={tool.id}>
-                    {tool.title}
+                    {tool.name}
                   </SelectItem>
                 ))}
               </SelectContent>
