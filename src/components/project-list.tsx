@@ -25,20 +25,32 @@ interface Project {
   githubUrl: string
   liveUrl?: string
   tags: string[]
-  acquired: Date
-  createdBy: string
-  updatedAt: string
+  toolsUsed: string[]
 }
 
 export function ProjectList() {
   const [projects, setProjects] = useState<Project[]>([])
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [tools, setTools] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetchProjects()
+    fetchTools()
   }, [])
+
+  const fetchTools = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/tools')
+      if (response.ok) {
+        const data = await response.json()
+        setTools(data || [])
+      }
+    } catch (error) {
+      console.error('Failed to load tools:', error)
+    }
+  }
 
   const fetchProjects = async () => {
     try {
@@ -85,7 +97,11 @@ export function ProjectList() {
   const filteredProjects = projects.filter((project) =>
     project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+    project.toolsUsed.some(toolId => {
+      const tool = tools.find(t => t.id === toolId)
+      return tool?.name.toLowerCase().includes(searchQuery.toLowerCase())
+    })
   )
 
   return (
@@ -119,9 +135,9 @@ export function ProjectList() {
               <TableHead>Title</TableHead>
               <TableHead>Description</TableHead>
               <TableHead>Tags</TableHead>
+              <TableHead>Tools Used</TableHead>
               <TableHead>GitHub</TableHead>
               <TableHead>Live URL</TableHead>
-              <TableHead>Date Acquired</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -137,6 +153,18 @@ export function ProjectList() {
                         {tag}
                       </Badge>
                     ))}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="flex flex-wrap gap-1">
+                    {project.toolsUsed.map((toolId, index) => {
+                      const tool = tools.find(t => t.id === toolId)
+                      return (
+                        <Badge key={index} variant="outline">
+                          {tool?.name || toolId}
+                        </Badge>
+                      )
+                    })}
                   </div>
                 </TableCell>
                 <TableCell>
@@ -163,7 +191,6 @@ export function ProjectList() {
                     <span className="text-muted-foreground">Not available</span>
                   )}
                 </TableCell>
-                <TableCell>{project.acquired.toLocaleDateString()}</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
                     <Button

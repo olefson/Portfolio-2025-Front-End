@@ -120,7 +120,9 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
       
       // Format data according to backend schema
       const submitData = {
-        ...filteredData
+        ...filteredData,
+        acquired: new Date().toISOString(),
+        createdBy: "admin" // TODO: Replace with actual user ID
       }
       
       console.log('Submitting data:', submitData)

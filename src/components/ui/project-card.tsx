@@ -71,14 +71,24 @@ export function ProjectCard({
       <div className="p-6 mt-auto border-t space-y-4">
         <div className="flex gap-2">
           <Button variant="outline" size="sm" asChild className="flex-1">
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Github className="h-4 w-4 mr-2" />
               GitHub
             </a>
           </Button>
           {liveUrl && (
             <Button variant="outline" size="sm" asChild className="flex-1">
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+              <a 
+                href={liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Live Demo
               </a>

@@ -46,6 +46,7 @@ const projectFormSchema = z.object({
   tags: z.array(z.string()).min(1, {
     message: "Please add at least one tag.",
   }),
+  toolsUsed: z.array(z.string()).optional(),
 })
 
 type ProjectFormValues = z.infer<typeof projectFormSchema>
@@ -58,6 +59,8 @@ interface ProjectFormProps {
 export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
   const [tags, setTags] = useState<string[]>(project?.tags || [])
   const [newTag, setNewTag] = useState("")
+  const [selectedTools, setSelectedTools] = useState<string[]>(project?.toolsUsed || [])
+  const [tools, setTools] = useState<any[]>([])
   const [isUploading, setIsUploading] = useState(false)
 
   const form = useForm<ProjectFormValues>({
@@ -70,6 +73,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       githubUrl: project?.githubUrl || "",
       liveUrl: typeof project?.liveUrl === "string" ? project.liveUrl : "",
       tags: project?.tags || [],
+      toolsUsed: project?.toolsUsed || [],
     },
   })
 
@@ -80,8 +84,25 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
         liveUrl: typeof project.liveUrl === "string" ? project.liveUrl : "",
       })
       setTags(project.tags)
+      setSelectedTools(project.toolsUsed || [])
     }
   }, [project, form])
+
+  useEffect(() => {
+    // Load tools data
+    const loadTools = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/tools')
+        if (response.ok) {
+          const data = await response.json()
+          setTools(data || [])
+        }
+      } catch (error) {
+        console.error('Failed to load tools:', error)
+      }
+    }
+    loadTools()
+  }, [])
 
   async function onSubmit(data: ProjectFormValues) {
     try {
@@ -96,6 +117,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
         body: JSON.stringify({
           ...data,
           tags: data.tags,
+          toolsUsed: selectedTools,
         }),
       })
 
@@ -267,6 +289,61 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="toolsUsed"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tools Used</FormLabel>
+                  <FormControl>
+                    <div className="space-y-2">
+                      <Select
+                        onValueChange={(value) => {
+                          if (value && !selectedTools.includes(value)) {
+                            const newTools = [...selectedTools, value]
+                            setSelectedTools(newTools)
+                            field.onChange(newTools)
+                          }
+                        }}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select tools used in this project" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {tools.map((tool) => (
+                            <SelectItem key={tool.id} value={tool.id}>
+                              {tool.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedTools.map((toolId) => {
+                          const tool = tools.find(t => t.id === toolId)
+                          return (
+                            <Badge key={toolId} variant="secondary">
+                              {tool?.name || toolId}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const newTools = selectedTools.filter(id => id !== toolId)
+                                  setSelectedTools(newTools)
+                                  field.onChange(newTools)
+                                }}
+                                className="ml-1 hover:text-destructive"
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
+                            </Badge>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
