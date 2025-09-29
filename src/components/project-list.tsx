@@ -97,7 +97,6 @@ export function ProjectList() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="max-w-sm"
         />
-        <Button onClick={() => setSelectedProject(null)}>Add New Project</Button>
       </div>
 
       {selectedProject ? (
