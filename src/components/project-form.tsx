@@ -28,6 +28,14 @@ import { Badge } from "@/components/ui/badge"
 import { X, Upload } from "lucide-react"
 import { toast } from "sonner"
 
+// Predefined project categories
+const PROJECT_CATEGORIES = [
+  "Web Development",
+  "Artificial Intelligence", 
+  "Research",
+  "Other"
+]
+
 const projectFormSchema = z.object({
   id: z.string().optional(),
   title: z.string().min(2, {
@@ -44,7 +52,7 @@ const projectFormSchema = z.object({
     message: "Please enter a valid URL.",
   }).optional().or(z.literal("")),
   tags: z.array(z.string()).min(1, {
-    message: "Please add at least one tag.",
+    message: "Please select at least one category.",
   }),
   toolsUsed: z.array(z.string()).optional(),
 })
@@ -139,7 +147,9 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
     if (newTag && !tags.includes(newTag)) {
       setTags([...tags, newTag])
       form.setValue("tags", [...tags, newTag])
-      setNewTag("")
+      setNewTag("") // Clear selection after adding
+    } else if (tags.includes(newTag)) {
+      toast.error("This category is already selected")
     }
   }
 
@@ -251,7 +261,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
               name="tags"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Tags</FormLabel>
+                  <FormLabel>Project Category</FormLabel>
                   <FormControl>
                     <div className="flex flex-wrap gap-2">
                       {tags.map((tag, index) => (
@@ -269,18 +279,22 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                     </div>
                   </FormControl>
                   <div className="flex gap-2">
-                    <Input
-                      placeholder="Add a tag"
+                    <Select
                       value={newTag}
-                      onChange={(e) => setNewTag(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                          e.preventDefault()
-                          addTag()
-                        }
-                      }}
-                    />
-                    <Button type="button" onClick={addTag}>
+                      onValueChange={setNewTag}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select a category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {PROJECT_CATEGORIES.map((category) => (
+                          <SelectItem key={category} value={category}>
+                            {category}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <Button type="button" onClick={addTag} disabled={!newTag}>
                       Add
                     </Button>
                   </div>

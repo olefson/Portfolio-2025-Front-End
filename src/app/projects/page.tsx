@@ -1,56 +1,62 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Search } from "lucide-react"
 import { ProjectCard } from "@/components/ui/project-card"
+import { Project, getImageUrl } from "@/types/project"
 
-// Temporary mock data - will be replaced with DB data
-const mockProjects = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    description: "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features a responsive design, dark mode support, and interactive components.",
-    image: "/placeholder.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    category: "Web Development"
-  },
-  {
-    id: 2,
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform with product management, shopping cart, and payment integration.",
-    image: "/placeholder.png",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    category: "Web Development"
-  },
-  {
-    id: 3,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team features.",
-    image: "/placeholder.png",
-    technologies: ["React", "Firebase", "Material-UI", "Redux"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    category: "Web Development"
-  }
+// Predefined project categories (should match the form)
+const PROJECT_CATEGORIES = [
+  "Web Development",
+  "Artificial Intelligence", 
+  "Research",
+  "Other"
 ]
 
-const categories = ["All", "Web Development", "Mobile", "Desktop", "Other"]
+const defaultCategories = ["All", ...PROJECT_CATEGORIES]
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [projects, setProjects] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [categories, setCategories] = useState(defaultCategories)
 
-  const filteredProjects = mockProjects.filter(project => {
+  useEffect(() => {
+    fetchProjects()
+  }, [])
+
+  const fetchProjects = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/projects')
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects')
+      }
+      const data = await response.json()
+      setProjects(data)
+      
+      // Use predefined categories instead of dynamic extraction
+      setCategories(defaultCategories)
+    } catch (error) {
+      console.error('Error fetching projects:', error)
+      setError('Failed to load projects')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const filteredProjects = projects.filter(project => {
+    const toolNames = project.toolNames || project.toolsUsed
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory
+                         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                         toolNames.some(tool => tool.toLowerCase().includes(searchQuery.toLowerCase()))
+    const matchesCategory = selectedCategory === "All" || 
+                           project.tags.some(tag => tag.toLowerCase().includes(selectedCategory.toLowerCase()))
     return matchesSearch && matchesCategory
   })
 
@@ -103,22 +109,55 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+        {/* Loading State */}
+        {isLoading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading projects...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-12">
+            <h3 className="text-xl font-semibold mb-2 text-destructive">Error</h3>
+            <p className="text-muted-foreground">{error}</p>
+            <button 
+              onClick={fetchProjects}
+              className="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
             >
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
-        </div>
+              Try Again
+            </button>
+          </div>
+        )}
+
+        {/* Projects Grid */}
+        {!isLoading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <ProjectCard 
+                  id={project.id}
+                  title={project.title}
+                  description={project.description}
+                  image={getImageUrl(project.imagePath)}
+                  technologies={[...project.tags, ...(project.toolNames || project.toolsUsed)]}
+                  githubUrl={project.githubUrl || "#"}
+                  liveUrl={project.liveUrl}
+                  category={project.tags[0] || project.toolsUsed[0] || "Web Development"}
+                />
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* Empty State */}
-        {filteredProjects.length === 0 && (
+        {!isLoading && !error && filteredProjects.length === 0 && (
           <div className="text-center py-12">
             <h3 className="text-xl font-semibold mb-2">No projects found</h3>
             <p className="text-muted-foreground">

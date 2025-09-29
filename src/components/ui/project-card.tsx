@@ -47,10 +47,25 @@ export function ProjectCard({
           </Badge>
         </div>
         <div className="aspect-video rounded-lg bg-muted relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <FolderOpen className="w-12 h-12 text-muted-foreground/40" />
-          </div>
+          {image ? (
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error('Failed to load image:', image);
+                // Hide the image element on error
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <FolderOpen className="w-12 h-12 text-muted-foreground/40" />
+              </div>
+            </>
+          )}
         </div>
       </CardHeader>
       <CardContent className="space-y-6 flex-1">
