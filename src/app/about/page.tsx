@@ -114,9 +114,11 @@ export default function AboutPage() {
                     About Me
                   </h2>
                   <p className="text-xl text-muted-foreground leading-relaxed">
-                    I'm a passionate full-stack developer with a keen eye for design and user experience. 
-                    With over 5 years of experience in web development, I specialize in building modern, 
-                    scalable applications that not only look great but also provide exceptional user experiences.
+                  I’m a Master’s student in Computer Science with a focus on machine learning, combining hands-on experience in AI development and full-stack web engineering. My work spans from building real-world web applications for freelance clients and international EdTech companies, to academic projects tackling hospital NICU monitoring, optimized image generation, and cutting-edge NLP innovations using GAZE modules.
+                  </p>
+                  <br/>
+                  <p className="text-xl text-muted-foreground leading-relaxed">
+Alongside my technical expertise, I bring a background in business and leadership, giving me the ability to translate complex technical work into solutions that serve organizations and end users effectively. I’m seeking opportunities in machine learning engineering, AI-driven applications, or full-stack software development, with a particular interest in joining well-funded startups where I can apply both technical depth and creative problem-solving to drive real-world impact.
                   </p>
                 </CardContent>
               </Card>
