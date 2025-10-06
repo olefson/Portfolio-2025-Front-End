@@ -2,22 +2,25 @@
 
 import { useEffect, useState } from "react"
 import { TabFilter } from "@/components/ui/tab-filter"
-
-interface Process {
-  title: string
-  category: string
-  description: string
-  slug: string
-}
+import { Process } from "@/types"
 
 export default function ProcessesPage() {
   const [processes, setProcesses] = useState<Process[]>([])
 
   useEffect(() => {
-    fetch('/api/dev/content')
+    fetch('/api/processes')
       .then(res => res.json())
       .then(data => {
-        setProcesses(data.processes)
+        setProcesses(data)
+      })
+      .catch(error => {
+        console.error('Error fetching processes:', error)
+        // Fallback to static data if database is unavailable
+        fetch('/api/dev/content')
+          .then(res => res.json())
+          .then(data => {
+            setProcesses(data.processes)
+          })
       })
   }, [])
 

@@ -9,6 +9,8 @@ import { CalendarCheck2, FileEdit, Goal, HeartHandshake, Lightbulb, ListTodo } f
 
 interface ProcessCardProps extends Process {
   showContent?: boolean
+  toolsInvolved?: string[]
+  tips?: Record<string, string[]>
 }
 
 export type { ProcessCardProps }
@@ -29,6 +31,7 @@ export function ProcessCard({
   id,
   title,
   description,
+  tools,
   toolsInvolved,
   steps,
   category,
@@ -48,14 +51,14 @@ export function ProcessCard({
           </Badge>
         </div>
         <div className="flex flex-wrap gap-2">
-          {(toolsInvolved || []).slice(0, showContent ? undefined : 3).map((tool) => (
+          {(toolsInvolved || tools || []).slice(0, showContent ? undefined : 3).map((tool) => (
             <Badge key={tool} variant="secondary" className="text-xs">
               {tool}
             </Badge>
           ))}
-          {!showContent && toolsInvolved && toolsInvolved.length > 3 && (
+          {!showContent && (toolsInvolved || tools) && (toolsInvolved || tools).length > 3 && (
             <Badge variant="secondary" className="text-xs">
-              +{toolsInvolved.length - 3} more
+              +{(toolsInvolved || tools).length - 3} more
             </Badge>
           )}
         </div>
@@ -72,7 +75,7 @@ export function ProcessCard({
                 ))}
               </ol>
             </div>
-            {Object.entries(tips).map(([section, items]) => (
+            {tips && Object.entries(tips).map(([section, items]) => (
               <div key={section} className="space-y-2">
                 <h3 className="font-semibold">{section}</h3>
                 <ul className="list-disc list-inside text-sm text-muted-foreground">

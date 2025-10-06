@@ -11,7 +11,7 @@ export enum ProcessCategory {
   Personal = "Personal",
   Professional = "Professional",
   Development = "Development",
-  Content = "Content",
+  Academic = "Academic",
   Other = "Other",
 }
 
