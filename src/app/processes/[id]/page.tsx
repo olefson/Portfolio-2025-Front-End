@@ -12,40 +12,20 @@ interface PageProps {
   }>  
 }
 
+function getProcesses(): Process[] {
+  const processesPath = path.join(process.cwd(), "src/data/processes.json")
+  const processesData = JSON.parse(fs.readFileSync(processesPath, "utf8"))
+  return processesData.processes
+}
+
 async function getProcess(id: string): Promise<Process | null> {
-  try {
-    const response = await fetch(`${process.env.BACKEND_URL || "http://localhost:3001"}/api/processes/${id}`)
-    if (!response.ok) {
-      return null
-    }
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching process from database:', error)
-    // Fallback to static data
-    const processesPath = path.join(process.cwd(), "src/data/processes.json")
-    const processesData = JSON.parse(fs.readFileSync(processesPath, "utf8"))
-    return processesData.processes.find((process: Process) => process.id === id) || null
-  }
+  const processes = getProcesses()
+  return processes.find(process => process.id === id) || null
 }
 
 export async function generateStaticParams() {
-  try {
-    // Try to get processes from database
-    const response = await fetch(`${process.env.BACKEND_URL || "http://localhost:3001"}/api/processes`)
-    if (response.ok) {
-      const processes = await response.json()
-      return processes.map((process: Process) => ({
-        id: process.id,
-      }))
-    }
-  } catch (error) {
-    console.error('Error fetching processes for static params:', error)
-  }
-  
-  // Fallback to static data
-  const processesPath = path.join(process.cwd(), "src/data/processes.json")
-  const processesData = JSON.parse(fs.readFileSync(processesPath, "utf8"))
-  return processesData.processes.map((process: Process) => ({
+  const processes = getProcesses()
+  return processes.map((process) => ({
     id: process.id,
   }))
 }

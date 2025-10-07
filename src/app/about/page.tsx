@@ -66,7 +66,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Full-stack Developer & UI/UX Enthusiast
+            
           </motion.p>
           <motion.div
             className="flex justify-center gap-6"
@@ -200,23 +200,35 @@ Alongside my technical expertise, I bring a background in business and leadershi
             <div className="space-y-8">
               {[
                 {
-                  title: "Senior Full Stack Developer",
-                  period: "2020 - Present",
-                  company: "Tech Innovations Inc.",
+                  title: "Full-Stack Developer",
+                  period: "02/2025 – 08/2025",
+                  company: "Impactis Global",
                   achievements: [
-                    "Led development of multiple web applications using React and Node.js",
-                    "Implemented CI/CD pipelines reducing deployment time by 50%",
-                    "Mentored junior developers and conducted code reviews"
+                    "Acted as the technical point person for a 3-member team, delegating tasks and leading daily stand-ups to ensure timely sprint delivery",
+                    "Built and maintained full-stack features using React, TypeScript, Tailwind CSS, Prisma, and PostgreSQL, integrating Stripe for secure payment processing",
+                    "Monitored and managed the company's GitHub repositories, reviewing pull requests, resolving merge conflicts, and maintaining production stability",
+                    "Improved UI/UX consistency and overall site performance through responsive design and accessibility updates",
+                    "Implemented SEO strategies that enhanced search engine visibility and organic reach",
+                    "Collaborated closely with product leads to translate business goals into scalable, high-performance web solutions"
                   ]
                 },
                 {
-                  title: "Full Stack Developer",
-                  period: "2018 - 2020",
-                  company: "Digital Solutions Ltd.",
+                  title: "Web Developer",
+                  period: "02/2022 – 11/2024",
+                  company: "Olefson Web Designs",
                   achievements: [
-                    "Developed and maintained RESTful APIs using Express.js",
-                    "Built responsive user interfaces with React and Material-UI",
-                    "Optimized database queries improving application performance"
+                    "Launched and managed websites with Amazon Web Services utilizing S3, Route 53",
+                    "Independently performed code maintenance, ensured traffic remained stable",
+                    "Implemented SEO strategies to ensure that pages show up on various search engines"
+                  ]
+                },
+                {
+                  title: "WordPress Developer",
+                  period: "02/2021 – 06/2022",
+                  company: "OER4CTE, Remote, CA",
+                  achievements: [
+                    "Ensured the OER4CTE website was ADA compliant",
+                    "Worked collaboratively with copywriters and curriculum developers to evaluate and interpret new content"
                   ]
                 }
               ].map((job, index) => (

@@ -1,9 +1,9 @@
 'use client';
 
-import Link from "next/link"
 import Image from "next/image"
 import { OrbitingCircles } from "@/components/ui/orbiting-circles"
 import { WarpBackground } from "@/components/ui/warp-background"
+import { GlassButton } from "@/components/ui/glass-button"
 
 
 export default function ToolkitPage() {
@@ -29,19 +29,13 @@ export default function ToolkitPage() {
                 A curated collection of tools and processes I use to build, learn, and grow.
               </span>
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto sm:justify-center">
-              <Link
-                href="/tools"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-emerald-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-700 disabled:pointer-events-none disabled:opacity-50"
-              >
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto sm:justify-center">
+              <GlassButton href="/tools">
                 View My Tools
-              </Link>
-              <Link
-                href="/processes"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-emerald-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-700 disabled:pointer-events-none disabled:opacity-50"
-              >
+              </GlassButton>
+              <GlassButton href="/processes">
                 View My Processes
-              </Link>
+              </GlassButton>
             </div>
           </div>
 

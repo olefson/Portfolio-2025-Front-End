@@ -23,12 +23,8 @@ export function SiteHeader() {
       label: "Projects",
     },
     {
-      href: "/tools",
-      label: "Tools",
-    },
-    {
-      href: "/processes",
-      label: "Processes",
+      href: "/toolkit",
+      label: "Toolkit",
     },
     {
       href: "/edit",

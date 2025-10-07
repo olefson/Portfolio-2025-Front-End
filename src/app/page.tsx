@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Briefcase, Wrench } from 'lucide-react';
+import { GlassButton } from '@/components/ui/glass-button';
 
 export default function Home() {
   useEffect(() => {
@@ -91,19 +92,19 @@ export default function Home() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto"
         >
           {buttons.map((button, index) => (
-            <motion.a
+            <motion.div
               key={button.label}
-              href={button.href}
-              className="group relative flex items-center justify-center gap-2 px-6 py-3 text-sm sm:text-base font-medium text-white bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
             >
-              {button.icon}
-              {button.label}
-            </motion.a>
+              <GlassButton
+                href={button.href}
+                icon={button.icon}
+              >
+                {button.label}
+              </GlassButton>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>
