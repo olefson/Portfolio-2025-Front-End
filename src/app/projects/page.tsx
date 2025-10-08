@@ -78,8 +78,8 @@ export default function ProjectsPage() {
 
         {/* Search and Filter Section */}
         <div className="mb-8 space-y-4">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1 min-w-0">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
                 placeholder="Search projects..."
@@ -92,14 +92,14 @@ export default function ProjectsPage() {
               defaultValue="All"
               value={selectedCategory}
               onValueChange={setSelectedCategory}
-              className="w-full md:w-auto"
+              className="w-full"
             >
-              <TabsList className="w-full md:w-auto">
+              <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent min-h-fit h-auto py-2">
                 {categories.map((category) => (
                   <TabsTrigger
                     key={category}
                     value={category}
-                    className="flex-1 md:flex-none"
+                    className="rounded-full bg-muted px-4 py-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
                   >
                     {category}
                   </TabsTrigger>
