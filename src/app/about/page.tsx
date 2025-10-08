@@ -7,6 +7,8 @@ import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlowCard } from "@/components/ui/glow-card"
 import { ProjectCard } from "@/components/ui/project-card"
+import { GlassButton } from "@/components/ui/glass-button"
+import Image from "next/image"
 
 const staggerContainer = {
   animate: {
@@ -49,14 +51,61 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-24 md:py-32">
+      <section className="relative flex flex-col items-center justify-center text-center py-8 md:py-12">
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full flex flex-col items-center">
+          <motion.div
+            className="mb-6 perspective-1000"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            whileHover={{ 
+              rotateY: 15,
+              rotateX: 5,
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
+            style={{ 
+              transformStyle: "preserve-3d",
+              perspective: "1000px"
+            }}
+          >
+            <motion.div
+              className="relative"
+              style={{ transformStyle: "preserve-3d" }}
+              whileHover={{ 
+                rotateY: 10,
+                rotateX: 3,
+                transition: { duration: 0.3 }
+              }}
+            >
+              <Image
+                src="/headshot.jpg"
+                alt="Jason Olefson"
+                width={200}
+                height={200}
+                className="rounded-full border-4 border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
+                priority
+                style={{
+                  transform: "translateZ(20px)",
+                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
+                }}
+              />
+              {/* 3D edge effect */}
+              <div 
+                className="absolute inset-0 rounded-full border-4 border-white/10"
+                style={{
+                  transform: "translateZ(10px)",
+                  background: "linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
+                }}
+              />
+            </motion.div>
+          </motion.div>
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             Jason Olefson
           </motion.h1>
@@ -98,7 +147,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="container py-16 px-4">
+      <div className="container py-8 px-4">
         <motion.div
           variants={staggerContainer}
           initial="initial"
