@@ -69,44 +69,46 @@ export default function ProjectsPage() {
         className="max-w-7xl mx-auto"
       >
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">My Projects</h1>
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-bold mb-2">My Projects</h1>
           <p className="text-muted-foreground text-lg">
             A collection of my work and personal projects
           </p>
         </div>
 
-        {/* Search and Filter Section */}
-        <div className="mb-8 space-y-4">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="relative flex-1 min-w-0">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                placeholder="Search projects..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <Tabs
-              defaultValue="All"
-              value={selectedCategory}
-              onValueChange={setSelectedCategory}
-              className="w-full"
-            >
-              <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent min-h-fit h-auto py-2">
-                {categories.map((category) => (
-                  <TabsTrigger
-                    key={category}
-                    value={category}
-                    className="rounded-full bg-muted px-4 py-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
-                  >
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
+        {/* Search Bar */}
+        <div className="w-full max-w-sm mx-auto mb-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Input
+              placeholder="Search projects..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10"
+            />
           </div>
+        </div>
+
+        {/* Filter Section */}
+        <div className="mb-6">
+          <Tabs
+            defaultValue="All"
+            value={selectedCategory}
+            onValueChange={setSelectedCategory}
+            className="w-full"
+          >
+            <TabsList className="flex flex-wrap justify-center gap-1 bg-transparent min-h-fit h-auto py-1">
+              {categories.map((category) => (
+                <TabsTrigger
+                  key={category}
+                  value={category}
+                  className="rounded-full bg-muted px-3 py-1.5 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+                >
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
         </div>
 
         {/* Loading State */}

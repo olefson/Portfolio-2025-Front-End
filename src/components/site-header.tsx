@@ -26,11 +26,6 @@ export function SiteHeader() {
       href: "/toolkit",
       label: "Toolkit",
     },
-    {
-      href: "/edit",
-      label: "Edit",
-      icon: <Pencil1Icon className="h-4 w-4" />,
-    },
   ]
 
   return (

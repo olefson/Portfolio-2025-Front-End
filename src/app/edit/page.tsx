@@ -10,13 +10,50 @@ import { ProjectList } from "@/components/project-list"
 import { Card } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Wrench, Workflow, Briefcase } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
+import { notFound } from "next/navigation"
 
 export default function EditPage() {
+  const [isAuthorized, setIsAuthorized] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState("tools")
+
+  useEffect(() => {
+    // Check for secret key in URL parameters
+    const urlParams = new URLSearchParams(window.location.search)
+    const secretKey = urlParams.get('key')
+    
+    // Your secret key
+    const expectedKey = 'F!shyL0ve'
+    
+    if (secretKey === expectedKey) {
+      setIsAuthorized(true)
+    }
+    
+    setIsLoading(false)
+  }, [])
+
+  // Show 404 if not authorized
+  if (!isLoading && !isAuthorized) {
+    notFound()
+  }
+
+  // Show loading while checking authorization
+  if (isLoading) {
+    return (
+      <div className="container py-10">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading...</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   const tabs = [
     {
