@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { GlowCard } from "@/components/ui/glow-card"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, FolderOpen } from "lucide-react"
+import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 
 interface Project {
   id: string | number
@@ -72,9 +73,12 @@ export function ProjectCard({
         <p className="text-sm text-muted-foreground">{description}</p>
         <div className="flex flex-wrap gap-2">
           {technologies.slice(0, showContent ? undefined : 4).map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
+            <ClickableToolBadge 
+              key={tech} 
+              toolName={tech} 
+              variant="secondary" 
+              className="text-xs"
+            />
           ))}
           {!showContent && technologies.length > 4 && (
             <Badge variant="secondary" className="text-xs">

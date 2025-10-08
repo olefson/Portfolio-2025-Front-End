@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Github, ExternalLink, Calendar, Tag } from "lucide-react"
 import { Project, getImageUrl } from "@/types/project"
+import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 
 export default function ProjectDetailPage() {
   const params = useParams()
@@ -91,9 +92,6 @@ export default function ProjectDetailPage() {
         {/* Project Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-          <p className="text-lg text-muted-foreground mb-6">
-            {project.description}
-          </p>
         </div>
 
         {/* Project Image */}
@@ -117,22 +115,17 @@ export default function ProjectDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Technologies Used */}
+            {/* Project Info */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Tag className="h-5 w-5 mr-2" />
-                  Technologies & Tools
+                  Project Info
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {[...project.tags, ...(project.toolNames || project.toolsUsed)].map((tech, index) => (
-                    <Badge key={index} variant="secondary" className="text-sm">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
               </CardContent>
             </Card>
 
@@ -177,10 +170,10 @@ export default function ProjectDetailPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Project Info */}
+            {/* Tech Stack */}
             <Card>
               <CardHeader>
-                <CardTitle>Project Information</CardTitle>
+                <CardTitle>Tech Stack</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -197,9 +190,12 @@ export default function ProjectDetailPage() {
                   <h4 className="font-semibold mb-2">Tools Used</h4>
                   <div className="flex flex-wrap gap-1">
                     {(project.toolNames || project.toolsUsed).map((tool, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {tool}
-                      </Badge>
+                      <ClickableToolBadge 
+                        key={index} 
+                        toolName={tool} 
+                        variant="outline" 
+                        className="text-xs"
+                      />
                     ))}
                   </div>
                 </div>
