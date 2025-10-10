@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { SiteFooter } from "@/components/site-footer"
 import { ConditionalSiteHeader } from "@/components/ConditionalSiteHeader"
+import { TransitionProvider } from "@/contexts/transition-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     creator: "@olefson",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐙</text></svg>",
   },
 }
 
@@ -65,18 +66,20 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <ConditionalSiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
-        </ThemeProvider>
+        <TransitionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="relative flex min-h-screen flex-col">
+              <ConditionalSiteHeader />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+            </div>
+          </ThemeProvider>
+        </TransitionProvider>
       </body>
     </html>
   )

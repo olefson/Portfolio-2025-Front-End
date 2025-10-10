@@ -8,10 +8,12 @@ import { MoonIcon, SunIcon, Pencil1Icon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 import { MobileNav } from "@/components/mobile-nav"
 import { Logo } from "@/components/ui/logo"
+import { useEffect, useRef } from "react"
 
 export function SiteHeader() {
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
+  const logoRef = useRef<HTMLDivElement>(null)
 
   const routes = [
     {
@@ -28,12 +30,15 @@ export function SiteHeader() {
     },
   ]
 
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="flex-1">
           <Link href="/" className="inline-flex items-center gap-3">
-            <Logo />
+            <div ref={logoRef} data-logo-ref>
+              <Logo />
+            </div>
           </Link>
         </div>
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -46,7 +51,6 @@ export function SiteHeader() {
                 pathname === route.href ? "text-foreground" : "text-foreground/60"
               )}
             >
-              {route.icon && <span>{route.icon}</span>}
               {route.label}
             </Link>
           ))}

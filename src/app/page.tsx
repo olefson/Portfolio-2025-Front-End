@@ -4,8 +4,12 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Briefcase, Wrench } from 'lucide-react';
 import { GlassButton } from '@/components/ui/glass-button';
+import { useTransition } from '@/contexts/transition-context';
+import { VideoTransition } from '@/components/video-transition';
 
 export default function Home() {
+  const { sourceVideoRef, startTransition, isTransitioning, completeTransition } = useTransition();
+
   useEffect(() => {
     // Prevent scrolling on the landing page
     document.body.style.overflow = 'hidden';
@@ -40,6 +44,7 @@ export default function Home() {
     <main className="relative w-screen h-screen overflow-hidden flex items-center justify-center bg-black">
       {/* Video Background */}
       <video
+        ref={sourceVideoRef}
         autoPlay
         muted
         loop
@@ -101,6 +106,7 @@ export default function Home() {
               <GlassButton
                 href={button.href}
                 icon={button.icon}
+                onClick={startTransition}
               >
                 {button.label}
               </GlassButton>
@@ -108,6 +114,14 @@ export default function Home() {
           ))}
         </motion.div>
       </motion.div>
+
+      {/* Video Transition */}
+      <VideoTransition
+        isTransitioning={isTransitioning}
+        onTransitionComplete={completeTransition}
+        sourceVideoRef={sourceVideoRef}
+        targetPosition={{ x: 0, y: 0, width: 32, height: 32 }}
+      />
     </main>
   );
 }

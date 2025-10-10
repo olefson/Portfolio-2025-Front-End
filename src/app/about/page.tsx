@@ -2,13 +2,14 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlowCard } from "@/components/ui/glow-card"
 import { ProjectCard } from "@/components/ui/project-card"
 import { GlassButton } from "@/components/ui/glass-button"
 import Image from "next/image"
+import { useRef } from "react"
 
 const staggerContainer = {
   animate: {
@@ -21,6 +22,98 @@ const staggerContainer = {
 const itemVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 }
+}
+
+// 3D Coin Component with mouse tracking
+function Coin3D({ src, alt, width, height, className }: { src: string; alt: string; width: number; height: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  
+  const rotateX = useSpring(useTransform(mouseY, [-1, 1], [15, -15]), { stiffness: 150, damping: 15 })
+  const rotateY = useSpring(useTransform(mouseX, [-1, 1], [-15, 15]), { stiffness: 150, damping: 15 })
+  
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return
+    
+    const rect = ref.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    
+    const distanceX = (event.clientX - centerX) / (rect.width / 2)
+    const distanceY = (event.clientY - centerY) / (rect.height / 2)
+    
+    mouseX.set(distanceX)
+    mouseY.set(distanceY)
+  }
+  
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="perspective-1000"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ 
+        transformStyle: "preserve-3d",
+        perspective: "1000px"
+      }}
+    >
+      <motion.div
+        className="relative"
+        style={{ 
+          transformStyle: "preserve-3d",
+          rotateX,
+          rotateY
+        }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className={className}
+          priority
+          style={{
+            transform: "translateZ(20px)",
+            filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
+          }}
+        />
+        
+        {/* Coin ridges - multiple concentric circles */}
+        {Array.from({ length: 8 }, (_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full border border-white/20"
+            style={{
+              width: `${100 - i * 2}%`,
+              height: `${100 - i * 2}%`,
+              top: `${i}%`,
+              left: `${i}%`,
+              transform: `translateZ(${15 - i * 1.5}px)`,
+              background: i % 2 === 0 
+                ? "linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05))"
+                : "linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05))"
+            }}
+          />
+        ))}
+        
+        {/* Outer rim with stronger ridge effect */}
+        <div 
+          className="absolute inset-0 rounded-full border-2 border-white/30"
+          style={{
+            transform: "translateZ(5px)",
+            background: "linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))",
+            boxShadow: "inset 0 0 10px rgba(0,0,0,0.2)"
+          }}
+        />
+      </motion.div>
+    </div>
+  )
 }
 
 // Mock featured projects data
@@ -55,51 +148,18 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-transparent pointer-events-none" />
         <div className="relative z-10 w-full flex flex-col items-center">
           <motion.div
-            className="mb-6 perspective-1000"
+            className="mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            whileHover={{ 
-              rotateY: 15,
-              rotateX: 5,
-              scale: 1.05,
-              transition: { duration: 0.3 }
-            }}
-            style={{ 
-              transformStyle: "preserve-3d",
-              perspective: "1000px"
-            }}
           >
-            <motion.div
-              className="relative"
-              style={{ transformStyle: "preserve-3d" }}
-              whileHover={{ 
-                rotateY: 10,
-                rotateX: 3,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <Image
-                src="/headshot.jpg"
-                alt="Jason Olefson"
-                width={200}
-                height={200}
-                className="rounded-full border-4 border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
-                priority
-                style={{
-                  transform: "translateZ(20px)",
-                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
-                }}
-              />
-              {/* 3D edge effect */}
-              <div 
-                className="absolute inset-0 rounded-full border-4 border-white/10"
-                style={{
-                  transform: "translateZ(10px)",
-                  background: "linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
-                }}
-              />
-            </motion.div>
+            <Coin3D
+              src="/headshot.jpg"
+              alt="Jason Olefson"
+              width={200}
+              height={200}
+              className="rounded-full border-4 border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
+            />
           </motion.div>
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-4"
