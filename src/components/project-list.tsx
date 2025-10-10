@@ -17,9 +17,8 @@ interface Project {
   githubUrl: string
   liveUrl?: string
   tags: string[]
-  acquired: Date
-  createdBy: string
-  updatedAt: string
+  date?: string
+  toolsUsed?: string[]
 }
 
 export function ProjectList() {
@@ -41,7 +40,6 @@ export function ProjectList() {
       const data = await response.json()
       setProjects(data.map((project: any) => ({
         ...project,
-        acquired: new Date(project.acquired),
         tags: typeof project.tags === 'string' ? JSON.parse(project.tags) : project.tags
       })))
     } catch (error) {
@@ -112,10 +110,12 @@ export function ProjectList() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="text-lg font-semibold truncate">{project.title}</h3>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Calendar className="h-4 w-4" />
-                        {project.acquired.toLocaleDateString()}
-                      </div>
+                      {project.date && (
+                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          {new Date(project.date).toLocaleDateString()}
+                        </div>
+                      )}
                     </div>
                     
                     <p className="text-muted-foreground text-sm mb-3 overflow-hidden" style={{

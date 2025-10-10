@@ -55,6 +55,7 @@ const projectFormSchema = z.object({
     message: "Please select at least one category.",
   }),
   toolsUsed: z.array(z.string()).optional(),
+  date: z.string().optional(),
 })
 
 type ProjectFormValues = z.infer<typeof projectFormSchema>
@@ -74,24 +75,32 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
   const form = useForm<ProjectFormValues>({
     resolver: zodResolver(projectFormSchema),
     defaultValues: {
-      id: project?.id,
+      id: project?.id || "",
       title: project?.title || "",
       description: project?.description || "",
       imagePath: project?.imagePath || "",
       githubUrl: project?.githubUrl || "",
-      liveUrl: typeof project?.liveUrl === "string" ? project.liveUrl : "",
+      liveUrl: project?.liveUrl || "",
       tags: project?.tags || [],
       toolsUsed: project?.toolsUsed || [],
+      date: project?.date || "",
     },
   })
 
   useEffect(() => {
     if (project) {
       form.reset({
-        ...project,
-        liveUrl: typeof project.liveUrl === "string" ? project.liveUrl : "",
+        id: project.id || "",
+        title: project.title || "",
+        description: project.description || "",
+        imagePath: project.imagePath || "",
+        githubUrl: project.githubUrl || "",
+        liveUrl: project.liveUrl || "",
+        tags: project.tags || [],
+        toolsUsed: project.toolsUsed || [],
+        date: project.date || "",
       })
-      setTags(project.tags)
+      setTags(project.tags || [])
       setSelectedTools(project.toolsUsed || [])
     }
   }, [project, form])
@@ -134,8 +143,19 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       }
 
       toast.success(project?.id ? "Project updated successfully" : "Project created successfully")
-      form.reset()
+      form.reset({
+        id: "",
+        title: "",
+        description: "",
+        imagePath: "",
+        githubUrl: "",
+        liveUrl: "",
+        tags: [],
+        toolsUsed: [],
+        date: "",
+      })
       setTags([])
+      setSelectedTools([])
       onSuccess?.()
     } catch (error) {
       toast.error("Failed to save project")
@@ -223,6 +243,26 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                       {...field}
                     />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="date"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Project Date (Optional)</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="date"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    When was this project completed or started?
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
