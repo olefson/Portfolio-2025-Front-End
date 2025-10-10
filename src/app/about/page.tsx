@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlowCard } from "@/components/ui/glow-card"
 import { ProjectCard } from "@/components/ui/project-card"
@@ -122,7 +122,7 @@ const featuredProjects = [
     id: 1,
     title: "Portfolio Website",
     description: "A modern portfolio website showcasing my work and skills. Features a responsive design, dark mode support, and interactive components.",
-    image: "/placeholder.png",
+    image: undefined, // No image - will show folder icon
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -132,7 +132,7 @@ const featuredProjects = [
     id: 2,
     title: "E-commerce Platform",
     description: "A full-featured e-commerce platform with product management, shopping cart, and payment integration.",
-    image: "/placeholder.png",
+    image: undefined, // No image - will show folder icon
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -184,22 +184,17 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/olefson" target="_blank" rel="noopener noreferrer">
                 <Github className="h-6 w-6" />
               </a>
             </Button>
             <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/jason-olefson/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-6 w-6" />
               </a>
             </Button>
             <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:jasonolefson@gmail.com">
                 <Mail className="h-6 w-6" />
               </a>
             </Button>

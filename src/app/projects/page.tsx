@@ -152,6 +152,7 @@ export default function ProjectsPage() {
                   githubUrl={project.githubUrl || "#"}
                   liveUrl={project.liveUrl}
                   category={project.tags[0] || project.toolsUsed[0] || "Web Development"}
+                  date={project.date}
                 />
               </motion.div>
             ))}

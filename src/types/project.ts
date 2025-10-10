@@ -8,6 +8,7 @@ export interface Project {
   tags: string[]
   toolsUsed: string[]
   toolNames?: string[] // Added for displaying tool names instead of IDs
+  date?: string // Added for displaying project year
 }
 
 // Helper function to construct full image URL

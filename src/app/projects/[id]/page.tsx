@@ -92,6 +92,12 @@ export default function ProjectDetailPage() {
         {/* Project Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+          {project.date && (
+            <div className="flex items-center gap-2 text-muted-foreground mb-4">
+              <Calendar className="h-4 w-4" />
+              <span>{new Date(project.date).getFullYear()}</span>
+            </div>
+          )}
         </div>
 
         {/* Project Image */}

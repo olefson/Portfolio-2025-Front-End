@@ -17,6 +17,7 @@ interface Project {
   githubUrl: string
   liveUrl?: string
   category: string
+  date?: string
 }
 
 interface ProjectCardProps extends Project {
@@ -34,15 +35,23 @@ export function ProjectCard({
   githubUrl,
   liveUrl,
   category,
+  date,
   showContent = false,
 }: ProjectCardProps) {
   const content = (
     <Card className="h-full min-h-[400px] transition-colors group-hover:bg-muted/50 relative select-none flex flex-col">
       <CardHeader className="space-y-4">
         <div className="flex items-start justify-between">
-          <CardTitle className="text-xl font-bold transition-colors group-hover:text-emerald-400">
-            {title}
-          </CardTitle>
+          <div className="flex-1">
+            <CardTitle className="text-xl font-bold transition-colors group-hover:text-emerald-400">
+              {title}
+            </CardTitle>
+            {date && (
+              <p className="text-sm text-muted-foreground mt-1">
+                {new Date(date).getFullYear()}
+              </p>
+            )}
+          </div>
           <Badge variant="outline" className="shrink-0">
             {category}
           </Badge>
@@ -54,19 +63,28 @@ export function ProjectCard({
               alt={title}
               className="w-full h-full object-cover"
               onError={(e) => {
-                console.error('Failed to load image:', image);
-                // Hide the image element on error
+                // Silently handle image loading errors without console spam
                 e.currentTarget.style.display = 'none';
+                // Show the fallback folder icon
+                const parent = e.currentTarget.parentElement;
+                if (parent) {
+                  const fallback = parent.querySelector('.fallback-icon');
+                  if (fallback) {
+                    (fallback as HTMLElement).style.display = 'flex';
+                  }
+                }
               }}
             />
-          ) : (
-            <>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <FolderOpen className="w-12 h-12 text-muted-foreground/40" />
-              </div>
-            </>
-          )}
+          ) : null}
+          {/* Always render fallback, but hide if image loads successfully */}
+          <div 
+            className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent ${image ? 'hidden' : ''} fallback-icon`}
+            style={{ display: image ? 'none' : 'flex' }}
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <FolderOpen className="w-12 h-12 text-muted-foreground/40" />
+            </div>
+          </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-6 flex-1">
@@ -124,9 +142,12 @@ export function ProjectCard({
 
   return (
     <div className="group relative">
-      <Link href={`/projects/${id}`}>
+      <div 
+        className="cursor-pointer"
+        onClick={() => window.location.href = `/projects/${id}`}
+      >
         <GlowCard>{content}</GlowCard>
-      </Link>
+      </div>
     </div>
   )
 }
