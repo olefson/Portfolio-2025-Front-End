@@ -52,16 +52,13 @@ export function ClickableToolBadge({
   }
 
   return (
-    <Badge 
-      variant={variant} 
-      className={`${className} cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors`}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.href = `/tools/${toolId}`;
-      }}
-    >
-      {toolName}
-    </Badge>
+    <Link href={`/tools/${toolId}`}>
+      <Badge 
+        variant={variant} 
+        className={`${className} cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors`}
+      >
+        {toolName}
+      </Badge>
+    </Link>
   )
 }

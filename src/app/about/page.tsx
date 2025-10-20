@@ -9,7 +9,8 @@ import { GlowCard } from "@/components/ui/glow-card"
 import { ProjectCard } from "@/components/ui/project-card"
 import { GlassButton } from "@/components/ui/glass-button"
 import Image from "next/image"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
+import { Project, getImageUrl } from "@/types/project"
 
 const staggerContainer = {
   animate: {
@@ -116,31 +117,29 @@ function Coin3D({ src, alt, width, height, className }: { src: string; alt: stri
   )
 }
 
-// Mock featured projects data
-const featuredProjects = [
-  {
-    id: 1,
-    title: "Portfolio Website",
-    description: "A modern portfolio website showcasing my work and skills. Features a responsive design, dark mode support, and interactive components.",
-    image: "/placeholder.png",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    category: "Web Development"
-  },
-  {
-    id: 2,
-    title: "E-commerce Platform",
-    description: "A full-featured e-commerce platform with product management, shopping cart, and payment integration.",
-    image: "/placeholder.png",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    category: "Web Development"
-  }
-]
 
 export default function AboutPage() {
+  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchFeaturedProjects = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/projects/featured')
+        if (response.ok) {
+          const data = await response.json()
+          setFeaturedProjects(data)
+        }
+      } catch (error) {
+        console.error('Error fetching featured projects:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchFeaturedProjects()
+  }, [])
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -244,11 +243,37 @@ Alongside my technical expertise, I bring a background in business and leadershi
                 A selection of my most impactful work
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.id} {...project} showContent={true} />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[1, 2].map((i) => (
+                  <div key={i} className="animate-pulse">
+                    <div className="bg-muted rounded-lg h-64"></div>
+                  </div>
+                ))}
+              </div>
+            ) : featuredProjects.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {featuredProjects.map((project) => (
+                  <ProjectCard 
+                    key={project.id}
+                    id={project.id}
+                    title={project.title}
+                    description={project.description}
+                    image={getImageUrl(project.imagePath)}
+                    technologies={[...project.tags, ...(project.toolNames || project.toolsUsed)]}
+                    githubUrl={project.githubUrl || "#"}
+                    liveUrl={project.liveUrl}
+                    category={project.tags[0] || project.toolsUsed[0] || "Web Development"}
+                    date={project.date}
+                    showContent={true}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No featured projects available</p>
+              </div>
+            )}
             <div className="mt-8 text-center">
               <Button asChild>
                 <a href="/projects">

@@ -126,16 +126,24 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       const url = project?.id ? `http://localhost:3001/api/projects/${project.id}` : 'http://localhost:3001/api/projects'
       const method = project?.id ? "PUT" : "POST"
 
+      // Remove id field when creating new project
+      const submitData = {
+        ...data,
+        tags: data.tags,
+        toolsUsed: selectedTools,
+      }
+      
+      // Don't send id field for new projects
+      if (!project?.id) {
+        delete submitData.id
+      }
+
       const response = await fetch(url, {
         method,
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...data,
-          tags: data.tags,
-          toolsUsed: selectedTools,
-        }),
+        body: JSON.stringify(submitData),
       })
 
       if (!response.ok) {
