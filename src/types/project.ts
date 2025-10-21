@@ -1,6 +1,6 @@
 export interface Project {
   id: string
-  title: string
+  title: string 
   description: string
   imagePath?: string
   githubUrl?: string

@@ -71,6 +71,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
   const [selectedTools, setSelectedTools] = useState<string[]>(project?.toolsUsed || [])
   const [tools, setTools] = useState<any[]>([])
   const [isUploading, setIsUploading] = useState(false)
+  const [originalData, setOriginalData] = useState<ProjectFormValues | null>(null)
 
   const form = useForm<ProjectFormValues>({
     resolver: zodResolver(projectFormSchema),
@@ -89,7 +90,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
   useEffect(() => {
     if (project) {
-      form.reset({
+      const projectData = {
         id: project.id || "",
         title: project.title || "",
         description: project.description || "",
@@ -99,7 +100,9 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
         tags: project.tags || [],
         toolsUsed: project.toolsUsed || [],
         date: project.date || "",
-      })
+      }
+      form.reset(projectData)
+      setOriginalData(projectData)
       setTags(project.tags || [])
       setSelectedTools(project.toolsUsed || [])
     }
@@ -126,15 +129,59 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       const url = project?.id ? `http://localhost:3001/api/projects/${project.id}` : 'http://localhost:3001/api/projects'
       const method = project?.id ? "PUT" : "POST"
 
-      // Remove id field when creating new project
-      const submitData = {
+      // Prepare submit data with proper date handling
+      let submitData: any = {
         ...data,
         tags: data.tags,
         toolsUsed: selectedTools,
       }
       
-      // Don't send id field for new projects
-      if (!project?.id) {
+      // For editing, only send changed fields
+      if (project?.id && originalData) {
+        const changedFields: any = {}
+        
+        // Check each field for changes
+        if (data.title !== originalData.title) changedFields.title = data.title
+        if (data.description !== originalData.description) changedFields.description = data.description
+        if (data.githubUrl !== originalData.githubUrl) changedFields.githubUrl = data.githubUrl
+        if (data.liveUrl !== originalData.liveUrl) changedFields.liveUrl = data.liveUrl
+        if (JSON.stringify(data.tags) !== JSON.stringify(originalData.tags)) changedFields.tags = data.tags
+        if (JSON.stringify(selectedTools) !== JSON.stringify(originalData.toolsUsed)) changedFields.toolsUsed = selectedTools
+        if (data.imagePath !== originalData.imagePath) changedFields.imagePath = data.imagePath
+        
+        // Handle date field - only include if it has a value and is valid
+        if (data.date !== originalData.date) {
+          if (data.date && data.date.trim() !== '') {
+            const dateValue = new Date(data.date)
+            if (!isNaN(dateValue.getTime())) {
+              changedFields.date = data.date
+            }
+          } else {
+            changedFields.date = data.date
+          }
+        }
+        
+        // If no changes detected, show a message and return early
+        if (Object.keys(changedFields).length === 0) {
+          toast.info("No changes detected")
+          return
+        }
+        
+        submitData = changedFields
+      } else {
+        // For new projects, handle date field properly
+        if (data.date && data.date.trim() !== '') {
+          const dateValue = new Date(data.date)
+          if (!isNaN(dateValue.getTime())) {
+            submitData.date = data.date
+          } else {
+            delete submitData.date
+          }
+        } else {
+          delete submitData.date
+        }
+        
+        // Don't send id field for new projects
         delete submitData.id
       }
 
@@ -218,9 +265,6 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>{project?.id ? "Edit Project" : "Add New Project"}</CardTitle>
-      </CardHeader>
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
