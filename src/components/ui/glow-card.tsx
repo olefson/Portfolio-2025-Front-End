@@ -5,10 +5,9 @@ import { useRef, useState } from "react"
 interface GlowCardProps {
   children: React.ReactNode
   className?: string
-  onClick?: (e: React.MouseEvent) => void
 }
 
-export function GlowCard({ children, className = "", onClick }: GlowCardProps) {
+export function GlowCard({ children, className = "" }: GlowCardProps) {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [opacity, setOpacity] = useState(0)
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
@@ -48,28 +47,28 @@ export function GlowCard({ children, className = "", onClick }: GlowCardProps) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
-      onClick={onClick}
       className={`relative ${className}`}
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
       }}
     >
-      <div
-        style={{
-          transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-          transition: isPointerInside.current ? "none" : "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-      >
+      <div className="relative">
+        {/* Glow effect with transforms applied to visual layer only */}
         <div
           className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-500"
           style={{
             opacity,
             background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(16,185,129,0.1), transparent 40%)`,
             border: "1px solid rgba(16,185,129,0.2)",
+            transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+            transition: isPointerInside.current ? "none" : "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
-        {children}
+        {/* Content layer - no transforms applied */}
+        <div className="relative z-10">
+          {children}
+        </div>
       </div>
     </div>
   )

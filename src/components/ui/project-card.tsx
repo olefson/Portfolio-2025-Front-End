@@ -8,19 +8,16 @@ import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, FolderOpen } from "lucide-react"
 import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 
-interface Project {
+interface ProjectCardProps {
   id: string | number
   title: string
   description: string
   image?: string
   technologies: string[]
-  githubUrl: string
+  githubUrl?: string
   liveUrl?: string
   category: string
   date?: string
-}
-
-interface ProjectCardProps extends Project {
   showContent?: boolean
 }
 
@@ -38,12 +35,19 @@ export function ProjectCard({
   date,
   showContent = false,
 }: ProjectCardProps) {
+  const handleProjectNavigation = () => {
+    window.location.href = `/projects/${id}`;
+  };
+
   const content = (
-    <Card className="h-full min-h-[400px] transition-colors group-hover:bg-muted/50 relative select-none flex flex-col">
+    <Card className="h-[500px] transition-colors group-hover:bg-muted/50 relative flex flex-col">
       <CardHeader className="space-y-4">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle className="text-xl font-bold transition-colors group-hover:text-emerald-400">
+            <CardTitle 
+              className="text-xl font-bold transition-colors group-hover:text-emerald-400 cursor-pointer hover:underline"
+              onClick={handleProjectNavigation}
+            >
               {title}
             </CardTitle>
             {date && (
@@ -56,7 +60,10 @@ export function ProjectCard({
             {category}
           </Badge>
         </div>
-        <div className="aspect-video rounded-lg bg-muted relative overflow-hidden">
+        <div 
+          className="aspect-video rounded-lg bg-muted relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+          onClick={handleProjectNavigation}
+        >
           {image ? (
             <img 
               src={image} 
@@ -87,44 +94,60 @@ export function ProjectCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-6 flex-1">
-        <p className="text-sm text-muted-foreground">{description}</p>
+      <CardContent className="space-y-3 flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col justify-center">
+          <p 
+            className="text-sm text-muted-foreground"
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: (githubUrl && githubUrl !== "#") || liveUrl ? 3 : 4,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}
+          >
+            {description}
+          </p>
+        </div>
         <div className="flex flex-wrap gap-2">
-          {technologies.slice(0, showContent ? undefined : 4).map((tech) => (
-            <ClickableToolBadge 
-              key={tech} 
-              toolName={tech} 
-              variant="secondary" 
-              className="text-xs"
-            />
-          ))}
-          {!showContent && technologies.length > 4 && (
+          {technologies
+            .filter(tech => tech !== category) // Remove the category tag to avoid duplication
+            .slice(0, showContent ? undefined : 4)
+            .map((tech) => (
+              <ClickableToolBadge 
+                key={tech} 
+                toolName={tech} 
+                variant="secondary" 
+                className="text-xs"
+              />
+            ))}
+          {!showContent && technologies.filter(tech => tech !== category).length > 4 && (
             <Badge variant="secondary" className="text-xs">
-              +{technologies.length - 4} more
+              +{technologies.filter(tech => tech !== category).length - 4} more
             </Badge>
           )}
         </div>
       </CardContent>
-      <div className="p-6 mt-auto border-t space-y-4">
+      <div className="p-4 mt-auto space-y-2">
         <div className="flex gap-2">
-          <Button variant="outline" size="sm" asChild className="flex-1">
-            <a 
-              href={githubUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Github className="h-4 w-4 mr-2" />
-              GitHub
-            </a>
-          </Button>
+          {githubUrl && githubUrl !== "#" && (
+            <Button variant="outline" size="sm" asChild className="flex-1">
+              <a 
+                href={githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                GitHub
+              </a>
+            </Button>
+          )}
           {liveUrl && (
             <Button variant="outline" size="sm" asChild className="flex-1">
               <a 
                 href={liveUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Live Demo
@@ -142,12 +165,7 @@ export function ProjectCard({
 
   return (
     <div className="group relative">
-      <div 
-        className="cursor-pointer"
-        onClick={() => window.location.href = `/projects/${id}`}
-      >
-        <GlowCard>{content}</GlowCard>
-      </div>
+      <GlowCard>{content}</GlowCard>
     </div>
   )
 }

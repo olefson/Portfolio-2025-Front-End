@@ -50,7 +50,7 @@ export default function ProjectsPage() {
   }
 
   const filteredProjects = projects.filter(project => {
-    const toolNames = project.toolNames || project.toolsUsed
+    const toolNames = project.toolNames || []
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -148,10 +148,10 @@ export default function ProjectsPage() {
                   title={project.title}
                   description={project.description}
                   image={getImageUrl(project.imagePath)}
-                  technologies={[...project.tags, ...(project.toolNames || project.toolsUsed)]}
-                  githubUrl={project.githubUrl || "#"}
+                  technologies={[...project.tags, ...(project.toolNames || [])]}
+                  githubUrl={project.githubUrl}
                   liveUrl={project.liveUrl}
-                  category={project.tags[0] || project.toolsUsed[0] || "Web Development"}
+                  category={project.tags[0] || (project.toolNames && project.toolNames[0]) || "Web Development"}
                   date={project.date}
                 />
               </motion.div>

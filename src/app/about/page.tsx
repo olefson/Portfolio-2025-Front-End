@@ -6,7 +6,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlowCard } from "@/components/ui/glow-card"
-import { ProjectCard } from "@/components/ui/project-card"
+import { AboutProjectCard } from "@/components/ui/about-project-card"
 import { GlassButton } from "@/components/ui/glass-button"
 import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
@@ -254,18 +254,17 @@ Alongside my technical expertise, I bring a background in business and leadershi
             ) : featuredProjects.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {featuredProjects.map((project) => (
-                  <ProjectCard 
+                  <AboutProjectCard 
                     key={project.id}
                     id={project.id}
                     title={project.title}
                     description={project.description}
                     image={getImageUrl(project.imagePath)}
-                    technologies={[...project.tags, ...(project.toolNames || project.toolsUsed)]}
-                    githubUrl={project.githubUrl || "#"}
+                    technologies={[...project.tags, ...(project.toolNames || [])]}
+                    githubUrl={project.githubUrl || undefined}
                     liveUrl={project.liveUrl}
-                    category={project.tags[0] || project.toolsUsed[0] || "Web Development"}
+                    category={project.tags[0] || (project.toolNames && project.toolNames[0]) || "Web Development"}
                     date={project.date}
-                    showContent={true}
                   />
                 ))}
               </div>
@@ -285,7 +284,7 @@ Alongside my technical expertise, I bring a background in business and leadershi
           </motion.div>
 
           {/* Skills Section */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <h2 className="text-4xl font-bold mb-10">
               Technical Skills
             </h2>
@@ -324,7 +323,7 @@ Alongside my technical expertise, I bring a background in business and leadershi
                 </GlowCard>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Experience Section */}
           <motion.div variants={itemVariants}>

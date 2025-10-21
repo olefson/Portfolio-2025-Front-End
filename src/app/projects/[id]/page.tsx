@@ -195,7 +195,7 @@ export default function ProjectDetailPage() {
                 <div>
                   <h4 className="font-semibold mb-2">Tools Used</h4>
                   <div className="flex flex-wrap gap-1">
-                    {(project.toolNames || project.toolsUsed).map((tool, index) => (
+                    {(project.toolNames || []).map((tool, index) => (
                       <ClickableToolBadge 
                         key={index} 
                         toolName={tool} 
