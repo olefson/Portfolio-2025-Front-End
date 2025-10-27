@@ -6,6 +6,7 @@ import { GlowCard } from "@/components/ui/glow-card"
 import { ToolLogo } from "@/components/ui/tool-logo"
 import { ExternalLink } from "@/components/ui/external-link"
 import { Tool } from "@/types"
+import Link from "next/link"
 import {
   Tooltip,
   TooltipContent,
@@ -87,24 +88,10 @@ const getStatusColor = (status: string) => {
 
 export function ToolCard({ tool, showContent = false }: ToolCardProps) {
   console.log('ToolCard render:', { showContent, useCases: tool.useCases });
-  const handleCardClick = (e: React.MouseEvent) => {
-    // If clicking the badge, don't navigate
-    if (e.target instanceof Element && e.target.closest('.badge')) {
-      return;
-    }
-    
-    // Don't navigate if showing content (detail view)
-    if (showContent) {
-      return;
-    }
-    
-    // Otherwise, navigate to the tool page
-    window.location.href = `/tools/${tool.id}`;
-  };
 
-  return (
-    <div className="group select-none">
-      <GlowCard onClick={handleCardClick}>
+  const cardContent = (
+    <>
+      <GlowCard>
         <Card className={`flex flex-col transition-colors group-hover:bg-muted/50 ${showContent ? '' : 'h-[250px]'}`}>
           <CardHeader className="flex-none space-y-4">
             <div className="flex flex-col items-center gap-4 text-center">
@@ -180,6 +167,24 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
           </ExternalLink>
         </div>
       )}
+    </>
+  );
+
+  // If showing content (detail view), don't wrap with Link
+  if (showContent) {
+    return (
+      <div className="group select-none">
+        {cardContent}
+      </div>
+    );
+  }
+
+  // Otherwise, wrap with Link for navigation
+  return (
+    <div className="group select-none">
+      <Link href={`/tools/${tool.id}`} className="block">
+        {cardContent}
+      </Link>
     </div>
-  )
+  );
 } 
