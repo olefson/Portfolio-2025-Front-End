@@ -23,9 +23,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { X, Upload } from "lucide-react"
+import { X, Upload, Check, ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
 
 // Predefined project categories
@@ -72,6 +77,13 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
   const [tools, setTools] = useState<any[]>([])
   const [isUploading, setIsUploading] = useState(false)
   const [originalData, setOriginalData] = useState<ProjectFormValues | null>(null)
+  const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false)
+  const [toolsSearchTerm, setToolsSearchTerm] = useState("")
+
+  // Filter tools based on search term
+  const filteredTools = tools.filter(tool =>
+    tool.name.toLowerCase().includes(toolsSearchTerm.toLowerCase())
+  )
 
   const form = useForm<ProjectFormValues>({
     resolver: zodResolver(projectFormSchema),
@@ -403,26 +415,58 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                   <FormLabel>Tools Used</FormLabel>
                   <FormControl>
                     <div className="space-y-2">
-                      <Select
-                        onValueChange={(value) => {
-                          if (value && !selectedTools.includes(value)) {
-                            const newTools = [...selectedTools, value]
-                            setSelectedTools(newTools)
-                            field.onChange(newTools)
-                          }
-                        }}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select tools used in this project" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {tools.map((tool) => (
-                            <SelectItem key={tool.id} value={tool.id}>
-                              {tool.name}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <Popover open={toolsDropdownOpen} onOpenChange={setToolsDropdownOpen}>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            role="combobox"
+                            aria-expanded={toolsDropdownOpen}
+                            className="w-full justify-between"
+                          >
+                            Select tools used in this project
+                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                          <div className="p-2">
+                            <Input
+                              placeholder="Search tools..."
+                              value={toolsSearchTerm}
+                              onChange={(e) => setToolsSearchTerm(e.target.value)}
+                              className="mb-2"
+                            />
+                            <div className="max-h-[200px] overflow-y-auto">
+                              {filteredTools.length === 0 ? (
+                                <div className="py-6 text-center text-sm text-muted-foreground">
+                                  No tools found.
+                                </div>
+                              ) : (
+                                filteredTools.map((tool) => (
+                                  <div
+                                    key={tool.id}
+                                    onClick={() => {
+                                      if (!selectedTools.includes(tool.id)) {
+                                        const newTools = [...selectedTools, tool.id]
+                                        setSelectedTools(newTools)
+                                        field.onChange(newTools)
+                                      }
+                                      setToolsDropdownOpen(false)
+                                    }}
+                                    className="flex items-center px-2 py-1.5 text-sm cursor-pointer hover:bg-accent hover:text-accent-foreground rounded-sm"
+                                  >
+                                    <Check
+                                      className={`mr-2 h-4 w-4 ${
+                                        selectedTools.includes(tool.id) ? "opacity-100" : "opacity-0"
+                                      }`}
+                                    />
+                                    {tool.name}
+                                  </div>
+                                ))
+                              )}
+                            </div>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
                       <div className="flex flex-wrap gap-2">
                         {selectedTools.map((toolId) => {
                           const tool = tools.find(t => t.id === toolId)
