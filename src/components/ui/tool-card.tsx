@@ -90,84 +90,72 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
   console.log('ToolCard render:', { showContent, useCases: tool.useCases });
 
   const cardContent = (
-    <>
-      <GlowCard>
-        <Card className={`flex flex-col transition-colors group-hover:bg-muted/50 ${showContent ? '' : 'h-[250px]'}`}>
-          <CardHeader className="flex-none space-y-4">
-            <div className="flex flex-col items-center gap-4 text-center">
-              <div className="flex items-center gap-3">
-                <ToolLogo
-                  src={tool.iconUrl || getToolLogo(tool.id)}
-                  alt={`${tool.name} logo`}
-                />
-                <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors truncate">
-                  {tool.name}
-                </CardTitle>
-              </div>
-              
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <button 
-                      type="button" 
-                      className="touch-manipulation"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                    >
-                      <Badge
-                        className={`w-fit badge ${getStatusColor(tool.status)}`}
-                      >
-                        {tool.status}
-                      </Badge>
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent sideOffset={5} className="text-center">
-                    <p>{getStatusTooltip(tool.status)}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+    <GlowCard>
+      <Card className={`flex flex-col transition-colors group-hover:bg-muted/50 ${showContent ? '' : 'h-[250px]'}`}>
+        <CardHeader className="flex-none space-y-4">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex items-center gap-3">
+              <ToolLogo
+                src={tool.iconUrl || getToolLogo(tool.id)}
+                alt={`${tool.name} logo`}
+              />
+              <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors truncate">
+                {tool.name}
+              </CardTitle>
             </div>
             
-            <div className="flex justify-center gap-2 flex-wrap">
-              <Badge variant="outline">{tool.category}</Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="flex-1 space-y-6">
-            <p className="text-muted-foreground text-center">
-              {tool.description}
-            </p>
-            {showContent && tool.useCases && tool.useCases.length > 0 && (
-              <div className="mt-6">
-                <h2 className="text-lg font-semibold mb-2">Use Cases</h2>
-                <div className="space-y-4">
-                  {tool.useCases.map((useCase, idx) => (
-                    <div key={idx} className="space-y-1">
-                      <h3 className="text-md font-medium">{useCase.title}</h3>
-                      <ul className="list-disc pl-6">
-                        {useCase.items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="text-sm text-muted-foreground">{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button 
+                    type="button" 
+                    className="touch-manipulation"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Badge
+                      className={`w-fit badge ${getStatusColor(tool.status)}`}
+                    >
+                      {tool.status}
+                    </Badge>
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent sideOffset={5} className="text-center">
+                  <p>{getStatusTooltip(tool.status)}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          
+          <div className="flex justify-center gap-2 flex-wrap">
+            <Badge variant="outline">{tool.category}</Badge>
+          </div>
+        </CardHeader>
+        <CardContent className="flex-1 space-y-6">
+          <p className="text-muted-foreground text-center">
+            {tool.description}
+          </p>
+          {showContent && tool.useCases && tool.useCases.length > 0 && (
+            <div className="mt-6">
+              <h2 className="text-lg font-semibold mb-2">Use Cases</h2>
+              <div className="space-y-4">
+                {tool.useCases.map((useCase, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <h3 className="text-md font-medium">{useCase.title}</h3>
+                    <ul className="list-disc pl-6">
+                      {useCase.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="text-sm text-muted-foreground">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            )}
-          </CardContent>
-        </Card>
-      </GlowCard>
-      {tool.link && (
-        <div className="mt-2 px-6 text-center">
-          <ExternalLink 
-            href={tool.link}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {tool.link} ↗
-          </ExternalLink>
-        </div>
-      )}
-    </>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </GlowCard>
   );
 
   // If showing content (detail view), don't wrap with Link
@@ -175,6 +163,16 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
     return (
       <div className="group select-none">
         {cardContent}
+        {tool.link && (
+          <div className="mt-2 px-6 text-center">
+            <ExternalLink 
+              href={tool.link}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {tool.link} ↗
+            </ExternalLink>
+          </div>
+        )}
       </div>
     );
   }
@@ -185,6 +183,16 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
       <Link href={`/tools/${tool.id}`} className="block">
         {cardContent}
       </Link>
+      {tool.link && (
+        <div className="mt-2 px-6 text-center">
+          <ExternalLink 
+            href={tool.link}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {tool.link} ↗
+          </ExternalLink>
+        </div>
+      )}
     </div>
   );
 } 
