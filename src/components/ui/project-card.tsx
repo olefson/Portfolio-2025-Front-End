@@ -39,9 +39,12 @@ export function ProjectCard({
     window.location.href = `/projects/${id}`;
   };
 
+  const hasGitHub = githubUrl && githubUrl !== "#";
+  const hasLive = !!liveUrl;
+
   const content = (
-    <Card className="h-[500px] transition-colors group-hover:bg-muted/50 relative flex flex-col">
-      <CardHeader className="space-y-4">
+    <Card className="h-[500px] transition-colors group-hover:bg-muted/50 relative flex flex-col overflow-hidden">
+      <CardHeader className="space-y-3 pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <CardTitle 
@@ -94,25 +97,16 @@ export function ProjectCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-3 flex-1 flex flex-col">
-        <div className="flex-1 flex flex-col justify-center">
-          <p 
-            className="text-sm text-muted-foreground"
-            style={{
-              display: '-webkit-box',
-              WebkitLineClamp: (githubUrl && githubUrl !== "#") || liveUrl ? 3 : 4,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis'
-            }}
-          >
-            {description}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-2">
+      <CardContent className="space-y-2 flex-1 flex flex-col min-h-0 py-3 overflow-hidden">
+        <p 
+          className="text-sm text-muted-foreground line-clamp-3"
+        >
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-1.5 flex-shrink-0">
           {technologies
             .filter(tech => tech !== category) // Remove the category tag to avoid duplication
-            .slice(0, showContent ? undefined : 4)
+            .slice(0, showContent ? undefined : 5)
             .map((tech) => (
               <ClickableToolBadge 
                 key={tech} 
@@ -121,16 +115,16 @@ export function ProjectCard({
                 className="text-xs"
               />
             ))}
-          {!showContent && technologies.filter(tech => tech !== category).length > 4 && (
+          {!showContent && technologies.filter(tech => tech !== category).length > 5 && (
             <Badge variant="secondary" className="text-xs">
-              +{technologies.filter(tech => tech !== category).length - 4} more
+              +{technologies.filter(tech => tech !== category).length - 5} more
             </Badge>
           )}
         </div>
       </CardContent>
-      <div className="p-4 mt-auto space-y-2">
-        <div className="flex gap-2">
-          {githubUrl && githubUrl !== "#" && (
+      <div className="px-4 pb-4 pt-2 mt-auto flex-shrink-0">
+        <div className="flex gap-2 w-full">
+          {hasGitHub && (
             <Button variant="outline" size="sm" asChild className="flex-1">
               <a 
                 href={githubUrl} 
@@ -142,7 +136,7 @@ export function ProjectCard({
               </a>
             </Button>
           )}
-          {liveUrl && (
+          {hasLive && (
             <Button variant="outline" size="sm" asChild className="flex-1">
               <a 
                 href={liveUrl} 

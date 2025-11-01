@@ -49,16 +49,29 @@ export default function ProjectsPage() {
     }
   }
 
-  const filteredProjects = projects.filter(project => {
-    const toolNames = project.toolNames || []
-    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
-                         toolNames.some(tool => tool.toLowerCase().includes(searchQuery.toLowerCase()))
-    const matchesCategory = selectedCategory === "All" || 
-                           project.tags.some(tag => tag.toLowerCase().includes(selectedCategory.toLowerCase()))
-    return matchesSearch && matchesCategory
-  })
+  const filteredProjects = projects
+    .filter(project => {
+      const toolNames = project.toolNames || []
+      const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                           toolNames.some(tool => tool.toLowerCase().includes(searchQuery.toLowerCase()))
+      const matchesCategory = selectedCategory === "All" || 
+                             project.tags.some(tag => tag.toLowerCase().includes(selectedCategory.toLowerCase()))
+      return matchesSearch && matchesCategory
+    })
+    .sort((a, b) => {
+      // Sort by date (newest first)
+      // If both have dates, compare them
+      if (a.date && b.date) {
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
+      }
+      // If only one has a date, prioritize it
+      if (a.date && !b.date) return -1
+      if (!a.date && b.date) return 1
+      // If neither has a date, maintain original order
+      return 0
+    })
 
   return (
     <div className="container py-10">
