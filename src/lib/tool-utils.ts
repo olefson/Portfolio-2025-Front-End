@@ -14,7 +14,7 @@ export async function getTools(): Promise<Tool[]> {
   }
 
   try {
-    const response = await fetch('http://localhost:3001/api/tools', { 
+    const response = await fetch(`${process.env.BACKEND_URL || 'http://localhost:3001'}/api/tools`, { 
       cache: 'no-store' 
     })
     if (!response.ok) {

@@ -96,8 +96,7 @@ export function ToolForm({ tool, onSave, onCancel }: ToolFormProps) {
       }
       console.log("Request body:", requestBody)
 
-      const baseUrl = 'http://localhost:3001';
-      const url = tool ? `${baseUrl}/api/tools/${tool.id}` : `${baseUrl}/api/tools`
+      const url = tool ? `/api/tools/${tool.id}` : `/api/tools`
       const method = tool ? "PUT" : "POST"
       console.log("Making request to:", url, "with method:", method)
 

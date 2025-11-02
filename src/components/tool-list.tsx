@@ -65,7 +65,7 @@ function ToolEditForm({ tool, onSave, onCancel }: { tool: Tool, onSave: (tool: T
     e.preventDefault()
     setSaving(true)
     try {
-      const response = await fetch(`http://localhost:3001/api/tools/${tool.id}`, {
+      const response = await fetch(`/api/tools/${tool.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, useCases }),
@@ -260,8 +260,7 @@ export function ToolList() {
   const fetchTools = async () => {
     try {
       setLoading(true)
-      const baseUrl = 'http://localhost:3001'
-      const response = await fetch(`${baseUrl}/api/tools`)
+      const response = await fetch('/api/tools')
       if (!response.ok) throw new Error("Failed to fetch tools")
       const data = await response.json()
       console.log("Fetched tools:", data)
@@ -292,8 +291,7 @@ export function ToolList() {
   const handleEditClick = async (toolId: string) => {
     setEditingLoading(true)
     try {
-      const baseUrl = 'http://localhost:3001'
-      const response = await fetch(`${baseUrl}/api/tools/${toolId}`)
+      const response = await fetch(`/api/tools/${toolId}`)
       if (!response.ok) throw new Error("Failed to fetch tool")
       const tool = await response.json()
       setEditing(tool)
@@ -308,8 +306,7 @@ export function ToolList() {
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this tool?")) return
     try {
-      const baseUrl = 'http://localhost:3001'
-      const response = await fetch(`${baseUrl}/api/tools/${id}`, {
+      const response = await fetch(`/api/tools/${id}`, {
         method: "DELETE",
       })
       if (!response.ok) throw new Error("Failed to delete tool")

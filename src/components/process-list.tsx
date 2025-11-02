@@ -22,8 +22,8 @@ export function ProcessList() {
   const fetchProcesses = async () => {
     try {
       setError(null)
-      console.log("Fetching processes from: http://localhost:3001/api/processes")
-      const response = await fetch("http://localhost:3001/api/processes")
+      console.log("Fetching processes from: /api/processes")
+      const response = await fetch("/api/processes")
       console.log("Response status:", response.status)
       console.log("Response ok:", response.ok)
       
@@ -46,7 +46,7 @@ export function ProcessList() {
   const handleEditClick = async (id: string) => {
     setEditingLoading(true)
     try {
-      const response = await fetch(`http://localhost:3001/api/processes/${id}`)
+      const response = await fetch(`/api/processes/${id}`)
       if (!response.ok) {
         const errorData = await response.json()
         throw new Error(errorData.error || "Failed to fetch process")
@@ -68,7 +68,7 @@ export function ProcessList() {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/processes/${id}`, {
+      const response = await fetch(`/api/processes/${id}`, {
         method: "DELETE",
       })
       if (!response.ok) {

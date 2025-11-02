@@ -13,7 +13,7 @@ export default function ToolsPage() {
   const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/tools')
+    fetch('/api/tools')
       .then(res => res.json())
       .then(data => {
         setTools(data)

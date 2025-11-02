@@ -53,8 +53,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
     // Fetch available tools
     const fetchTools = async () => {
       try {
-        const baseUrl = 'http://localhost:3001';
-        const response = await fetch(`${baseUrl}/api/tools`)
+        const response = await fetch('/api/tools')
         if (response.ok) {
           const tools = await response.json()
           setAvailableTools(tools)
@@ -86,8 +85,7 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
     console.log('Form submission started with data:', formData)
     
     try {
-      const baseUrl = 'http://localhost:3001';
-      const url = process ? `${baseUrl}/api/processes/${process.id}` : `${baseUrl}/api/processes`
+      const url = process ? `/api/processes/${process.id}` : `/api/processes`
       const method = process ? "PUT" : "POST"
       console.log('Making request to:', url, 'with method:', method)
       

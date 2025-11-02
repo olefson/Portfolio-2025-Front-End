@@ -124,7 +124,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
     // Load tools data
     const loadTools = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/tools')
+        const response = await fetch('/api/tools')
         if (response.ok) {
           const data = await response.json()
           setTools(data || [])
@@ -138,7 +138,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
 
   async function onSubmit(data: ProjectFormValues) {
     try {
-      const url = project?.id ? `http://localhost:3001/api/projects/${project.id}` : 'http://localhost:3001/api/projects'
+      const url = project?.id ? `/api/projects/${project.id}` : '/api/projects'
       const method = project?.id ? "PUT" : "POST"
 
       // Prepare submit data with proper date handling
@@ -255,7 +255,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       const formData = new FormData()
       formData.append("image", file)
 
-      const response = await fetch("http://localhost:3001/api/upload", {
+      const response = await fetch("/api/upload", {
         method: "POST",
         body: formData,
       })
@@ -515,7 +515,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                       {field.value && (
                         <div className="relative w-full aspect-video">
                           <img
-                            src={field.value.startsWith('http') ? field.value : `http://localhost:3001${field.value}`}
+                            src={field.value.startsWith('http') ? field.value : field.value}
                             alt="Project preview"
                             className="object-cover rounded-lg"
                           />

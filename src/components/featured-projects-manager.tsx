@@ -27,8 +27,8 @@ export function FeaturedProjectsManager({ onUpdate }: FeaturedProjectsManagerPro
   const fetchData = async () => {
     try {
       const [projectsResponse, featuredResponse] = await Promise.all([
-        fetch('http://localhost:3001/api/projects'),
-        fetch('http://localhost:3001/api/projects/featured')
+        fetch('/api/projects'),
+        fetch('/api/projects/featured')
       ])
 
       if (projectsResponse.ok) {
@@ -64,7 +64,7 @@ export function FeaturedProjectsManager({ onUpdate }: FeaturedProjectsManagerPro
     try {
       const featuredIds = [selectedProject1, selectedProject2].filter(id => id && id !== "clear" && id !== "none")
       
-      const response = await fetch('http://localhost:3001/api/projects/featured', {
+      const response = await fetch('/api/projects/featured', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

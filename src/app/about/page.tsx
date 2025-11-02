@@ -126,7 +126,7 @@ export default function AboutPage() {
   useEffect(() => {
     const fetchFeaturedProjects = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/projects/featured')
+        const response = await fetch('/api/projects/featured')
         if (response.ok) {
           const data = await response.json()
           setFeaturedProjects(data)
