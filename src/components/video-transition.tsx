@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 interface VideoTransitionProps {
   isTransitioning: boolean
   onTransitionComplete: () => void
-  sourceVideoRef: React.RefObject<HTMLVideoElement>
+  sourceVideoRef: React.RefObject<HTMLVideoElement | null>
   targetPosition: { x: number; y: number; width: number; height: number }
 }
 

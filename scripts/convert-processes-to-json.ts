@@ -57,7 +57,7 @@ function convertMarkdownToJson(mdContent: string, filename: string): Process {
     title: data.title || '',
     category: data.category || 'Other',
     description: data.description || '',
-    toolsInvolved: data.toolsInvolved || [],
+    tools: data.tools || data.toolsInvolved || [],
     steps: data.steps || [],
     status: data.status || 'Active',
     tips,

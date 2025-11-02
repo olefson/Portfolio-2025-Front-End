@@ -6,7 +6,7 @@ interface TransitionContextType {
   isTransitioning: boolean
   startTransition: () => void
   completeTransition: () => void
-  sourceVideoRef: React.RefObject<HTMLVideoElement>
+  sourceVideoRef: React.RefObject<HTMLVideoElement | null>
 }
 
 const TransitionContext = createContext<TransitionContextType | undefined>(undefined)

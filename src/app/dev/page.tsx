@@ -68,7 +68,7 @@ export default function DevPage() {
                       href={`/tools/${tool.id}`}
                       className="hover:underline text-blue-500"
                     >
-                      {tool.title}
+                      {tool.name}
                     </Link>
                     <span className="ml-2 text-muted-foreground">
                       ({tool.category})

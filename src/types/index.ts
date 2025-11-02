@@ -47,6 +47,8 @@ export interface Process {
   status: string;
   category: ProcessCategory;
   tools: string[];
+  tips?: { [key: string]: string[] };
+  addedOn?: string;
 }
 
 export interface SiteConfig {
