@@ -9,6 +9,7 @@ import { GlowCard } from "@/components/ui/glow-card"
 import { AboutProjectCard } from "@/components/ui/about-project-card"
 import { GlassButton } from "@/components/ui/glass-button"
 import Image from "next/image"
+import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
 import { Project, getImageUrl } from "@/types/project"
 
@@ -275,10 +276,10 @@ Alongside my technical expertise, I bring a background in business and leadershi
             )}
             <div className="mt-8 text-center">
               <Button asChild>
-                <a href="/projects">
+                <Link href="/projects">
                   View All Projects
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -289,7 +290,7 @@ Alongside my technical expertise, I bring a background in business and leadershi
               Technical Skills
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
+              {[ff
                 {
                   title: "Frontend",
                   skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
