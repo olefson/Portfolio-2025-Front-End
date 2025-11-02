@@ -11,11 +11,10 @@ const getApiBaseUrl = (): string => {
   return process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 };
 
-export const API_BASE_URL = getApiBaseUrl();
-
 export const api = {
   get: async <T>(endpoint: string): Promise<T> => {
-    const url = `${API_BASE_URL}${endpoint}`;
+    const baseUrl = getApiBaseUrl(); // Evaluate at runtime
+    const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`API request failed: ${response.statusText}`);
@@ -24,7 +23,8 @@ export const api = {
   },
 
   post: async <T>(endpoint: string, data?: any): Promise<T> => {
-    const url = `${API_BASE_URL}${endpoint}`;
+    const baseUrl = getApiBaseUrl(); // Evaluate at runtime
+    const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -40,7 +40,8 @@ export const api = {
   },
 
   put: async <T>(endpoint: string, data?: any): Promise<T> => {
-    const url = `${API_BASE_URL}${endpoint}`;
+    const baseUrl = getApiBaseUrl(); // Evaluate at runtime
+    const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
       method: 'PUT',
       headers: {
@@ -56,7 +57,8 @@ export const api = {
   },
 
   delete: async (endpoint: string): Promise<void> => {
-    const url = `${API_BASE_URL}${endpoint}`;
+    const baseUrl = getApiBaseUrl(); // Evaluate at runtime
+    const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
       method: 'DELETE',
     });
@@ -66,7 +68,8 @@ export const api = {
   },
 
   upload: async (endpoint: string, formData: FormData): Promise<any> => {
-    const url = `${API_BASE_URL}${endpoint}`;
+    const baseUrl = getApiBaseUrl(); // Evaluate at runtime
+    const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
       method: 'POST',
       body: formData,
