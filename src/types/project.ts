@@ -16,6 +16,6 @@ export const getImageUrl = (imagePath: string | null | undefined): string | unde
   if (!imagePath) return undefined
   // If it's already a full URL, return as is
   if (imagePath.startsWith('http')) return imagePath
-  // Otherwise, construct the full URL
-  return `http://localhost:3001${imagePath}`
+  // Otherwise, use relative URL (nginx will proxy to backend)
+  return imagePath.startsWith('/') ? imagePath : `/${imagePath}`
 }
