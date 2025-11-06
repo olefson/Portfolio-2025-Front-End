@@ -59,5 +59,7 @@ export interface SiteConfig {
   links: {
     linkedin: string;
     github: string;
+    twitter?: string;
+    email?: string;
   }
 } 

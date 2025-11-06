@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GlowCard } from "@/components/ui/glow-card"
 import { AboutProjectCard } from "@/components/ui/about-project-card"
@@ -12,6 +12,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
 import { Project, getImageUrl } from "@/types/project"
+import { siteConfig } from "@/config/site"
 
 const staggerContainer = {
   animate: {
@@ -183,26 +184,27 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                <Github className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-6 w-6" />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-              <a href="mailto:your.email@example.com">
-                <Mail className="h-6 w-6" />
-              </a>
-            </Button>
+            {siteConfig.links.github && (
+              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
+                  <Github className="h-6 w-6" />
+                </a>
+              </Button>
+            )}
+            {siteConfig.links.linkedin && (
+              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+              </Button>
+            )}
+            {siteConfig.links.email && (
+              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                <a href={`mailto:${siteConfig.links.email}`}>
+                  <Mail className="h-6 w-6" />
+                </a>
+              </Button>
+            )}
           </motion.div>
         </div>
       </section>

@@ -7,6 +7,7 @@ export const siteConfig: SiteConfig = {
   ogImage: "/og.png",
   links: {
     linkedin: "https://linkedin.com/in/jason-olefson",
-    github: "https://github.com/olefson"
+    github: "https://github.com/olefson",
+    email: "jasonolefson@gmail.com"
   }
 } 
