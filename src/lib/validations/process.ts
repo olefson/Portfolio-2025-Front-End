@@ -13,7 +13,5 @@ export const processSchema = z.object({
     required_error: 'Category is required',
     invalid_type_error: 'Invalid category'
   }),
-  tools: z.array(z.string().min(1)).min(1, 'At least one tool is required'),
-  createdBy: z.string().optional(),
-  acquired: z.string().datetime('Invalid date format')
+  tools: z.array(z.string().min(1)).min(1, 'At least one tool is required')
 }) 
