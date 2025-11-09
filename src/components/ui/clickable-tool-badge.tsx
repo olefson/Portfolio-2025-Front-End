@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { getToolIdByName } from "@/lib/tool-utils"
@@ -11,6 +11,9 @@ interface ClickableToolBadgeProps {
   className?: string
 }
 
+// Cache for tool ID lookups to avoid repeated API calls
+const toolIdCache = new Map<string, string | null>()
+
 export function ClickableToolBadge({ 
   toolName, 
   variant = "secondary", 
@@ -18,20 +21,41 @@ export function ClickableToolBadge({
 }: ClickableToolBadgeProps) {
   const [toolId, setToolId] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const mountedRef = useRef(true)
 
   useEffect(() => {
+    // Check cache first
+    const cachedId = toolIdCache.get(toolName)
+    if (cachedId !== undefined) {
+      setToolId(cachedId)
+      setIsLoading(false)
+      return
+    }
+
     const fetchToolId = async () => {
       try {
         const id = await getToolIdByName(toolName)
-        setToolId(id)
+        // Cache the result
+        toolIdCache.set(toolName, id)
+        if (mountedRef.current) {
+          setToolId(id)
+        }
       } catch (error) {
         console.error('Error fetching tool ID:', error)
+        // Cache null result to avoid repeated failed requests
+        toolIdCache.set(toolName, null)
       } finally {
-        setIsLoading(false)
+        if (mountedRef.current) {
+          setIsLoading(false)
+        }
       }
     }
 
     fetchToolId()
+
+    return () => {
+      mountedRef.current = false
+    }
   }, [toolName])
 
   if (isLoading) {

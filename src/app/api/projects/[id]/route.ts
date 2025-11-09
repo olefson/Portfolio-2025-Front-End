@@ -9,26 +9,26 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`)
+    const { id } = await params
+    const response = await fetch(`${BACKEND_URL}/api/projects/${id}`)
     
     if (!response.ok) {
       if (response.status === 404) {
         return NextResponse.json(
-          { error: "Process not found" },
+          { error: "Project not found" },
           { status: 404 }
         )
       }
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const process = await response.json()
-    return NextResponse.json(process)
+    const project = await response.json()
+    return NextResponse.json(project)
   } catch (error) {
-    console.error("Error fetching process:", error)
+    console.error("Error fetching project:", error)
     return NextResponse.json(
-      { error: "Failed to fetch process" },
+      { error: "Failed to fetch project" },
       { status: 500 }
     )
   }
@@ -38,10 +38,10 @@ export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
+    const { id } = await params
     const data = await request.json()
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+    const response = await fetch(`${BACKEND_URL}/api/projects/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -53,12 +53,12 @@ export async function PUT(
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const process = await response.json()
-    return NextResponse.json(process)
+    const project = await response.json()
+    return NextResponse.json(project)
   } catch (error) {
-    console.error("Error updating process:", error)
+    console.error("Error updating project:", error)
     return NextResponse.json(
-      { error: "Failed to update process" },
+      { error: "Failed to update project" },
       { status: 500 }
     )
   }
@@ -68,9 +68,9 @@ export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+    const { id } = await params
+    const response = await fetch(`${BACKEND_URL}/api/projects/${id}`, {
       method: 'DELETE',
     })
     
@@ -78,13 +78,13 @@ export async function DELETE(
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const result = await response.json()
-    return NextResponse.json(result)
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Error deleting process:", error)
+    console.error("Error deleting project:", error)
     return NextResponse.json(
-      { error: "Failed to delete process" },
+      { error: "Failed to delete project" },
       { status: 500 }
     )
   }
-} 
+}
+

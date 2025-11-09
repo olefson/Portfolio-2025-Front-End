@@ -102,6 +102,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+              className="w-full sm:w-auto"
             >
               <GlassButton
                 href={button.href}

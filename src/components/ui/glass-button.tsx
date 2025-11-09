@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import GlassSurface from "@/components/GlassSurface";
 
 interface GlassButtonProps {
   href: string;
@@ -19,13 +20,11 @@ export function GlassButton({
   onClick,
   external = false 
 }: GlassButtonProps) {
-  const baseClasses = "group relative flex items-center justify-center gap-2 px-6 py-3 text-sm sm:text-base font-medium text-white bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-300 backdrop-blur-sm";
-  
   const content = (
-    <>
+    <div className="flex items-center justify-center gap-2 px-4 py-2 text-sm sm:text-base font-medium text-white">
       {icon}
       {children}
-    </>
+    </div>
   );
 
   if (external) {
@@ -34,12 +33,23 @@ export function GlassButton({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${baseClasses} ${className}`}
         onClick={onClick}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
+        className={`block w-full ${className}`}
       >
-        {content}
+        <GlassSurface
+          width={"100%" as any}
+          height={"auto" as any}
+          borderRadius={12}
+          backgroundOpacity={0.1}
+          blur={11}
+          opacity={0.93}
+          displace={0.5}
+          className="cursor-pointer"
+        >
+          {content}
+        </GlassSurface>
       </motion.a>
     );
   }
@@ -48,13 +58,25 @@ export function GlassButton({
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      className={`block w-full ${className}`}
     >
       <Link
         href={href}
-        className={`${baseClasses} ${className}`}
         onClick={onClick}
+        className="block w-full"
       >
-        {content}
+        <GlassSurface
+          width={"100%" as any}
+          height={"auto" as any}
+          borderRadius={12}
+          backgroundOpacity={0.1}
+          blur={11}
+          opacity={0.93}
+          displace={0.5}
+          className="cursor-pointer"
+        >
+          {content}
+        </GlassSurface>
       </Link>
     </motion.div>
   );

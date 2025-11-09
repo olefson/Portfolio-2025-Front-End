@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import React, { useRef, useState, useCallback, useEffect } from "react"
 
 interface GlowCardProps {
   children: React.ReactNode
@@ -13,8 +13,18 @@ export function GlowCard({ children, className = "" }: GlowCardProps) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const cardRef = useRef<HTMLDivElement>(null)
   const isPointerInside = useRef(false)
+  const rafId = useRef<number | null>(null)
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+
+    // Cancel any pending animation frame
+    if (rafId.current !== null) {
+      cancelAnimationFrame(rafId.current)
+    }
+
+    // Throttle updates using requestAnimationFrame
+    rafId.current = requestAnimationFrame(() => {
     if (!cardRef.current) return
 
     const rect = cardRef.current.getBoundingClientRect()
@@ -29,17 +39,33 @@ export function GlowCard({ children, className = "" }: GlowCardProps) {
     const rotateX = ((y - rect.height / 2) / rect.height) * -10
     const rotateY = ((x - rect.width / 2) / rect.width) * 10
     setRotation({ x: rotateX, y: rotateY })
-  }
+    })
+  }, [])
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
+    // Cancel any pending animation frame
+    if (rafId.current !== null) {
+      cancelAnimationFrame(rafId.current)
+      rafId.current = null
+    }
+    
     isPointerInside.current = false
     setOpacity(0)
     setRotation({ x: 0, y: 0 })
-  }
+  }, [])
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     isPointerInside.current = true
-  }
+  }, [])
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current)
+      }
+    }
+  }, [])
 
   return (
     <div

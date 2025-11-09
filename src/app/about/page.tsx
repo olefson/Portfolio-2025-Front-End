@@ -1,13 +1,11 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { GlowCard } from "@/components/ui/glow-card"
 import { AboutProjectCard } from "@/components/ui/about-project-card"
-import { GlassButton } from "@/components/ui/glass-button"
+import DarkVeil from "@/components/ui/dark-veil"
+import GlassSurface from "@/components/GlassSurface"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react"
@@ -119,7 +117,6 @@ function Coin3D({ src, alt, width, height, className }: { src: string; alt: stri
   )
 }
 
-
 export default function AboutPage() {
   const [featuredProjects, setFeaturedProjects] = useState<Project[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -143,10 +140,12 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-8 md:py-12">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-transparent pointer-events-none" />
+    <div className="relative min-h-screen">
+      <DarkVeil className="fixed inset-0" />
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="relative flex flex-col items-center justify-center text-center py-8 md:py-12">
+        {/* Removed background overlay so dark veil animations are visible */}
         <div className="relative z-10 w-full flex flex-col items-center">
           <motion.div
             className="mb-6"
@@ -179,31 +178,77 @@ export default function AboutPage() {
             
           </motion.p>
           <motion.div
-            className="flex justify-center gap-6"
+            className="flex justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {siteConfig.links.github && (
-              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-                <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-6 w-6" />
-                </a>
-              </Button>
+              <motion.a
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="block"
+              >
+                <GlassSurface
+                  width={48 as any}
+                  height={48 as any}
+                  borderRadius={24}
+                  backgroundOpacity={0.1}
+                  blur={11}
+                  opacity={0.93}
+                  displace={0.5}
+                  className="cursor-pointer flex items-center justify-center"
+                >
+                  <Github className="h-6 w-6 text-white" />
+                </GlassSurface>
+              </motion.a>
             )}
             {siteConfig.links.linkedin && (
-              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-                <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="h-6 w-6" />
-                </a>
-              </Button>
+              <motion.a
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="block"
+              >
+                <GlassSurface
+                  width={48 as any}
+                  height={48 as any}
+                  borderRadius={24}
+                  backgroundOpacity={0.1}
+                  blur={11}
+                  opacity={0.93}
+                  displace={0.5}
+                  className="cursor-pointer flex items-center justify-center"
+                >
+                  <Linkedin className="h-6 w-6 text-white" />
+                </GlassSurface>
+              </motion.a>
             )}
             {siteConfig.links.email && (
-              <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-                <a href={`mailto:${siteConfig.links.email}`}>
-                  <Mail className="h-6 w-6" />
-                </a>
-              </Button>
+              <motion.a
+                href={`mailto:${siteConfig.links.email}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="block"
+              >
+                <GlassSurface
+                  width={48 as any}
+                  height={48 as any}
+                  borderRadius={24}
+                  backgroundOpacity={0.1}
+                  blur={11}
+                  opacity={0.93}
+                  displace={0.5}
+                  className="cursor-pointer flex items-center justify-center"
+                >
+                  <Mail className="h-6 w-6 text-white" />
+                </GlassSurface>
+              </motion.a>
             )}
           </motion.div>
         </div>
@@ -218,22 +263,28 @@ export default function AboutPage() {
         >
           {/* About Section */}
           <motion.div variants={itemVariants}>
-            <GlowCard>
-              <Card className="relative overflow-hidden">
-                <CardContent className="relative p-10">
-                  <h2 className="text-4xl font-bold mb-6">
+            <GlassSurface
+              width={"100%" as any}
+              height={"auto" as any}
+              borderRadius={16}
+              backgroundOpacity={0.5}
+              blur={2}
+              opacity={0.93}
+              displace={0}
+            >
+              <div className="relative p-10">
+                <h2 className="text-4xl font-bold mb-6 text-white">
                     About Me
                   </h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed">
-                  I’m a Master’s student in Computer Science with a focus on machine learning, combining hands-on experience in AI development and full-stack web engineering. My work spans from building real-world web applications for freelance clients and international EdTech companies, to academic projects tackling hospital NICU monitoring, optimized image generation, and cutting-edge NLP innovations using GAZE modules.
+                <p className="text-xl text-white/80 leading-relaxed">
+                  I'm a Master's student in Computer Science with a focus on machine learning, combining hands-on experience in AI development and full-stack web engineering. My work spans from building real-world web applications for freelance clients and international EdTech companies, to academic projects tackling hospital NICU monitoring, optimized image generation, and cutting-edge NLP innovations using GAZE modules.
                   </p>
                   <br/>
-                  <p className="text-xl text-muted-foreground leading-relaxed">
-Alongside my technical expertise, I bring a background in business and leadership, giving me the ability to translate complex technical work into solutions that serve organizations and end users effectively. I’m seeking opportunities in machine learning engineering, AI-driven applications, or full-stack software development, with a particular interest in joining well-funded startups where I can apply both technical depth and creative problem-solving to drive real-world impact.
+                <p className="text-xl text-white/80 leading-relaxed">
+                  Alongside my technical expertise, I bring a background in business and leadership, giving me the ability to translate complex technical work into solutions that serve organizations and end users effectively. I'm seeking opportunities in machine learning engineering, AI-driven applications, or full-stack software development, with a particular interest in joining well-funded startups where I can apply both technical depth and creative problem-solving to drive real-world impact.
                   </p>
-                </CardContent>
-              </Card>
-            </GlowCard>
+              </div>
+            </GlassSurface>
           </motion.div>
 
           {/* Featured Projects Section */}
@@ -255,7 +306,7 @@ Alongside my technical expertise, I bring a background in business and leadershi
                 ))}
               </div>
             ) : featuredProjects.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                 {featuredProjects.map((project) => (
                   <AboutProjectCard 
                     key={project.id}
@@ -330,22 +381,23 @@ Alongside my technical expertise, I bring a background in business and leadershi
 
           {/* Experience Section */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-4xl font-bold mb-10">
-              Professional Experience
-            </h2>
-            <div className="space-y-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Professional Experience
+              </h2>
+              <div className="space-y-4">
               {[
                 {
                   title: "Full-Stack Developer",
                   period: "02/2025 – 08/2025",
                   company: "Impactis Global",
                   achievements: [
-                    "Acted as the technical point person for a 3-member team, delegating tasks and leading daily stand-ups to ensure timely sprint delivery",
-                    "Built and maintained full-stack features using React, TypeScript, Tailwind CSS, Prisma, and PostgreSQL, integrating Stripe for secure payment processing",
-                    "Monitored and managed the company's GitHub repositories, reviewing pull requests, resolving merge conflicts, and maintaining production stability",
-                    "Improved UI/UX consistency and overall site performance through responsive design and accessibility updates",
-                    "Implemented SEO strategies that enhanced search engine visibility and organic reach",
-                    "Collaborated closely with product leads to translate business goals into scalable, high-performance web solutions"
+                    "Led a 3-member development team, managing sprints and task delegation",
+                    "Built full-stack features with React, TypeScript, Prisma, and PostgreSQL",
+                    "Managed GitHub repositories and maintained production stability",
+                    "Improved UI/UX and site performance through responsive design",
+                    "Implemented SEO strategies to enhance search visibility",
+                    "Translated business goals into scalable web solutions"
                   ]
                 },
                 {
@@ -368,33 +420,42 @@ Alongside my technical expertise, I bring a background in business and leadershi
                   ]
                 }
               ].map((job, index) => (
-                <GlowCard key={index}>
-                  <Card className="group">
-                    <CardContent className="p-8">
-                      <div className="flex flex-col md:flex-row md:items-center gap-6">
-                        <div className="md:w-1/3">
-                          <h3 className="text-2xl font-semibold mb-2">{job.title}</h3>
-                          <p className="text-lg text-muted-foreground">{job.company}</p>
-                          <p className="text-base text-muted-foreground">{job.period}</p>
+                <GlassSurface
+                  key={index}
+                  width={"100%" as any}
+                  height={"auto" as any}
+                  borderRadius={12}
+                  backgroundOpacity={0.5}
+                  blur={2}
+                  opacity={0.93}
+                  displace={0}
+                >
+                  <div className="p-5">
+                    <div className="flex flex-col md:flex-row md:items-start gap-4">
+                      <div className="md:w-1/3 flex-shrink-0">
+                        <h3 className="text-xl font-semibold mb-1 text-white">{job.title}</h3>
+                        <p className="text-base text-white/80">{job.company}</p>
+                        <p className="text-sm text-white/70">{job.period}</p>
                         </div>
                         <div className="md:w-2/3">
-                          <ul className="space-y-3">
+                        <ul className="space-y-2">
                             {job.achievements.map((achievement, i) => (
-                              <li key={i} className="text-lg flex gap-2 items-start">
-                                <span className="text-emerald-500 text-xl mt-1">•</span>
-                                <span>{achievement}</span>
+                            <li key={i} className="text-base flex gap-2 items-start">
+                              <span className="text-emerald-500 text-lg mt-0.5 flex-shrink-0">•</span>
+                              <span className="text-white/80">{achievement}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </GlowCard>
+                  </div>
+                </GlassSurface>
               ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
+      </div>
       </div>
     </div>
   )

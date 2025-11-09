@@ -7,6 +7,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Search } from "lucide-react"
 import { ProjectCard } from "@/components/ui/project-card"
 import { Project, getImageUrl } from "@/types/project"
+import DarkVeil from "@/components/ui/dark-veil"
 
 // Predefined project categories (should match the form)
 const PROJECT_CATEGORIES = [
@@ -74,7 +75,9 @@ export default function ProjectsPage() {
     })
 
   return (
-    <div className="container py-10">
+    <div className="relative min-h-screen">
+      <DarkVeil className="fixed inset-0" />
+      <div className="relative z-10 container py-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -148,13 +151,14 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         {!isLoading && !error && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
+                className="h-full"
               >
                 <ProjectCard 
                   id={project.id}
@@ -182,6 +186,7 @@ export default function ProjectsPage() {
           </div>
         )}
       </motion.div>
+      </div>
     </div>
   )
 } 

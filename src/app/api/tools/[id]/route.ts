@@ -1,34 +1,36 @@
 import { NextResponse } from "next/server"
 
-// Use environment variable for backend URL, with fallback for dev
-// In production, this should be set to your production backend URL
-// In dev, it defaults to localhost:3001
 const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`)
+    const { id } = await params
+    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     
     if (!response.ok) {
       if (response.status === 404) {
         return NextResponse.json(
-          { error: "Process not found" },
+          { error: "Tool not found" },
           { status: 404 }
         )
       }
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const process = await response.json()
-    return NextResponse.json(process)
+    const tool = await response.json()
+    return NextResponse.json(tool)
   } catch (error) {
-    console.error("Error fetching process:", error)
+    console.error("Error fetching tool:", error)
     return NextResponse.json(
-      { error: "Failed to fetch process" },
+      { error: "Failed to fetch tool" },
       { status: 500 }
     )
   }
@@ -38,10 +40,10 @@ export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
+    const { id } = await params
     const data = await request.json()
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -53,12 +55,12 @@ export async function PUT(
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const process = await response.json()
-    return NextResponse.json(process)
+    const tool = await response.json()
+    return NextResponse.json(tool)
   } catch (error) {
-    console.error("Error updating process:", error)
+    console.error("Error updating tool:", error)
     return NextResponse.json(
-      { error: "Failed to update process" },
+      { error: "Failed to update tool" },
       { status: 500 }
     )
   }
@@ -68,9 +70,9 @@ export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
-    const response = await fetch(`${BACKEND_URL}/api/processes/${id}`, {
+    const { id } = await params
+    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
       method: 'DELETE',
     })
     
@@ -78,13 +80,15 @@ export async function DELETE(
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const result = await response.json()
-    return NextResponse.json(result)
+    return NextResponse.json({ message: 'Tool deleted' })
   } catch (error) {
-    console.error("Error deleting process:", error)
+    console.error("Error deleting tool:", error)
     return NextResponse.json(
-      { error: "Failed to delete process" },
+      { error: "Failed to delete tool" },
       { status: 500 }
     )
   }
-} 
+}
+
+
+

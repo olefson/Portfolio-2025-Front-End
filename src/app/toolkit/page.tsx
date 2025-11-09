@@ -30,12 +30,16 @@ export default function ToolkitPage() {
               </span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto sm:justify-center">
-              <GlassButton href="/tools">
-                View My Tools
-              </GlassButton>
-              <GlassButton href="/processes">
-                View My Processes
-              </GlassButton>
+              <div className="w-full sm:w-auto">
+                <GlassButton href="/tools">
+                  View My Tools
+                </GlassButton>
+              </div>
+              <div className="w-full sm:w-auto">
+                <GlassButton href="/processes">
+                  View My Processes
+                </GlassButton>
+              </div>
             </div>
           </div>
 

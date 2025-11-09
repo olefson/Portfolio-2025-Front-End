@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tool, Process } from "@/types"
 import { ToolCard } from "./tool-card"
 import { ProcessCard } from "./process-card"
+import GlassSurface from "@/components/GlassSurface"
 
 interface TabFilterProps<T> {
   items: T[]
@@ -39,19 +40,27 @@ export function TabFilter<T>({
     <div className="relative mt-8">
       <Tabs defaultValue={defaultCategory} className="flex flex-col">
         <div className="sticky top-14 z-10 -mx-2 px-2 md:mx-0 md:px-0">
-          <div className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pb-4 rounded-xl">
-            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent min-h-fit h-auto py-2">
+          <GlassSurface
+            width={"100%" as any}
+            height={"auto" as any}
+            borderRadius={12}
+            backgroundOpacity={0.5}
+            blur={11}
+            opacity={0.93}
+            displace={0.5}
+          >
+            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent min-h-fit h-auto py-4">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="rounded-full bg-muted px-4 py-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white"
+                  className="rounded-full bg-white/10 border border-white/20 text-white px-4 py-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white data-[state=active]:border-emerald-500 hover:bg-white/20"
                 >
                   {category}
                 </TabsTrigger>
               ))}
             </TabsList>
-          </div>
+          </GlassSurface>
         </div>
 
         <div className="mt-4">

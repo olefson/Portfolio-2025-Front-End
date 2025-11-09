@@ -7,18 +7,24 @@ const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL |
 
 export async function GET() {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/processes`)
+    const response = await fetch(`${BACKEND_URL}/api/tools`, {
+      // Add cache control for production
+      cache: process.env.NODE_ENV === 'production' ? 'no-store' : 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     
     if (!response.ok) {
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const processes = await response.json()
-    return NextResponse.json(processes)
+    const tools = await response.json()
+    return NextResponse.json(tools)
   } catch (error) {
-    console.error("Error fetching processes:", error)
+    console.error("Error fetching tools:", error)
     return NextResponse.json(
-      { error: "Failed to fetch processes" },
+      { error: "Failed to fetch tools" },
       { status: 500 }
     )
   }
@@ -27,7 +33,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-    const response = await fetch(`${BACKEND_URL}/api/processes`, {
+    const response = await fetch(`${BACKEND_URL}/api/tools`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,14 +45,16 @@ export async function POST(request: Request) {
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const process = await response.json()
-    return NextResponse.json(process)
+    const tool = await response.json()
+    return NextResponse.json(tool)
   } catch (error) {
-    console.error("Error creating process:", error)
+    console.error("Error creating tool:", error)
     return NextResponse.json(
-      { error: "Failed to create process" },
+      { error: "Failed to create tool" },
       { status: 500 }
     )
   }
 }
+
+
 

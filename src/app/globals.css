@@ -77,6 +77,13 @@
   .text-glow-white {
     text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
   }
+  .line-clamp-4-fixed {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 }
 
 @keyframes fadeIn {

@@ -9,6 +9,7 @@ import { useTheme } from "next-themes"
 import { MobileNav } from "@/components/mobile-nav"
 import { Logo } from "@/components/ui/logo"
 import { useEffect, useRef } from "react"
+import GlassSurface from "@/components/GlassSurface"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -32,7 +33,17 @@ export function SiteHeader() {
 
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full">
+      <GlassSurface
+        width={"100%" as any}
+        height={56 as any}
+        borderRadius={0}
+        backgroundOpacity={0.5}
+        blur={11}
+        opacity={0.93}
+        displace={0.5}
+        className="border-b border-white/20"
+      >
       <div className="container flex h-14 items-center">
         <div className="flex-1">
           <Link href="/" className="inline-flex items-center gap-3">
@@ -59,6 +70,7 @@ export function SiteHeader() {
           <MobileNav routes={routes} />
         </div>
       </div>
+      </GlassSurface>
     </header>
   )
 } 

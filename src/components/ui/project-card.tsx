@@ -2,11 +2,10 @@
 
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { GlowCard } from "@/components/ui/glow-card"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, FolderOpen } from "lucide-react"
 import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
+import GlassSurface from "@/components/GlassSurface"
 
 interface ProjectCardProps {
   id: string | number
@@ -43,28 +42,41 @@ export function ProjectCard({
   const hasLive = !!liveUrl;
 
   const content = (
-    <Card className="h-[500px] transition-colors group-hover:bg-muted/50 relative flex flex-col overflow-hidden">
-      <CardHeader className="space-y-3 pb-3">
+    <GlassSurface
+      width={"100%" as any}
+      height={"100%" as any}
+      borderRadius={16}
+      backgroundOpacity={0.5}
+      blur={2}
+      opacity={0.93}
+      displace={0}
+      className="h-full flex flex-col"
+    >
+      <div className="flex flex-col h-full">
+        {/* Header Section */}
+        <div className="p-4 sm:p-6 space-y-3 flex-shrink-0">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle 
-              className="text-xl font-bold transition-colors group-hover:text-emerald-400 cursor-pointer hover:underline"
+              <h3 
+                className="text-xl font-bold text-white transition-colors group-hover:text-emerald-400 cursor-pointer hover:underline"
               onClick={handleProjectNavigation}
             >
               {title}
-            </CardTitle>
+              </h3>
             {date && (
-              <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-white/70 mt-1">
                 {new Date(date).getFullYear()}
               </p>
             )}
           </div>
-          <Badge variant="outline" className="shrink-0">
+            <Badge variant="outline" className="text-xs sm:text-sm bg-white/10 border-white/20 text-white shrink-0">
             {category}
           </Badge>
         </div>
+          
+          {/* Image Section */}
         <div 
-          className="aspect-video rounded-lg bg-muted relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+            className="aspect-video rounded-lg bg-white/5 relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity flex-shrink-0"
           onClick={handleProjectNavigation}
         >
           {image ? (
@@ -73,9 +85,7 @@ export function ProjectCard({
               alt={title}
               className="w-full h-full object-cover"
               onError={(e) => {
-                // Silently handle image loading errors without console spam
                 e.currentTarget.style.display = 'none';
-                // Show the fallback folder icon
                 const parent = e.currentTarget.parentElement;
                 if (parent) {
                   const fallback = parent.querySelector('.fallback-icon');
@@ -86,23 +96,27 @@ export function ProjectCard({
               }}
             />
           ) : null}
-          {/* Always render fallback, but hide if image loads successfully */}
+            {/* Fallback icon */}
           <div 
-            className={`absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent ${image ? 'hidden' : ''} fallback-icon`}
+              className={`absolute inset-0 bg-gradient-to-br from-emerald-500 to-transparent ${image ? 'hidden' : ''} fallback-icon`}
             style={{ display: image ? 'none' : 'flex' }}
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              <FolderOpen className="w-12 h-12 text-muted-foreground/40" />
+                <FolderOpen className="w-12 h-12 text-white" />
+              </div>
             </div>
           </div>
         </div>
-      </CardHeader>
-      <CardContent className="space-y-2 flex-1 flex flex-col min-h-0 py-3 overflow-hidden">
+
+        {/* Content Section */}
+        <div className="px-4 sm:px-6 pb-4 sm:pb-6 space-y-2 flex-1 flex flex-col min-h-0">
+          <div className="min-h-[60px] overflow-hidden">
         <p 
-          className="text-sm text-muted-foreground line-clamp-3"
+              className="text-sm text-white/80 line-clamp-3"
         >
           {description}
         </p>
+          </div>
         <div className="flex flex-wrap gap-1.5 flex-shrink-0">
           {technologies
             .filter(tech => tech !== category) // Remove the category tag to avoid duplication
@@ -112,20 +126,22 @@ export function ProjectCard({
                 key={tech} 
                 toolName={tech} 
                 variant="secondary" 
-                className="text-xs"
+                  className="text-xs bg-white/10 border-white/20 text-white hover:bg-white/20"
               />
             ))}
           {!showContent && technologies.filter(tech => tech !== category).length > 5 && (
-            <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary" className="text-xs bg-white/10 border-white/20 text-white">
               +{technologies.filter(tech => tech !== category).length - 5} more
             </Badge>
           )}
         </div>
-      </CardContent>
-      <div className="px-4 pb-4 pt-2 mt-auto flex-shrink-0">
+        </div>
+
+        {/* Footer Section with Buttons */}
+        <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 mt-auto flex-shrink-0">
         <div className="flex gap-2 w-full">
           {hasGitHub && (
-            <Button variant="outline" size="sm" asChild className="flex-1">
+              <Button variant="outline" size="sm" asChild className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white">
               <a 
                 href={githubUrl} 
                 target="_blank" 
@@ -137,7 +153,7 @@ export function ProjectCard({
             </Button>
           )}
           {hasLive && (
-            <Button variant="outline" size="sm" asChild className="flex-1">
+              <Button variant="outline" size="sm" asChild className="flex-1 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white">
               <a 
                 href={liveUrl} 
                 target="_blank" 
@@ -150,16 +166,13 @@ export function ProjectCard({
           )}
         </div>
       </div>
-    </Card>
+      </div>
+    </GlassSurface>
   )
 
-  if (showContent) {
-    return <GlowCard>{content}</GlowCard>
-  }
-
   return (
-    <div className="group relative">
-      <GlowCard>{content}</GlowCard>
+    <div className="group relative h-full">
+      {content}
     </div>
   )
 }
