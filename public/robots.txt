@@ -11,8 +11,6 @@ Allow: /tools/
 Allow: /toolkit
 Allow: /processes
 Allow: /processes/
-
-# Disallow admin and API routes
 Disallow: /api/
 Disallow: /edit
 Disallow: /dev

@@ -8,29 +8,24 @@ export async function GET(
 ) {
   try {
     const { id } = await params
-    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
-      cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(`${BACKEND_URL}/api/admin/diary/${id}`)
     
     if (!response.ok) {
       if (response.status === 404) {
         return NextResponse.json(
-          { error: "Tool not found" },
+          { error: "Diary entry not found" },
           { status: 404 }
         )
       }
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    const tool = await response.json()
-    return NextResponse.json(tool)
+    const entry = await response.json()
+    return NextResponse.json(entry)
   } catch (error) {
-    console.error("Error fetching tool:", error)
+    console.error("Error fetching diary entry:", error)
     return NextResponse.json(
-      { error: "Failed to fetch tool" },
+      { error: "Failed to fetch diary entry" },
       { status: 500 }
     )
   }
@@ -42,25 +37,27 @@ export async function PUT(
 ) {
   try {
     const { id } = await params
-    const data = await request.json()
-    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
-      method: 'PUT',
+    const body = await request.json()
+    
+    const response = await fetch(`${BACKEND_URL}/api/admin/diary/${id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     })
     
     if (!response.ok) {
-      throw new Error(`Backend responded with status: ${response.status}`)
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.error || `Backend responded with status: ${response.status}`)
     }
     
-    const tool = await response.json()
-    return NextResponse.json(tool)
+    const entry = await response.json()
+    return NextResponse.json(entry)
   } catch (error) {
-    console.error("Error updating tool:", error)
+    console.error("Error updating diary entry:", error)
     return NextResponse.json(
-      { error: "Failed to update tool" },
+      { error: error instanceof Error ? error.message : "Failed to update diary entry" },
       { status: 500 }
     )
   }
@@ -72,29 +69,21 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params
-    const response = await fetch(`${BACKEND_URL}/api/tools/${id}`, {
-      method: 'DELETE',
+    const response = await fetch(`${BACKEND_URL}/api/admin/diary/${id}`, {
+      method: "DELETE",
     })
     
     if (!response.ok) {
       throw new Error(`Backend responded with status: ${response.status}`)
     }
     
-    return NextResponse.json({ message: 'Tool deleted' })
+    return new NextResponse(null, { status: 204 })
   } catch (error) {
-    console.error("Error deleting tool:", error)
+    console.error("Error deleting diary entry:", error)
     return NextResponse.json(
-      { error: "Failed to delete tool" },
+      { error: "Failed to delete diary entry" },
       { status: 500 }
     )
   }
 }
-
-
-
-
-
-
-
-
 

@@ -51,6 +51,61 @@ export interface Process {
   addedOn?: string;
 }
 
+export enum JobType {
+  FullTime = "FullTime",
+  PartTime = "PartTime",
+  Contract = "Contract",
+  Internship = "Internship",
+  Freelance = "Freelance",
+}
+
+export enum DegreeType {
+  Bachelor = "Bachelor",
+  Master = "Master",
+  Certificate = "Certificate",
+}
+
+export interface Job {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  type: JobType;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  achievements?: string[];
+  updatedAt: string;
+}
+
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  degreeType: DegreeType;
+  field: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  gpa?: number | null;
+  courses?: string[];
+  activities?: string[];
+  updatedAt: string;
+}
+
+export interface Diary {
+  id: string;
+  title: string;
+  content: string;
+  date: string;
+  tags: string[];
+  mood?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface SiteConfig {
   name: string;
   description: string;

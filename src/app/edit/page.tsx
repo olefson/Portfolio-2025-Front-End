@@ -4,17 +4,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ToolForm } from "@/components/tool-form"
 import { ProcessForm } from "@/components/process-form"
 import { ProjectForm } from "@/components/project-form"
+import { DiaryForm } from "@/components/diary-form"
+import { JobForm } from "@/components/job-form"
+import { EducationForm } from "@/components/education-form"
 import { ToolList } from "@/components/tool-list"
 import { ProcessList } from "@/components/process-list"
 import { ProjectList } from "@/components/project-list"
+import { DiaryList } from "@/components/diary-list"
+import { JobList } from "@/components/job-list"
+import { EducationList } from "@/components/education-list"
 import { FeaturedProjectsManager } from "@/components/featured-projects-manager"
 import { Card } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Wrench, Workflow, Briefcase } from "lucide-react"
+import { Wrench, Workflow, Briefcase, BookOpen, GraduationCap } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
 import { notFound } from "next/navigation"
 
 export default function EditPage() {
@@ -62,29 +66,29 @@ export default function EditPage() {
       label: "Tools",
       icon: <Wrench className="w-5 h-5" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <Card className="p-6 shadow-md border bg-card">
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                <Wrench className="w-6 h-6" /> Add or Edit Tool
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Wrench className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Tool
               </h2>
-              <p className="text-muted-foreground mb-2">
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
                 Create a new tool or update an existing one. Add use cases to help others understand how you use each tool.
               </p>
             </div>
-            <Separator className="mb-4" />
+            <Separator className="mb-3 sm:mb-4" />
             <ToolForm />
           </Card>
-          <Card className="p-6 shadow-md border bg-card max-h-[70vh] overflow-y-auto">
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                <Wrench className="w-6 h-6" /> Tool List
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Wrench className="w-5 h-5 sm:w-6 sm:h-6" /> Tool List
               </h2>
-              <p className="text-muted-foreground mb-2">
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
                 Browse, edit, or delete your tools. Click a tool to edit its details.
               </p>
             </div>
-            <Separator className="mb-4" />
+            <Separator className="mb-3 sm:mb-4" />
             <ToolList />
           </Card>
         </div>
@@ -95,29 +99,29 @@ export default function EditPage() {
       label: "Processes",
       icon: <Workflow className="w-5 h-5" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <Card className="p-6 shadow-md border bg-card">
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                <Workflow className="w-6 h-6" /> Add or Edit Process
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Workflow className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Process
               </h2>
-              <p className="text-muted-foreground mb-2">
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
                 Create a new process or update an existing one. Document your workflows for easy reference.
               </p>
             </div>
-            <Separator className="mb-4" />
+            <Separator className="mb-3 sm:mb-4" />
             <ProcessForm />
           </Card>
-          <Card className="p-6 shadow-md border bg-card max-h-[70vh] overflow-y-auto">
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                <Workflow className="w-6 h-6" /> Process List
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Workflow className="w-5 h-5 sm:w-6 sm:h-6" /> Process List
               </h2>
-              <p className="text-muted-foreground mb-2">
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
                 Browse, edit, or delete your processes. Click a process to edit its details.
               </p>
             </div>
-            <Separator className="mb-4" />
+            <Separator className="mb-3 sm:mb-4" />
             <ProcessList />
           </Card>
         </div>
@@ -128,95 +132,177 @@ export default function EditPage() {
       label: "Projects",
       icon: <Briefcase className="w-5 h-5" />,
       content: (
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8">
           {/* Project Management */}
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <Card className="p-6 shadow-md border bg-card">
-              <div className="mb-4">
-                <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                  <Briefcase className="w-6 h-6" /> Add or Edit Project
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+            <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+              <div className="mb-3 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                  <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Project
                 </h2>
-                <p className="text-muted-foreground mb-2">
+                <p className="text-sm sm:text-base text-muted-foreground mb-2">
                   Create a new project or update an existing one. GitHub URL is optional, and no dates are required.
                 </p>
               </div>
-              <Separator className="mb-4" />
+              <Separator className="mb-3 sm:mb-4" />
               <ProjectForm />
             </Card>
-            <Card className="p-6 shadow-md border bg-card max-h-[70vh] overflow-y-auto">
-              <div className="mb-4">
-                <h2 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                  <Briefcase className="w-6 h-6" /> Project List
+            <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+              <div className="mb-3 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                  <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" /> Project List
                 </h2>
-                <p className="text-muted-foreground mb-2">
+                <p className="text-sm sm:text-base text-muted-foreground mb-2">
                   Browse, edit, or delete your projects. Click a project to edit its details.
                 </p>
               </div>
-              <Separator className="mb-4" />
+              <Separator className="mb-3 sm:mb-4" />
               <ProjectList />
             </Card>
           </div>
           
           {/* Featured Projects Management */}
-          <FeaturedProjectsManager />
+          <div className="order-3">
+            <FeaturedProjectsManager />
+          </div>
+        </div>
+      ),
+    },
+    {
+      value: "diary",
+      label: "Diary",
+      icon: <BookOpen className="w-5 h-5" />,
+      content: (
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Diary Entry
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Create diary entries for chatbot personality. These are private and never shown to visitors.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <DiaryForm />
+          </Card>
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" /> Diary List
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Browse, filter, and manage your diary entries with advanced analytics.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <DiaryList />
+          </Card>
+        </div>
+      ),
+    },
+    {
+      value: "jobs",
+      label: "Jobs",
+      icon: <Briefcase className="w-5 h-5" />,
+      content: (
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Job
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Create a new job entry or update an existing one. This information is public and visible to visitors.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <JobForm />
+          </Card>
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" /> Job List
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Browse, edit, or delete your job entries. Click a job to edit its details.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <JobList />
+          </Card>
+        </div>
+      ),
+    },
+    {
+      value: "education",
+      label: "Education",
+      icon: <GraduationCap className="w-5 h-5" />,
+      content: (
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card order-1">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" /> Add or Edit Education
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Create a new education entry or update an existing one. This information is public and visible to visitors.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <EducationForm />
+          </Card>
+          <Card className="w-full p-4 sm:p-5 md:p-6 shadow-md border bg-card max-h-[60vh] md:max-h-[70vh] overflow-y-auto order-2">
+            <div className="mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2 mb-1">
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" /> Education List
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-2">
+                Browse, edit, or delete your education entries. Click an entry to edit its details.
+              </p>
+            </div>
+            <Separator className="mb-3 sm:mb-4" />
+            <EducationList />
+          </Card>
         </div>
       ),
     },
   ]
 
   return (
-    <div className="container py-10">
-      <h1 className="text-4xl font-extrabold mb-8 text-center tracking-tight">Content Management</h1>
+    <div className="container py-4 sm:py-6 md:py-10 px-4 sm:px-6 max-w-7xl mx-auto">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6 md:mb-8 text-center tracking-tight">Content Management</h1>
       
-      {/* Mobile Navigation */}
-      <div className="md:hidden mb-6">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" className="w-full justify-between">
-              <span className="flex items-center gap-2">
-                {tabs.find(tab => tab.value === activeTab)?.icon}
-                {tabs.find(tab => tab.value === activeTab)?.label}
-              </span>
-              <Menu className="h-4 w-4" />
+      {/* Mobile Navigation - Horizontal Scrollable Tabs */}
+      <div className="md:hidden mb-4">
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
+          {tabs.map((tab) => (
+            <Button
+              key={tab.value}
+              variant={activeTab === tab.value ? "default" : "outline"}
+              size="sm"
+              className="flex-shrink-0 gap-2 whitespace-nowrap"
+              onClick={() => setActiveTab(tab.value)}
+            >
+              {tab.icon}
+              <span>{tab.label}</span>
             </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-            <SheetHeader>
-              <SheetTitle>Content Management</SheetTitle>
-            </SheetHeader>
-            <nav className="flex flex-col gap-4 mt-8">
-              {tabs.map((tab) => (
-                <Button
-                  key={tab.value}
-                  variant={activeTab === tab.value ? "default" : "ghost"}
-                  className="w-full justify-start"
-                  onClick={() => {
-                    setActiveTab(tab.value)
-                  }}
-                >
-                  <span className="flex items-center gap-2">
-                    {tab.icon}
-                    {tab.label}
-                  </span>
-                </Button>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+          ))}
+        </div>
       </div>
 
       {/* Desktop Navigation */}
       <Tabs 
         value={activeTab} 
         onValueChange={setActiveTab}
-        className="w-full max-w-5xl mx-auto bg-card rounded-2xl shadow-xl p-6"
+        className="w-full bg-card rounded-xl md:rounded-2xl shadow-lg md:shadow-xl p-4 sm:p-5 md:p-6"
       >
         <TabsList className="hidden md:flex w-full mb-6 rounded-lg overflow-hidden bg-muted/50">
           {tabs.map((tab) => (
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className="flex-1 min-w-0 flex items-center gap-2 text-lg py-4 px-6 font-semibold transition-all duration-200 truncate 
+              className="flex-1 min-w-0 flex items-center gap-2 text-base md:text-lg py-3 md:py-4 px-4 md:px-6 font-semibold transition-all duration-200 truncate 
               data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm 
               hover:bg-muted focus-visible:ring-2"
             >
@@ -227,7 +313,7 @@ export default function EditPage() {
         </TabsList>
 
         {tabs.map((tab) => (
-          <TabsContent key={tab.value} value={tab.value}>
+          <TabsContent key={tab.value} value={tab.value} className="mt-0">
             {tab.content}
           </TabsContent>
         ))}
