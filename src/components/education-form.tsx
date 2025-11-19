@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import {
   Select,
@@ -25,7 +24,7 @@ export function EducationForm({ education, onSave, onCancel }: EducationFormProp
   const [formData, setFormData] = useState({
     institution: "",
     degree: "",
-    degreeType: "Bachelor" as DegreeType,
+    degreeType: DegreeType.Bachelor,
     field: "",
     location: "",
     startDate: "",
@@ -112,7 +111,7 @@ export function EducationForm({ education, onSave, onCancel }: EducationFormProp
         setFormData({
           institution: "",
           degree: "",
-          degreeType: "Bachelor",
+          degreeType: DegreeType.Bachelor,
           field: "",
           location: "",
           startDate: "",

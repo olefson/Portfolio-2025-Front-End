@@ -159,7 +159,7 @@ export default function DarkVeil({
       // Check for low-end device indicators
       const isLowEnd = 
         navigator.hardwareConcurrency <= 4 || // Few CPU cores
-        (navigator as any).deviceMemory && (navigator as any).deviceMemory <= 4 // Low RAM
+        ('deviceMemory' in navigator && (navigator as { deviceMemory?: number }).deviceMemory && (navigator as { deviceMemory?: number }).deviceMemory! <= 4) // Low RAM
       
       if (isLowEnd) {
         return Math.min(baseDPR, 1) // Cap at 1 for low-end devices

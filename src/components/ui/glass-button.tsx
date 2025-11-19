@@ -39,8 +39,8 @@ export function GlassButton({
         className={`block w-full ${className}`}
       >
         <GlassSurface
-          width={"100%" as any}
-          height={"auto" as any}
+          width="100%"
+          height="auto"
           borderRadius={12}
           backgroundOpacity={0.1}
           blur={11}
@@ -66,8 +66,8 @@ export function GlassButton({
         className="block w-full"
       >
         <GlassSurface
-          width={"100%" as any}
-          height={"auto" as any}
+          width="100%"
+          height="auto"
           borderRadius={12}
           backgroundOpacity={0.1}
           blur={11}

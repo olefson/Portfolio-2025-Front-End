@@ -13,7 +13,7 @@ interface ProcessCardProps extends Process {
 export type { ProcessCardProps }
 
 export function ProcessCard({
-  id,
+  id: _id, // eslint-disable-line @typescript-eslint/no-unused-vars
   title,
   description,
   tools,
@@ -26,8 +26,8 @@ export function ProcessCard({
 }: ProcessCardProps) {
   const content = (
     <GlassSurface
-      width={"100%" as any}
-      height={"auto" as any}
+      width="100%"
+      height="auto"
       borderRadius={16}
       backgroundOpacity={0.7}
       blur={2}

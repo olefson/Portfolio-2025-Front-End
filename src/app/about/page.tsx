@@ -193,8 +193,8 @@ export default function AboutPage() {
                 className="block"
               >
                 <GlassSurface
-                  width={48 as any}
-                  height={48 as any}
+                  width={48}
+                  height={48}
                   borderRadius={24}
                   backgroundOpacity={0.1}
                   blur={11}
@@ -216,8 +216,8 @@ export default function AboutPage() {
                 className="block"
               >
                 <GlassSurface
-                  width={48 as any}
-                  height={48 as any}
+                  width={48}
+                  height={48}
                   borderRadius={24}
                   backgroundOpacity={0.1}
                   blur={11}
@@ -237,8 +237,8 @@ export default function AboutPage() {
                 className="block"
               >
                 <GlassSurface
-                  width={48 as any}
-                  height={48 as any}
+                  width={48}
+                  height={48}
                   borderRadius={24}
                   backgroundOpacity={0.1}
                   blur={11}
@@ -264,8 +264,8 @@ export default function AboutPage() {
           {/* About Section */}
           <motion.div variants={itemVariants}>
             <GlassSurface
-              width={"100%" as any}
-              height={"auto" as any}
+              width="100%"
+              height="auto"
               borderRadius={16}
               backgroundOpacity={0.5}
               blur={2}
@@ -277,11 +277,11 @@ export default function AboutPage() {
                     About Me
                   </h2>
                 <p className="text-xl text-white/80 leading-relaxed">
-                  I'm a Master's student in Computer Science with a focus on machine learning, combining hands-on experience in AI development and full-stack web engineering. My work spans from building real-world web applications for freelance clients and international EdTech companies, to academic projects tackling hospital NICU monitoring, optimized image generation, and cutting-edge NLP innovations using GAZE modules.
+                  I&apos;m a Master&apos;s student in Computer Science with a focus on machine learning, combining hands-on experience in AI development and full-stack web engineering. My work spans from building real-world web applications for freelance clients and international EdTech companies, to academic projects tackling hospital NICU monitoring, optimized image generation, and cutting-edge NLP innovations using GAZE modules.
                   </p>
                   <br/>
                 <p className="text-xl text-white/80 leading-relaxed">
-                  Alongside my technical expertise, I bring a background in business and leadership, giving me the ability to translate complex technical work into solutions that serve organizations and end users effectively. I'm seeking opportunities in machine learning engineering, AI-driven applications, or full-stack software development, with a particular interest in joining well-funded startups where I can apply both technical depth and creative problem-solving to drive real-world impact.
+                  Alongside my technical expertise, I bring a background in business and leadership, giving me the ability to translate complex technical work into solutions that serve organizations and end users effectively. I&apos;m seeking opportunities in machine learning engineering, AI-driven applications, or full-stack software development, with a particular interest in joining well-funded startups where I can apply both technical depth and creative problem-solving to drive real-world impact.
                   </p>
               </div>
             </GlassSurface>
@@ -422,8 +422,8 @@ export default function AboutPage() {
               ].map((job, index) => (
                 <GlassSurface
                   key={index}
-                  width={"100%" as any}
-                  height={"auto" as any}
+                  width="100%"
+                  height="auto"
                   borderRadius={12}
                   backgroundOpacity={0.5}
                   blur={2}

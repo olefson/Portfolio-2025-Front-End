@@ -1,11 +1,11 @@
 "use client"
 
-import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, FolderOpen } from "lucide-react"
 import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 import GlassSurface from "@/components/GlassSurface"
+import Image from "next/image"
 
 interface ProjectCardProps {
   id: string | number
@@ -43,8 +43,8 @@ export function ProjectCard({
 
   const content = (
     <GlassSurface
-      width={"100%" as any}
-      height={"100%" as any}
+      width="100%"
+      height="100%"
       borderRadius={16}
       backgroundOpacity={0.5}
       blur={2}
@@ -80,17 +80,21 @@ export function ProjectCard({
           onClick={handleProjectNavigation}
         >
           {image ? (
-            <img 
+            <Image 
               src={image} 
               alt={title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  const fallback = parent.querySelector('.fallback-icon');
-                  if (fallback) {
-                    (fallback as HTMLElement).style.display = 'flex';
+                const target = e.target as HTMLImageElement;
+                if (target) {
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    const fallback = parent.querySelector('.fallback-icon');
+                    if (fallback) {
+                      (fallback as HTMLElement).style.display = 'flex';
+                    }
                   }
                 }
               }}

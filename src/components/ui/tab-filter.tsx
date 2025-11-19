@@ -41,8 +41,8 @@ export function TabFilter<T>({
       <Tabs defaultValue={defaultCategory} className="flex flex-col">
         <div className="sticky top-14 z-10 -mx-2 px-2 md:mx-0 md:px-0">
           <GlassSurface
-            width={"100%" as any}
-            height={"auto" as any}
+            width="100%"
+            height="auto"
             borderRadius={12}
             backgroundOpacity={0.5}
             blur={11}

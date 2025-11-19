@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils"
 import { SiteFooter } from "@/components/site-footer"
 import { ConditionalSiteHeader } from "@/components/ConditionalSiteHeader"
 import { TransitionProvider } from "@/contexts/transition-context"
+import { ChatWidget } from "@/components/chat-widget"
+import { GlobalVideoTransition } from "@/components/global-video-transition"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -77,6 +79,8 @@ export default function RootLayout({
               <ConditionalSiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
+              <ChatWidget />
+              <GlobalVideoTransition />
             </div>
           </ThemeProvider>
         </TransitionProvider>

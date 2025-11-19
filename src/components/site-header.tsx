@@ -3,18 +3,11 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon, Pencil1Icon } from "@radix-ui/react-icons"
-import { useTheme } from "next-themes"
 import { MobileNav } from "@/components/mobile-nav"
-import { Logo } from "@/components/ui/logo"
-import { useEffect, useRef } from "react"
 import GlassSurface from "@/components/GlassSurface"
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
-  const logoRef = useRef<HTMLDivElement>(null)
 
   const routes = [
     {
@@ -35,8 +28,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full">
       <GlassSurface
-        width={"100%" as any}
-        height={56 as any}
+        width="100%"
+        height={56}
         borderRadius={0}
         backgroundOpacity={0.5}
         blur={11}
@@ -46,10 +39,14 @@ export function SiteHeader() {
       >
       <div className="container flex h-14 items-center">
         <div className="flex-1">
-          <Link href="/" className="inline-flex items-center gap-3">
-            <div ref={logoRef} data-logo-ref>
-              <Logo />
-            </div>
+          <Link 
+            href="/" 
+            className={cn(
+              "inline-flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
+              pathname === "/" ? "text-foreground" : "text-foreground/60"
+            )}
+          >
+            Home
           </Link>
         </div>
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium">

@@ -61,7 +61,6 @@ const GlassSurface = ({
   const greenChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const blueChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const gaussianBlurRef = useRef<SVGFEGaussianBlurElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [isNearViewport, setIsNearViewport] = useState(false);
 
   const generateDisplacementMap = (): string => {
@@ -193,7 +192,6 @@ const GlassSurface = ({
     
     if (!isLarge) {
       // Small elements always enabled
-      setIsVisible(true);
       setIsNearViewport(true);
       return;
     }
@@ -204,8 +202,6 @@ const GlassSurface = ({
         entries.forEach((entry) => {
           // Enable when element is within 200px of viewport
           setIsNearViewport(entry.isIntersecting || entry.intersectionRatio > 0);
-          // Fully enable when actually visible
-          setIsVisible(entry.isIntersecting);
         });
       },
       {

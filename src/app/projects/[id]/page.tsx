@@ -11,6 +11,7 @@ import { Project, getImageUrl } from "@/types/project"
 import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 import DarkVeil from "@/components/ui/dark-veil"
 import GlassSurface from "@/components/GlassSurface"
+import Image from "next/image"
 
 export default function ProjectDetailPage() {
   const params = useParams()
@@ -66,7 +67,7 @@ export default function ProjectDetailPage() {
             <div className="text-center py-12">
               <h1 className="text-2xl font-bold mb-4 text-white">Project Not Found</h1>
               <p className="text-white/80 mb-6">
-                The project you're looking for doesn't exist or has been removed.
+                The project you&apos;re looking for doesn&apos;t exist or has been removed.
               </p>
               <Button onClick={() => router.push('/projects')} className="bg-white/10 border-white/20 text-white hover:bg-white/20">
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -111,21 +112,28 @@ export default function ProjectDetailPage() {
           </div>
 
         {/* Project Image */}
-        {project.imagePath && (
-          <div className="mb-8">
-            <div className="aspect-video rounded-lg bg-muted relative overflow-hidden">
-              <img
-                src={getImageUrl(project.imagePath)}
-                alt={project.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  console.error('Failed to load image:', project.imagePath);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
+        {project.imagePath && (() => {
+          const imageUrl = getImageUrl(project.imagePath);
+          return imageUrl ? (
+            <div className="mb-8">
+              <div className="aspect-video rounded-lg bg-muted relative overflow-hidden">
+                <Image
+                  src={imageUrl}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  onError={(e) => {
+                    console.error('Failed to load image:', project.imagePath);
+                    const target = e.target as HTMLImageElement;
+                    if (target) {
+                      target.style.display = 'none';
+                    }
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        )}
+          ) : null;
+        })()}
 
           {/* Project Details */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -133,8 +141,8 @@ export default function ProjectDetailPage() {
             <div className="lg:col-span-2 space-y-8">
               {/* Project Info */}
               <GlassSurface
-                width={"100%" as any}
-                height={"auto" as any}
+                width="100%"
+                height="auto"
                 borderRadius={16}
                 backgroundOpacity={0.5}
                 blur={2}
@@ -156,8 +164,8 @@ export default function ProjectDetailPage() {
 
               {/* Project Links */}
               <GlassSurface
-                width={"100%" as any}
-                height={"auto" as any}
+                width="100%"
+                height="auto"
                 borderRadius={16}
                 backgroundOpacity={0.5}
                 blur={2}
@@ -206,8 +214,8 @@ export default function ProjectDetailPage() {
             <div className="space-y-6">
               {/* Tech Stack */}
               <GlassSurface
-                width={"100%" as any}
-                height={"auto" as any}
+                width="100%"
+                height="auto"
                 borderRadius={16}
                 backgroundOpacity={0.5}
                 blur={2}

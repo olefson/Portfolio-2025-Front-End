@@ -5,10 +5,9 @@ import { motion } from 'framer-motion';
 import { User, Briefcase, Wrench } from 'lucide-react';
 import { GlassButton } from '@/components/ui/glass-button';
 import { useTransition } from '@/contexts/transition-context';
-import { VideoTransition } from '@/components/video-transition';
 
 export default function Home() {
-  const { sourceVideoRef, startTransition, isTransitioning, completeTransition } = useTransition();
+  const { sourceVideoRef, startTransition } = useTransition();
 
   useEffect(() => {
     // Prevent scrolling on the landing page
@@ -115,14 +114,6 @@ export default function Home() {
           ))}
         </motion.div>
       </motion.div>
-
-      {/* Video Transition */}
-      <VideoTransition
-        isTransitioning={isTransitioning}
-        onTransitionComplete={completeTransition}
-        sourceVideoRef={sourceVideoRef}
-        targetPosition={{ x: 0, y: 0, width: 32, height: 32 }}
-      />
     </main>
   );
 }

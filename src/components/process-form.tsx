@@ -13,11 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ProcessCategory, Process, Tool } from "@/types"
-import { X, Check, ChevronsUpDown, AlertCircle } from "lucide-react"
+import { X, AlertCircle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { cn } from "@/lib/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 interface ProcessFormProps {
@@ -47,7 +44,6 @@ export function ProcessForm({ process, onSave, onCancel }: ProcessFormProps) {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [availableTools, setAvailableTools] = useState<Tool[]>([])
-  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     // Fetch available tools

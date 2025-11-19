@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Tool, ToolCategory, UseCase } from "@/types"
+import { Tool, ToolCategory } from "@/types"
 import { X } from "lucide-react"
 
 interface ToolFormProps {

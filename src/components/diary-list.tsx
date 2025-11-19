@@ -97,7 +97,7 @@ export function DiaryList() {
 
   // Filter and sort entries
   const filteredEntries = useMemo(() => {
-    let filtered = entries.filter(entry => {
+    const filtered = entries.filter(entry => {
       // Tag filter
       if (filters.tags.length > 0) {
         const hasMatchingTag = filters.tags.some(tag => entry.tags.includes(tag))

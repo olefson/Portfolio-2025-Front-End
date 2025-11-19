@@ -12,8 +12,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { MenuIcon } from "lucide-react"
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
-import { useTheme } from "next-themes"
 import { useState } from "react"
 
 interface MobileNavProps {
@@ -25,7 +23,6 @@ interface MobileNavProps {
 
 export function MobileNav({ routes }: MobileNavProps) {
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
   const [open, setOpen] = useState(false)
 
   return (

@@ -163,7 +163,7 @@ export default function EditPage() {
           
           {/* Featured Projects Management */}
           <div className="order-3">
-            <FeaturedProjectsManager />
+          <FeaturedProjectsManager />
           </div>
         </div>
       ),
@@ -276,18 +276,18 @@ export default function EditPage() {
       {/* Mobile Navigation - Horizontal Scrollable Tabs */}
       <div className="md:hidden mb-4">
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
-          {tabs.map((tab) => (
-            <Button
-              key={tab.value}
+              {tabs.map((tab) => (
+                <Button
+                  key={tab.value}
               variant={activeTab === tab.value ? "default" : "outline"}
               size="sm"
               className="flex-shrink-0 gap-2 whitespace-nowrap"
               onClick={() => setActiveTab(tab.value)}
-            >
-              {tab.icon}
+                >
+                    {tab.icon}
               <span>{tab.label}</span>
-            </Button>
-          ))}
+                </Button>
+              ))}
         </div>
       </div>
 

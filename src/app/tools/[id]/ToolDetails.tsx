@@ -120,8 +120,8 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
                       className="transition-all duration-200"
                     >
                       <GlassSurface
-                        width={"100%" as any}
-                        height={"auto" as any}
+                        width="100%"
+                        height="auto"
                         borderRadius={12}
                         backgroundOpacity={0.5}
                         blur={2}

@@ -28,10 +28,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { X, Upload, Check, ChevronsUpDown } from "lucide-react"
+import { X, Check, ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
+import Image from "next/image"
 
 // Predefined project categories
 const PROJECT_CATEGORIES = [
@@ -363,7 +364,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
             <FormField
               control={form.control}
               name="tags"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormLabel>Project Category</FormLabel>
                   <FormControl>
@@ -514,9 +515,10 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                       </div>
                       {field.value && (
                         <div className="relative w-full aspect-video">
-                          <img
+                          <Image
                             src={field.value.startsWith('http') ? field.value : field.value}
                             alt="Project preview"
+                            fill
                             className="object-cover rounded-lg"
                           />
                         </div>

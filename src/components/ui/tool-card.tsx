@@ -90,8 +90,8 @@ export function ToolCard({ tool, showContent = false }: ToolCardProps) {
 
   const cardContent = (
     <GlassSurface
-      width={"100%" as any}
-      height={"auto" as any}
+      width="100%"
+      height="auto"
       borderRadius={16}
       backgroundOpacity={0.7}
       blur={2}

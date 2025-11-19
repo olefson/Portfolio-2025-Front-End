@@ -20,7 +20,7 @@ export async function getTools(): Promise<Tool[]> {
   if (pendingRequest) {
     try {
       return await pendingRequest
-    } catch (error) {
+    } catch {
       // If pending request fails, fall through to make a new request
       pendingRequest = null
     }
@@ -79,7 +79,7 @@ export async function getToolIdByName(toolName: string): Promise<string | null> 
 }
 
 export async function getToolIdsByNames(toolNames: string[]): Promise<Record<string, string>> {
-  const tools = await getTools()
+  await getTools()
   const mapping: Record<string, string> = {}
   
   for (const toolName of toolNames) {
