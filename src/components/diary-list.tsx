@@ -131,8 +131,8 @@ export function DiaryList() {
       return true
     })
 
-    // Sort
-    filtered.sort((a, b) => {
+    // Sort (create new array instead of mutating)
+    return [...filtered].sort((a, b) => {
       let comparison = 0
       if (sort.field === 'date') {
         comparison = new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -141,8 +141,6 @@ export function DiaryList() {
       }
       return sort.direction === 'asc' ? comparison : -comparison
     })
-
-    return filtered
   }, [entries, filters, sort])
 
   const handleEditClick = async (entryId: string) => {
