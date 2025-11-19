@@ -122,6 +122,7 @@ export default function ProjectDetailPage() {
                   alt={project.title}
                   fill
                   className="object-cover"
+                  unoptimized={imageUrl?.startsWith('/uploads/')}
                   onError={(e) => {
                     console.error('Failed to load image:', project.imagePath);
                     const target = e.target as HTMLImageElement;

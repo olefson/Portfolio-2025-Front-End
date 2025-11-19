@@ -85,6 +85,7 @@ export function ProjectCard({
               alt={title}
               fill
               className="object-cover"
+              unoptimized={image?.startsWith('/uploads/')}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 if (target) {
