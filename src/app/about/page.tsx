@@ -79,7 +79,6 @@ function Coin3D({ src, alt, width, height, className }: { src: string; alt: stri
           height={height}
           className={className}
           priority
-          unoptimized
           style={{
             transform: "translateZ(20px)",
             filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"

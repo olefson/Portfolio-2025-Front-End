@@ -5,12 +5,13 @@ export default function customImageLoader({ src, width, quality }: { src: string
     return src;
   }
   
-  // For local public images (like /headshot.jpg), return as-is
+  // For local public images (like /headshot.jpg, /logo.png, etc.), return as-is
   // These don't need optimization and are already in the public folder
-  if (src.startsWith('/') && !src.startsWith('/api') && !src.startsWith('/_next')) {
+  if (src.startsWith('/') && !src.startsWith('/api') && !src.startsWith('/_next') && !src.startsWith('/image')) {
     // Check if it's a common image file in public folder
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
-    if (imageExtensions.some(ext => src.toLowerCase().endsWith(ext))) {
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico'];
+    const lowerSrc = src.toLowerCase();
+    if (imageExtensions.some(ext => lowerSrc.endsWith(ext))) {
       return src;
     }
   }
