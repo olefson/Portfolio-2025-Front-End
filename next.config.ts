@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    // Custom loader to bypass optimization for /uploads/ images
+    loader: 'custom',
+    loaderFile: './src/lib/image-loader.ts',
   },
 };
 
