@@ -3,6 +3,10 @@ import { NextResponse } from "next/server"
 // Use environment variable for backend URL, with fallback for dev
 const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 export async function GET() {
   try {
     const response = await fetch(`${BACKEND_URL}/api/admin/diary`, {
