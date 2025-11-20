@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import Image from 'next/image'
 import DarkVeil from "@/components/ui/dark-veil"
+import customImageLoader from "@/lib/image-loader"
 import GlassSurface from "@/components/GlassSurface"
 
 interface ToolDetailsProps {
@@ -73,6 +74,7 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
                 alt={tool.name}
                 fill
                 className="object-contain dark:invert"
+                loader={customImageLoader}
               />
             )}
           </motion.div>

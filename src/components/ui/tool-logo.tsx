@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import customImageLoader from "@/lib/image-loader"
 
 interface ToolLogoProps {
   src: string
@@ -18,6 +19,7 @@ export function ToolLogo({ src, alt }: ToolLogoProps) {
         alt={alt}
         fill
         className="object-contain dark:invert"
+        loader={customImageLoader}
         onError={() => setError(true)}
       />
     </div>

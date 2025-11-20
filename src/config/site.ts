@@ -1,8 +1,8 @@
 import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
-  name: "Jason's Stack",
-  description: "A curated collection of tools and processes I use to build, learn, and grow. Fork this template to showcase your own stack!",
+  name: "Jason Olefson's Portfolio",
+  description: "A website consisting of a curated collection of my projects, education, and expertise.",
   url: "https://jasonolefson.com",
   ogImage: "/og.png",
   links: {

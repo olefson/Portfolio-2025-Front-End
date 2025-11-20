@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { OrbitingCircles } from "@/components/ui/orbiting-circles"
+import customImageLoader from "@/lib/image-loader"
 import { WarpBackground } from "@/components/ui/warp-background"
 import { GlassButton } from "@/components/ui/glass-button"
 
@@ -63,6 +64,7 @@ export default function ToolkitPage() {
                     width={40}
                     height={40}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
                 
@@ -81,6 +83,7 @@ export default function ToolkitPage() {
                     width={40}
                     height={40}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
                 <OrbitingCircles
@@ -96,6 +99,7 @@ export default function ToolkitPage() {
                     width={40}
                     height={40}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
 
@@ -113,6 +117,7 @@ export default function ToolkitPage() {
                     width={50}
                     height={50}
                     className="dark:invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
                 <OrbitingCircles
@@ -128,6 +133,7 @@ export default function ToolkitPage() {
                     width={50}
                     height={50}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
 
@@ -145,6 +151,7 @@ export default function ToolkitPage() {
                     width={50}
                     height={50}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
 
@@ -163,6 +170,7 @@ export default function ToolkitPage() {
                     width={50}
                     height={50}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
 
@@ -180,6 +188,7 @@ export default function ToolkitPage() {
                     width={50}
                     height={50}
                     className="brightness-0 invert"
+                    loader={customImageLoader}
                   />
                 </OrbitingCircles>
               </div>

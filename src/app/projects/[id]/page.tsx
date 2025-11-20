@@ -12,6 +12,7 @@ import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 import DarkVeil from "@/components/ui/dark-veil"
 import GlassSurface from "@/components/GlassSurface"
 import Image from "next/image"
+import customImageLoader from "@/lib/image-loader"
 
 export default function ProjectDetailPage() {
   const params = useParams()
@@ -122,6 +123,7 @@ export default function ProjectDetailPage() {
                   alt={project.title}
                   fill
                   className="object-cover"
+                  loader={customImageLoader}
                   unoptimized={imageUrl?.startsWith('/uploads/')}
                   onError={(e) => {
                     console.error('Failed to load image:', project.imagePath);

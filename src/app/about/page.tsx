@@ -8,6 +8,7 @@ import DarkVeil from "@/components/ui/dark-veil"
 import GlassSurface from "@/components/GlassSurface"
 import Image from "next/image"
 import Link from "next/link"
+import customImageLoader from "@/lib/image-loader"
 import { useRef, useState, useEffect } from "react"
 import { Project, getImageUrl } from "@/types/project"
 import { siteConfig } from "@/config/site"
@@ -78,6 +79,7 @@ function Coin3D({ src, alt, width, height, className }: { src: string; alt: stri
           width={width}
           height={height}
           className={className}
+          loader={customImageLoader}
           priority
           style={{
             transform: "translateZ(20px)",

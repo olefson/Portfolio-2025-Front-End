@@ -6,6 +6,7 @@ import { Github, ExternalLink, FolderOpen } from "lucide-react"
 import { ClickableToolBadge } from "@/components/ui/clickable-tool-badge"
 import GlassSurface from "@/components/GlassSurface"
 import Image from "next/image"
+import customImageLoader from "@/lib/image-loader"
 
 interface AboutProjectCardProps {
   id: string | number
@@ -77,6 +78,7 @@ export function AboutProjectCard({
                 alt={title}
                 fill
                 className="object-cover"
+                loader={customImageLoader}
                 unoptimized={image?.startsWith('/uploads/')}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;

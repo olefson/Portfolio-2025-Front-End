@@ -33,6 +33,7 @@ import { Badge } from "@/components/ui/badge"
 import { X, Check, ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
 import Image from "next/image"
+import customImageLoader from "@/lib/image-loader"
 
 // Predefined project categories
 const PROJECT_CATEGORIES = [
@@ -520,6 +521,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
                             alt="Project preview"
                             fill
                             className="object-cover rounded-lg"
+                            loader={customImageLoader}
                           />
                         </div>
                       )}
