@@ -34,12 +34,21 @@ export function DiaryList() {
     try {
       setLoading(true)
       const response = await fetch('/api/diary')
-      if (!response.ok) throw new Error("Failed to fetch diary entries")
+      if (!response.ok) {
+        // Check if response is JSON before trying to parse
+        const contentType = response.headers.get("content-type")
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await response.json().catch(() => ({}))
+          throw new Error(errorData.error || `Failed to fetch diary entries: ${response.status}`)
+        } else {
+          throw new Error(`Failed to fetch diary entries: ${response.status} ${response.statusText}`)
+        }
+      }
       const data = await response.json()
       setEntries(data)
     } catch (error) {
       console.error("Error fetching diary entries:", error)
-      setError("Failed to load diary entries")
+      setError(error instanceof Error ? error.message : "Failed to load diary entries")
     } finally {
       setLoading(false)
     }
@@ -147,12 +156,21 @@ export function DiaryList() {
     setEditingLoading(true)
     try {
       const response = await fetch(`/api/diary/${entryId}`)
-      if (!response.ok) throw new Error("Failed to fetch diary entry")
+      if (!response.ok) {
+        // Check if response is JSON before trying to parse
+        const contentType = response.headers.get("content-type")
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await response.json().catch(() => ({}))
+          throw new Error(errorData.error || `Failed to fetch diary entry: ${response.status}`)
+        } else {
+          throw new Error(`Failed to fetch diary entry: ${response.status} ${response.statusText}`)
+        }
+      }
       const entry = await response.json()
       setEditing(entry)
     } catch (error) {
       console.error("Error fetching diary entry:", error)
-      setError("Failed to load diary entry details")
+      setError(error instanceof Error ? error.message : "Failed to load diary entry details")
     } finally {
       setEditingLoading(false)
     }
@@ -162,11 +180,20 @@ export function DiaryList() {
     if (!confirm("Are you sure you want to delete this diary entry?")) return
     try {
       const response = await fetch(`/api/diary/${id}`, { method: "DELETE" })
-      if (!response.ok) throw new Error("Failed to delete diary entry")
+      if (!response.ok) {
+        // Check if response is JSON before trying to parse
+        const contentType = response.headers.get("content-type")
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await response.json().catch(() => ({}))
+          throw new Error(errorData.error || `Failed to delete diary entry: ${response.status}`)
+        } else {
+          throw new Error(`Failed to delete diary entry: ${response.status} ${response.statusText}`)
+        }
+      }
       await fetchEntries()
     } catch (error) {
       console.error("Error deleting diary entry:", error)
-      setError("Failed to delete diary entry")
+      setError(error instanceof Error ? error.message : "Failed to delete diary entry")
     }
   }
 

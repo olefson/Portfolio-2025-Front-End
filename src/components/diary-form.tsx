@@ -100,8 +100,20 @@ export function DiaryForm({ diary, onSave, onCancel }: DiaryFormProps) {
       })
 
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || `Failed to ${diary ? 'update' : 'create'} diary entry`)
+        // Try to parse error as JSON, but handle HTML responses (like 404 pages)
+        let errorMessage = `Failed to ${diary ? 'update' : 'create'} diary entry`
+        try {
+          const contentType = response.headers.get("content-type")
+          if (contentType && contentType.includes("application/json")) {
+            const errorData = await response.json()
+            errorMessage = errorData.error || errorMessage
+          } else {
+            errorMessage = `Server error: ${response.status} ${response.statusText}`
+          }
+        } catch (e) {
+          errorMessage = `Server error: ${response.status} ${response.statusText}`
+        }
+        throw new Error(errorMessage)
       }
 
       const saved = await response.json()

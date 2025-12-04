@@ -2,6 +2,10 @@ import { NextResponse } from "next/server"
 
 const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -74,7 +78,8 @@ export async function DELETE(
     })
     
     if (!response.ok) {
-      throw new Error(`Backend responded with status: ${response.status}`)
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.error || `Backend responded with status: ${response.status}`)
     }
     
     return new NextResponse(null, { status: 204 })
