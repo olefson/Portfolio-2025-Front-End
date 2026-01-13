@@ -61,7 +61,9 @@ const GlassSurface = ({
   const greenChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const blueChannelRef = useRef<SVGFEDisplacementMapElement>(null);
   const gaussianBlurRef = useRef<SVGFEGaussianBlurElement>(null);
-  const [isNearViewport, setIsNearViewport] = useState(false);
+  // Initialize as true for small elements (they should always be enabled)
+  const isSmallElement = (typeof width === 'string' && width.includes('%')) === false && (typeof width === 'number' && width <= 600);
+  const [isNearViewport, setIsNearViewport] = useState(isSmallElement);
 
   const generateDisplacementMap = (): string => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -196,16 +198,54 @@ const GlassSurface = ({
       return;
     }
 
+    // Check if element is already in viewport on mount
+    const checkInitialVisibility = () => {
+      if (!containerRef.current) return false;
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      
+      // Check if element is within viewport (with generous margin)
+      return (
+        rect.top < viewportHeight + 500 &&
+        rect.bottom > -500 &&
+        rect.left < viewportWidth + 500 &&
+        rect.right > -500
+      );
+    };
+
+    // Set initial state based on current visibility
+    let timeoutId: NodeJS.Timeout | null = null;
+    let timeoutId2: NodeJS.Timeout | null = null;
+    
+    if (checkInitialVisibility()) {
+      setIsNearViewport(true);
+    } else {
+      // Re-check after layout completes (in case element wasn't positioned yet)
+      timeoutId = setTimeout(() => {
+        if (checkInitialVisibility()) {
+          setIsNearViewport(true);
+        }
+      }, 100);
+      
+      // Also check after a longer delay to catch any dynamic layout changes
+      timeoutId2 = setTimeout(() => {
+        if (checkInitialVisibility()) {
+          setIsNearViewport(true);
+        }
+      }, 500);
+    }
+
     // For large elements, use IntersectionObserver
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Enable when element is within 200px of viewport
+          // Enable when element is within 500px of viewport
           setIsNearViewport(entry.isIntersecting || entry.intersectionRatio > 0);
         });
       },
       {
-        rootMargin: '200px', // Start loading 200px before entering viewport
+        rootMargin: '500px', // Start loading 500px before entering viewport (more aggressive)
         threshold: [0, 0.1, 0.5, 1]
       }
     );
@@ -214,6 +254,8 @@ const GlassSurface = ({
 
     return () => {
       observer.disconnect();
+      if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutId2) clearTimeout(timeoutId2);
     };
   }, [width]);
 

@@ -110,7 +110,7 @@ export function DiaryForm({ diary, onSave, onCancel }: DiaryFormProps) {
           } else {
             errorMessage = `Server error: ${response.status} ${response.statusText}`
           }
-        } catch (e) {
+        } catch {
           errorMessage = `Server error: ${response.status} ${response.statusText}`
         }
         throw new Error(errorMessage)

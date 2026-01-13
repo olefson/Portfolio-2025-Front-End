@@ -29,9 +29,9 @@ export interface Tool {
   url: string | null;
   iconUrl?: string;
   link?: string;
-  howToUse: any;
-  caveats: any;
-  tips: any;
+  howToUse: string | string[] | { [key: string]: string } | null;
+  caveats: string | string[] | { [key: string]: string } | null;
+  tips: string | string[] | { [key: string]: string } | null;
   useCases: {
     title: string;
     items: string[];

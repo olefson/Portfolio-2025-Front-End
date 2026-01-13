@@ -76,7 +76,7 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
   const [tags, setTags] = useState<string[]>(project?.tags || [])
   const [newTag, setNewTag] = useState("")
   const [selectedTools, setSelectedTools] = useState<string[]>(project?.toolsUsed || [])
-  const [tools, setTools] = useState<any[]>([])
+  const [tools, setTools] = useState<{ id: string; name: string }[]>([])
   const [isUploading, setIsUploading] = useState(false)
   const [originalData, setOriginalData] = useState<ProjectFormValues | null>(null)
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false)
@@ -144,15 +144,11 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
       const method = project?.id ? "PUT" : "POST"
 
       // Prepare submit data with proper date handling
-      let submitData: any = {
-        ...data,
-        tags: data.tags,
-        toolsUsed: selectedTools,
-      }
+      let submitData: ProjectFormValues | Partial<ProjectFormValues>
       
       // For editing, only send changed fields
       if (project?.id && originalData) {
-        const changedFields: any = {}
+        const changedFields: Partial<ProjectFormValues> = {}
         
         // Check each field for changes
         if (data.title !== originalData.title) changedFields.title = data.title
@@ -183,7 +179,14 @@ export function ProjectForm({ project, onSuccess }: ProjectFormProps) {
         
         submitData = changedFields
       } else {
-        // For new projects, handle date field properly
+        // For new projects, use full data
+        submitData = {
+          ...data,
+          tags: data.tags,
+          toolsUsed: selectedTools,
+        }
+        
+        // Handle date field - only include if it has a value and is valid
         if (data.date && data.date.trim() !== '') {
           const dateValue = new Date(data.date)
           if (!isNaN(dateValue.getTime())) {

@@ -22,7 +22,7 @@ export const api = {
     return response.json();
   },
 
-  post: async <T>(endpoint: string, data?: any): Promise<T> => {
+  post: async <T>(endpoint: string, data?: unknown): Promise<T> => {
     const baseUrl = getApiBaseUrl(); // Evaluate at runtime
     const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
@@ -39,7 +39,7 @@ export const api = {
     return response.json();
   },
 
-  put: async <T>(endpoint: string, data?: any): Promise<T> => {
+  put: async <T>(endpoint: string, data?: unknown): Promise<T> => {
     const baseUrl = getApiBaseUrl(); // Evaluate at runtime
     const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {
@@ -67,7 +67,7 @@ export const api = {
     }
   },
 
-  upload: async (endpoint: string, formData: FormData): Promise<any> => {
+  upload: async <T = unknown>(endpoint: string, formData: FormData): Promise<T> => {
     const baseUrl = getApiBaseUrl(); // Evaluate at runtime
     const url = `${baseUrl}${endpoint}`;
     const response = await fetch(url, {

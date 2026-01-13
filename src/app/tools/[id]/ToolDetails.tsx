@@ -112,7 +112,7 @@ export default function ToolDetails({ tool }: ToolDetailsProps) {
               <motion.div variants={itemVariants}>
                 <h2 className="text-2xl font-semibold mb-6 text-white">Use Cases</h2>
                 <div className="grid gap-4 md:gap-5">
-                  {tool.useCases.map((useCase: any, index: number) => (
+                  {tool.useCases.map((useCase, index: number) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}

@@ -38,7 +38,7 @@ export function ProjectList() {
         throw new Error("Failed to fetch projects")
       }
       const data = await response.json()
-      setProjects(data.map((project: any) => ({
+      setProjects(data.map((project: Project) => ({
         ...project,
         tags: typeof project.tags === 'string' ? JSON.parse(project.tags) : project.tags
       })))
